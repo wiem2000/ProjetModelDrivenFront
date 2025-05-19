@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Créer votre application";
+}
+
+<div class="min-h-screen flex flex-col justify-center items-center
+    bg-gradient-to-r from-[#742774] via-[#FFCC00]  to-[#002050]
+    text-white text-center relative overflow-hidden">
+
+    <div data-aos="fade-up">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
+            Décrivez votre application
+        </h1>
+
+        <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto opacity-90">
+            Saisissez votre besoin en langage naturel. Nous allons générer votre application Model-Driven.
+        </p>
+
+        <!-- Formulaire de saisie -->
+        <form method="post" action="/Generator/ProcessPhrase" class="relative mx-auto w-full max-w-xl">
+            <input type="text" name="userPhrase"
+                   class="w-full rounded-full px-8 py-5 text-lg text-[#742774]
+                bg-white/80 backdrop-blur-md border-[6px] border-[#742774]/30
+                shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
+                focus:outline-none focus:ring-4 focus:ring-[#742774]/50"
+                   placeholder="Exemple : Je veux une application de gestion des commandes" required>
+
+            <button type="submit"
+                    class="mt-6 relative inline-flex items-center gap-4 px-10 py-5 rounded-full
+                bg-white/80 backdrop-blur-md
+                border-[6px] border-[#742774]/30
+                shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
+                text-[#742774] font-semibold text-2xl
+                hover:shadow-lg hover:scale-105 transition-all duration-300">
+                <!-- Icône SVG (grande + couleur violet PowerApps) -->
+                <span class="w-[48px] h-[48px] animate-pulse-scale">
+                    <svg width="48" height="48" viewBox="0 0 34 34" fill="#742774" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                        <path d="M10.1754 21.8741C10.5243 21.7967 10.7967 21.5243 10.8741 21.1754L11.1235 20.0524C11.2128 19.6492 11.7872 19.6492 11.8765 20.0524L12.1259 21.1754C12.2033 21.5243 12.4757 21.7967 12.8246 21.8741L13.9476 22.1235C14.3508 22.2128 14.3508 22.7872 13.9476 22.8765L12.8246 23.1259C12.4757 23.2033 12.2033 23.4757 12.1259 23.8246L11.8765 24.9476C11.7872 25.3508 11.2128 25.3508 11.1235 24.9476L10.8741 23.8246C10.7967 23.4757 10.5243 23.2033 10.1754 23.1259L9.05238 22.8765C8.64921 22.7872 8.64921 22.2128 9.05238 22.1235L10.1754 21.8741Z" />
+                    </svg>
+                </span>
+                <span>Générer l'application</span>
+            </button>
+        </form>
+    
+    </div>
+
+    <!-- Décor flou -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
+
+</div>
+
+
+
+
+<section class="min-h-screen py-20 bg-[#F9FAFB] text-center" data-aos="fade-up">
+
+
+
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+       
+       
+
+        <!-- Sidebar -->
+        <aside class="bg-white rounded-2xl shadow-md p-6 md:col-span-1">
+            <h5 id="drawer-navigation-label" class="text-base text-left font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
+           
+            <ul class="space-y-2 text-lg mt-5">
+                <li>
+                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5" />
+                        </svg>
+                        Mes Applications
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7 7V5" />
+                        </svg>
+                        Créer une application
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z" />
+                        </svg>
+                        Application favorites
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M21 13v-2a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L14 4.757V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L4.929 6.343a1 1 0 0 0 0 1.414l.536.536L4.757 10H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535 1.707.707V20a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H20a1 1 0 0 0 1-1Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg>
+                        Paramètres
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+
+        <!-- Contenu principal -->
+        <div class="md:col-span-3 bg-white rounded-2xl shadow-md p-8">
+            <h2 class="text-3xl font-bold mb-6 text-[#742774] drop-shadow-md mb-3"> Gérer mes applications</h2>
+            <hr />
+            <!-- Exemple de carte d'application -->
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-4">
+                <div class="bg-white border border-[#002050]/20 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative">
+
+                    <div class="flex items-center mb-5">
+                    <!-- Étoile Favoris (en haut à droite) -->
+                    <button onclick="toggleFavorite(this)" class="absolute top-4 left-4 text-gray-300 hover:text-yellow-400 transition-colors duration-200 mb-2">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                    </button>
+                    </div>
+
+                    <!-- Contenu de la carte -->
+                    <div class="flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#002050] mb-3">App Commandes</h3>
+                            <p class="text-sm text-[#002050]/70">Créée il y a 2 jours</p>
+                        </div>
+                        <div class="mt-2 mb-3">
+                            <a href="#" class="inline-flex items-center text-[#002050] font-semibold hover:underline">
+                                Voir l'application
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-[#002050]/20 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative">
+
+                    <div class="flex items-center mb-5">
+                        <!-- Étoile Favoris (en haut à droite) -->
+                        <button onclick="toggleFavorite(this)" class="absolute top-4 left-4 text-gray-300 hover:text-yellow-400 transition-colors duration-200 mb-2">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Contenu de la carte -->
+                    <div class="flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#002050] mb-3">App Commandes</h3>
+                            <p class="text-sm text-[#002050]/70">Créée il y a 2 jours</p>
+                        </div>
+                        <div class="mt-2 mb-3">
+                            <a href="#" class="inline-flex items-center text-[#002050] font-semibold hover:underline">
+                                Voir l'application
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</section>
+
+@section Scripts {
+<script>
+    function toggleFavorite(button) {
+      button.classList.toggle("text-yellow-400");
+      button.classList.toggle("text-gray-300");
+      // Tu peux ajouter ici un appel API pour sauvegarder l'état "favori"
+    }
+</script>
+}

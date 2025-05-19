@@ -1,0 +1,11 @@
+﻿
+
+@{
+    ViewBag.Title = "Connexion réussie";
+}
+
+<h2>Bienvenue @Context.Session.GetString("UserFirstName") @Context.Session.GetString("UserLastName")</h2>
+<p>Votre rôle : @Context.Session.GetString("UserRole")</p>
+<h2>Connexion réussie !</h2>
+<p>User ID : @ViewBag.UserId</p>
+<p>email : @ViewBag.email</p>

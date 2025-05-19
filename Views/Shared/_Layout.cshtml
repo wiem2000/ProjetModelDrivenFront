@@ -1,0 +1,63 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjetModelDrivenFront</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+     <script src="https://unpkg.com/split-type"></script>
+
+    <!-- Optionnel : style personnalisé -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+
+</head>
+<body class="bg-[#F3F2F1] text-[#201F1E] font-sans">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#000000]/30 backdrop-blur-md text-white shadow-md rounded-b-3xl mb-6">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo2.png" alt="Logo" class="h-24 " />
+            </a>
+
+            <nav class="flex space-x-8 text-lg font-medium">
+                <a class="hover:underline underline-offset-8" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
+                <a class="hover:underline underline-offset-8" asp-area="" asp-controller="Generator" asp-action="Index">Générer & Gérer mes applis</a>
+                <a class="hover:underline underline-offset-8" asp-area="" asp-controller="Home" asp-action="Privacy">Supervision & Configuration</a>
+                <a class="hover:underline underline-offset-8" asp-area="" asp-controller="" asp-action="">@Context.Session.GetString("UserFirstName")</a>
+            </nav>
+        </div>
+
+
+       
+       
+    </header>
+
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="mt-10 border-t pt-6 text-center text-sm text-gray-500">
+        &copy; 2025 - ProjetModelDrivenFront - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="underline">Confidentialité</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        AOS.init();
+       
+   
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

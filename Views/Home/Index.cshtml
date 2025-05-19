@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+}
+
+<!-- Hero section -->
+<div class="min-h-screen flex flex-col justify-center items-center
+    bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#002050]
+    text-white text-center relative overflow-hidden">
+
+    <div data-aos="fade-up">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg mt-6">
+            Générez vos Applications<br>Model-Driven sans coder
+        </h1>
+
+        <!-- Conteneur fixe pour la phrase animée -->
+        <p id="typewriter" class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto opacity-90 min-h-[100px]">
+            <!-- espace réservé dès le début -->
+            Une plateforme intelligente pour transformer vos idées en applications prêtes à déployer sur Microsoft Power Apps.
+        </p>
+
+
+
+
+        <!--
+        <a asp-controller="AppGenerator" asp-action="Index"
+           class="relative inline-flex items-center gap-4 px-10 py-5 rounded-full
+          bg-white/80 backdrop-blur-md
+          border-[6px] border-[#742774]/30
+          shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
+          text-[#742774] font-semibold text-3xl
+          hover:shadow-lg hover:scale-105 transition-all duration-300">
+
+           
+            <span class="w-[48px] h-[48px] animate-pulse-scale">
+                <svg width="48" height="48" viewBox="0 0 34 34" fill="#742774" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                    <path d="M10.1754 21.8741C10.5243 21.7967 10.7967 21.5243 10.8741 21.1754L11.1235 20.0524C11.2128 19.6492 11.7872 19.6492 11.8765 20.0524L12.1259 21.1754C12.2033 21.5243 12.4757 21.7967 12.8246 21.8741L13.9476 22.1235C14.3508 22.2128 14.3508 22.7872 13.9476 22.8765L12.8246 23.1259C12.4757 23.2033 12.2033 23.4757 12.1259 23.8246L11.8765 24.9476C11.7872 25.3508 11.2128 25.3508 11.1235 24.9476L10.8741 23.8246C10.7967 23.4757 10.5243 23.2033 10.1754 23.1259L9.05238 22.8765C8.64921 22.7872 8.64921 22.2128 9.05238 22.1235L10.1754 21.8741Z" />
+                </svg>
+            </span>
+
+            
+            <span>Commencer maintenant</span>
+        </a>
+        -->
+        <form asp-controller="Home" asp-action="LoginWithMicrosoft" method="post">
+            <button type="submit" class="relative inline-flex items-center gap-4 px-10 py-5 rounded-full
+          bg-white/80 backdrop-blur-md
+          border-[6px] border-[#742774]/30
+          shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
+          text-[#742774] font-semibold text-3xl
+          hover:shadow-lg hover:scale-105 transition-all duration-300">
+               
+                <span class="w-[48px] h-[48px] animate-pulse-scale">
+                    <svg width="48" height="48" viewBox="0 0 34 34" fill="#742774" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                        <path d="M10.1754 21.8741C10.5243 21.7967 10.7967 21.5243 10.8741 21.1754L11.1235 20.0524C11.2128 19.6492 11.7872 19.6492 11.8765 20.0524L12.1259 21.1754C12.2033 21.5243 12.4757 21.7967 12.8246 21.8741L13.9476 22.1235C14.3508 22.2128 14.3508 22.7872 13.9476 22.8765L12.8246 23.1259C12.4757 23.2033 12.2033 23.4757 12.1259 23.8246L11.8765 24.9476C11.7872 25.3508 11.2128 25.3508 11.1235 24.9476L10.8741 23.8246C10.7967 23.4757 10.5243 23.2033 10.1754 23.1259L9.05238 22.8765C8.64921 22.7872 8.64921 22.2128 9.05238 22.1235L10.1754 21.8741Z" />
+                    </svg>
+                </span>
+
+
+                <span>Commencer maintenant</span>
+            </button>
+        </form>
+
+    </div>
+
+
+
+    <!-- Decorative blurred background -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
+
+</div>
+
+<!-- Second Section (Features) -->
+<!-- Second Section (Features) -->
+<section class="py-20 bg-[#F9FAFB] text-center" data-aos="fade-up">
+    
+    <h2 class="text-4xl text-[#742774]  font-extrabold mb-10 drop-shadow-lg">
+        Fonctionnalités Clés
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+        <!-- Card 1 -->
+        <div class="relative p-[2px] rounded-2xl overflow-hidden h-[200px] ">
+            <div class="absolute inset-0 bg-[conic-gradient(#742774_20deg,transparent_120deg)] animate-rotate rounded-2xl scale-[10]"></div>
+            <div class="relative bg-white p-8 rounded-2xl shadow hover:shadow-xl transition duration-300 h-full flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4 text-[#002050] ">Créer une application</h3>
+                <p class="text-gray-600">Créez une application complète Model-Driven avec vos entités personnalisées.</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative p-[2px] rounded-2xl overflow-hidden h-[200px] ">
+            <div class="absolute inset-0 bg-[conic-gradient(#742774_20deg,transparent_120deg)] animate-rotate rounded-2xl scale-[10]"></div>
+            <div class=" relative bg-white p-8 rounded-2xl shadow hover:shadow-xl transition duration-300 h-full flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4 text-[#002050] ">Modèles prédéfinis</h3>
+                <p class="text-gray-600">Utilisez des templates pour démarrer encore plus vite vos projets professionnels.</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative p-[2px] rounded-2xl overflow-hidden h-[200px] ">
+            <div class="absolute inset-0 bg-[conic-gradient(#742774_20deg,transparent_120deg)] animate-rotate rounded-2xl scale-[10]"></div>
+            <div class=" relative bg-white p-8 rounded-2xl shadow hover:shadow-xl transition duration-300 h-full flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4 text-[#002050] ">Personnalisation complète</h3>
+                <p class="text-gray-600">Ajoutez des formulaires, des relations, des processus métiers sans écrire une ligne de code.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const text = "Une plateforme intelligente pour transformer vos idées en applications prêtes à déployer sur Microsoft Power Apps.";
+            const typewriter = document.getElementById('typewriter');
+            let index = 0;
+
+            function type() {
+                if (index <= text.length) {
+                    typewriter.textContent = text.substring(0, index);
+                    index++;
+                    setTimeout(type, 30); // écriture très fluide, rapide et naturelle
+                } else {
+                    setTimeout(() => {
+                        index = 0;
+                        type();
+                    }, 2500); // pause 2.5 secondes quand toute la phrase est écrite
+                }
+            }
+
+            type();
+        });
+    </script>
+
+}

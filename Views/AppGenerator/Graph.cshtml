@@ -1,0 +1,357 @@
+﻿@using System.Text.Json
+@model SchemaRoot
+@{
+    ViewData["Title"] = "Schema Graph";
+    var elementsJson = ViewData["elements"];
+}
+
+<div class="flex flex-col justify-center items-center
+    bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#002050]
+    text-white text-center relative overflow-hidden pt-16  rounded-b-3xl mb-30">
+
+    <div data-aos="fade-up" class="mt-40 mb-20">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
+            Valider l'application
+        </h1>
+    </div>
+</div>
+
+<div class="container mx-auto px-4 flex flex-col md:flex-row md:space-x-4 mt-10">
+
+    <div class="flex-1 mb-6 md:mb-0">
+
+        <section class="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md space-y-6 mt-10">
+            <h2 class="text-3xl font-bold text-center text-gray-800">Modifier le schéma de l'application</h2>
+
+            <!-- Nom de l'application -->
+            <div>
+                <label class="block mb-2 text-lg font-semibold text-gray-700">Nom de l'application</label>
+                <input type="text" id="appName" class="w-full p-3 border border-gray-300 rounded-lg" placeholder="ex: BookHub" />
+            </div>
+
+            <!-- Tables -->
+            <div id="tablesContainer" class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-semibold text-gray-800">Tables</h3>
+                    <button type="button" onclick="addTable()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Ajouter une table</button>
+                </div>
+            </div>
+
+            <!-- Relations -->
+            <div id="relationsContainer" class="space-y-4 mt-8">
+
+
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-semibold text-gray-800">Relations</h3>
+                    <button type="button" onclick="addRelation()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Ajouter une relation</button>
+                </div>
+            </div>
+
+            <!-- Bouton Générer JSON -->
+            <div class="text-center mt-6">
+                <button onclick="generateJSON()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
+                    Générer le JSON
+                </button>
+            </div>
+
+            <!-- Affichage du JSON -->
+            <div>
+                <label class="block text-lg font-semibold text-gray-700 mt-6">JSON généré</label>
+                <textarea id="generatedJson" class="p-4 bg-gray-100 rounded-md overflow-x-auto"></textarea>
+            </div>
+        </section>
+
+
+    </div>
+
+    <div class="flex-1">
+        <section data-aos="fade-up">
+            <div class="max-w-7xl mx-auto px-4">
+                <div id="cy" class="w-full h-[600px] border border-solid border-gray-300"></div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+
+<hr />
+
+
+
+
+
+<section>
+    <h2>JSON généré</h2>
+    <pre id="jsonDisplay">@Html.Raw(JsonSerializer.Serialize(Model))</pre>
+</section>
+
+<script src="https://unpkg.com/cytoscape@3.21.1/dist/cytoscape.min.js"></script>
+<script>
+
+    
+
+
+    // Cytoscape affichage
+    const elements = @Html.Raw(elementsJson);
+    const cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements: elements,
+        style: [
+            { selector: 'node[type="application"]', style: { 'background-color': '#002050', 'label': 'data(label)', 'font-size': 25, 'color': 'white', 'text-valign': 'center', 'text-halign': 'center','width': 80, 'height':80   }},
+            { selector: 'node[type="table"]', style: { 'background-color': '#742774', 'label': 'data(label)', 'font-size': 25, 'color': 'white', 'text-valign': 'center', 'text-halign': 'center','width': 80, 'height':80   }},
+            { selector: 'node[type="field"]', style: { 'background-color': '#FFCC00', 'label': 'data(label)', 'font-size': 25, 'color': '#333', 'text-valign': 'center', 'text-halign': 'center','width': 80, 'height':80   }},
+            { selector: 'edge', style: { 'width': 2, 'line-color': '#999', 'target-arrow-color': '#999', 'target-arrow-shape': 'triangle', 'curve-style': 'bezier', 'label': 'data(label)', 'font-size': 15}},
+        ],
+        layout: { name: 'breadthfirst', directed: true, padding: 10 }
+    });
+      
+      
+       window.onload = () => {
+           const schemaData = @Html.Raw(JsonSerializer.Serialize(Model));
+
+           // Pré-remplir le formulaire depuis le modèle
+           if (schemaData && schemaData.schema) {
+               document.getElementById("appName").value = schemaData.schema.application_name;
+
+               const tables = schemaData.schema.tables;
+               for (const [tableName, tableValue] of Object.entries(tables)) {
+                   const tableDiv = createTable(tableName, tableValue.primaryfieldname, tableValue.fields);
+                   document.getElementById('tablesContainer').appendChild(tableDiv);
+               }
+
+               const relations = schemaData.schema.relations || [];
+               for (const rel of relations) {
+                   const relDiv = createRelation(rel.from, rel.to, rel.type);
+                   document.getElementById('relationsContainer').appendChild(relDiv);
+               }
+           }
+       };
+
+       function addTable() {
+           const div = createTable("", "", {});
+           document.getElementById('tablesContainer').appendChild(div);
+       }
+
+       function addField(button) {
+           const fieldsContainer = button.previousElementSibling;
+           const fieldHTML = `
+               <div class="flex gap-2">
+                   <input type="text" class="field-name w-1/2 p-2 border rounded" placeholder="Nom du champ" />
+                   <select class="field-type w-1/2 p-2 border rounded">
+                       <option value="string">string</option>
+                       <option value="date">date</option>
+                       <option value="int">int</option>
+                       <option value="bool">bool</option>
+                   </select>
+               </div>`;
+           fieldsContainer.insertAdjacentHTML('beforeend', fieldHTML);
+       }
+
+       function createTable(name, primaryField, fields) {
+           const div = document.createElement('div');
+           div.className = "border p-4 rounded-lg bg-gray-50 space-y-2";
+           div.innerHTML = `
+               <label class="block text-sm font-semibold text-gray-600">Nom de la table</label>
+               <input type="text" class="table-name w-full p-2 border rounded" value="${name}" />
+
+               <label class="block text-sm font-semibold text-gray-600 mt-2">Champ primaire</label>
+               <input type="text" class="primary-field w-full p-2 border rounded" value="${primaryField}" />
+
+               <div class="fields space-y-2 mt-2"></div>
+               <button type="button" onclick="addField(this)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Ajouter un champ</button>
+           `;
+
+           const fieldsContainer = div.querySelector('.fields');
+           for (const [fname, ftype] of Object.entries(fields)) {
+               const fieldHTML = `
+                   <div class="flex gap-2">
+                       <input type="text" class="field-name w-1/2 p-2 border rounded" value="${fname}" />
+                       <select class="field-type w-1/2 p-2 border rounded">
+                           <option value="string" ${ftype === "string" ? "selected" : ""}>string</option>
+                           <option value="date" ${ftype === "date" ? "selected" : ""}>date</option>
+                           <option value="int" ${ftype === "int" ? "selected" : ""}>int</option>
+                           <option value="bool" ${ftype === "bool" ? "selected" : ""}>bool</option>
+                       </select>
+                   </div>
+               `;
+               fieldsContainer.insertAdjacentHTML('beforeend', fieldHTML);
+           }
+
+           return div;
+       }
+
+       function createRelation(from = "", to = "", type = "many_to_many") {
+           const div = document.createElement('div');
+           div.className = "flex flex-col md:flex-row md:items-center gap-4 border p-4 bg-gray-50 rounded-lg";
+           div.innerHTML = `
+               <input type="text" class="relation-from w-full md:w-1/3 p-2 border rounded" value="${from}" placeholder="Table source" />
+               <input type="text" class="relation-to w-full md:w-1/3 p-2 border rounded" value="${to}" placeholder="Table cible" />
+               <select class="relation-type w-full md:w-1/3 p-2 border rounded">
+                   <option value="many_to_many" ${type === "many_to_many" ? "selected" : ""}>many_to_many</option>
+                   <option value="one_to_many" ${type === "one_to_many" ? "selected" : ""}>one_to_many</option>
+               </select>
+           `;
+           return div;
+       }
+
+       function addRelation() {
+           const div = createRelation();
+           document.getElementById('relationsContainer').appendChild(div);
+       }
+
+       function generateJSON2() {
+           const appName = document.getElementById("appName").value || "MyApp";
+           const tables = {};
+           const tableDivs = document.querySelectorAll("#tablesContainer > div");
+
+           tableDivs.forEach(table => {
+               const tableName = table.querySelector(".table-name").value.trim();
+               const primaryField = table.querySelector(".primary-field").value.trim();
+               const fields = {};
+
+               table.querySelectorAll(".fields > div").forEach(field => {
+                   const name = field.querySelector(".field-name").value.trim();
+                   const type = field.querySelector(".field-type").value;
+                   if (name) fields[name] = type;
+               });
+
+               if (tableName) {
+                   tables[tableName] = {
+                       primaryfieldname: primaryField,
+                       fields: fields
+                   };
+               }
+           });
+
+           const relations = [];
+           const relationDivs = document.querySelectorAll("#relationsContainer > div");
+
+           relationDivs.forEach(relation => {
+               const from = relation.querySelector(".relation-from").value.trim();
+               const to = relation.querySelector(".relation-to").value.trim();
+               const type = relation.querySelector(".relation-type").value;
+               if (from && to && type) {
+                   relations.push({ from, to, type });
+               }
+           });
+
+           const finalSchema = {
+               schema: {
+                   application_name: appName,
+                   tables: tables,
+                   relations: relations
+               }
+           };
+
+           document.getElementById("generatedJson").value = JSON.stringify(finalSchema, null, 2);
+       }
+      
+       function generateJSON() {
+              const tables = {};
+       const tableDivs = document.querySelectorAll('#tablesContainer > div');
+
+       tableDivs.forEach(tableDiv => {
+           const tableName = tableDiv.querySelector('.table-name')?.value?.trim();
+           const primaryField = tableDiv.querySelector('.primary-field')?.value?.trim();
+           const fields = {};
+
+           // Parcourir les champs
+           tableDiv.querySelectorAll('.fields > div').forEach(fieldDiv => {
+               const fieldName = fieldDiv.querySelector('.field-name')?.value?.trim();
+               const fieldType = fieldDiv.querySelector('.field-type')?.value?.trim();
+               if (fieldName) {
+                   fields[fieldName] = fieldType;
+               }
+           });
+
+           // Ajouter à l'objet tables
+           if (tableName) {
+               tables[tableName] = {
+                   primaryfieldname: primaryField || "",
+                   fields: fields
+               };
+           }
+       });
+
+                   const relations = [];
+    document.querySelectorAll('#relationsContainer > div').forEach(div => {
+        const from = div.querySelector('.relation-from')?.value?.trim();
+        const to = div.querySelector('.relation-to')?.value?.trim();
+        const type = div.querySelector('.relation-type')?.value?.trim();
+
+        if (from && to && type) {
+            relations.push({ from, to, type });
+        }
+    });
+           const result = {
+               schema: {
+                   application_name: document.getElementById("appName").value,
+                   tables: tables,
+                   relations: relations
+               }
+           };
+
+           // Test minimal : écriture simple dans la textarea
+           document.getElementById("generatedJson").value = JSON.stringify(result, null, 2);
+
+
+               fetch('/AppGenerator/GenerateElementsFromJson', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(result)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            cy.elements().remove();
+            cy.add(data.elements);
+            cy.layout({ name: 'breadthfirst', directed: true, padding: 10 }).run();
+        } else {
+            alert("Erreur lors de la génération du graphe : " + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Erreur côté client :", error);
+    });
+
+
+       }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
