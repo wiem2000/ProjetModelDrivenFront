@@ -2,113 +2,454 @@
     ViewData["Title"] = "Accueil";
 }
 
-<!-- Hero section -->
-<div class="min-h-screen flex flex-col justify-center items-center
-    bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#002050]
-    text-white text-center relative overflow-hidden">
+<!-- Ultra Modern Hero Section - DARK -->
+<section class="min-h-screen relative overflow-hidden bg-black">
+    <!-- Dynamic Animated Background -->
+    <div class="absolute inset-0">
+        <!-- Animated Mesh Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] opacity-90"></div>
 
-    <div data-aos="fade-up">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg mt-6">
-            Générez vos Applications<br>Model-Driven sans coder
-        </h1>
+        <!-- Floating Geometric Shapes -->
+        <div class="absolute top-20 left-20 w-96 h-96 bg-[#742774] opacity-20 rounded-full mix-blend-screen filter blur-3xl animate-float"></div>
+        <div class="absolute top-40 right-20 w-80 h-80 bg-[#FFCC00] opacity-30 rounded-full mix-blend-screen filter blur-2xl animate-float-delayed"></div>
+        <div class="absolute bottom-20 left-40 w-72 h-72 bg-[#742774] opacity-25 rounded-full mix-blend-screen filter blur-xl animate-float-slow"></div>
 
-        <!-- Conteneur fixe pour la phrase animée -->
-        <p id="typewriter" class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto opacity-90 min-h-[100px]">
-            <!-- espace réservé dès le début -->
-            Une plateforme intelligente pour transformer vos idées en applications prêtes à déployer sur Microsoft Power Apps.
-        </p>
+        <!-- Animated Grid -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full animate-grid-move" style="background-image:
+                linear-gradient(rgba(255,204,0,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,204,0,0.3) 1px, transparent 1px);
+                background-size: 60px 60px;"></div>
+        </div>
 
+        <!-- Particle System -->
+        <div class="absolute inset-0">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+        </div>
+    </div>
 
+    <!-- Hero Content -->
+    <div class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 text-center mt-24">
 
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl rounded-full px-8 py-4 border border-white/10 hover:border-[#FFCC00]/30 transition-all duration-500 mb-8 group">
+            <div class="relative">
+                <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75"></div>
+            </div>
+            <span class="text-white/90 font-medium tracking-wide">Plateforme IA Nouvelle Génération</span>
+            <div class="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
 
-        <!--
-        <a asp-controller="AppGenerator" asp-action="Index"
-           class="relative inline-flex items-center gap-4 px-10 py-5 rounded-full
-          bg-white/80 backdrop-blur-md
-          border-[6px] border-[#742774]/30
-          shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
-          text-[#742774] font-semibold text-3xl
-          hover:shadow-lg hover:scale-105 transition-all duration-300">
-
-           
-            <span class="w-[48px] h-[48px] animate-pulse-scale">
-                <svg width="48" height="48" viewBox="0 0 34 34" fill="#742774" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
-                    <path d="M10.1754 21.8741C10.5243 21.7967 10.7967 21.5243 10.8741 21.1754L11.1235 20.0524C11.2128 19.6492 11.7872 19.6492 11.8765 20.0524L12.1259 21.1754C12.2033 21.5243 12.4757 21.7967 12.8246 21.8741L13.9476 22.1235C14.3508 22.2128 14.3508 22.7872 13.9476 22.8765L12.8246 23.1259C12.4757 23.2033 12.2033 23.4757 12.1259 23.8246L11.8765 24.9476C11.7872 25.3508 11.2128 25.3508 11.1235 24.9476L10.8741 23.8246C10.7967 23.4757 10.5243 23.2033 10.1754 23.1259L9.05238 22.8765C8.64921 22.7872 8.64921 22.2128 9.05238 22.1235L10.1754 21.8741Z" />
-                </svg>
-            </span>
-
-            
-            <span>Commencer maintenant</span>
-        </a>
-        -->
-        <form asp-controller="Home" asp-action="LoginWithMicrosoft" method="post">
-            <button type="submit" class="relative inline-flex items-center gap-4 px-10 py-5 rounded-full
-          bg-white/80 backdrop-blur-md
-          border-[6px] border-[#742774]/30
-          shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
-          text-[#742774] font-semibold text-3xl
-          hover:shadow-lg hover:scale-105 transition-all duration-300">
-               
-                <span class="w-[48px] h-[48px] animate-pulse-scale">
-                    <svg width="48" height="48" viewBox="0 0 34 34" fill="#742774" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
-                        <path d="M10.1754 21.8741C10.5243 21.7967 10.7967 21.5243 10.8741 21.1754L11.1235 20.0524C11.2128 19.6492 11.7872 19.6492 11.8765 20.0524L12.1259 21.1754C12.2033 21.5243 12.4757 21.7967 12.8246 21.8741L13.9476 22.1235C14.3508 22.2128 14.3508 22.7872 13.9476 22.8765L12.8246 23.1259C12.4757 23.2033 12.2033 23.4757 12.1259 23.8246L11.8765 24.9476C11.7872 25.3508 11.2128 25.3508 11.1235 24.9476L10.8741 23.8246C10.7967 23.4757 10.5243 23.2033 10.1754 23.1259L9.05238 22.8765C8.64921 22.7872 8.64921 22.2128 9.05238 22.1235L10.1754 21.8741Z" />
-                    </svg>
+        <!-- Main Title -->
+        <div class="space-y-8 mb-12">
+            <h1 class="text-6xl md:text-5xl lg:text-6xl font-black leading-none">
+                <span class="block bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent animate-gradient-x">
+                    Générez vos Applications Model-Driven 
                 </span>
+                <span class="block text-[#FFCC00] drop-shadow-2xl animate-glow">
+                    SANS CODER
+                </span>
+            </h1>
 
+            <div class="relative max-w-4xl mx-auto">
+                <p id="typewriter" class="text-2xl md:text-3xl text-white/80 leading-relaxed font-light min-h-[120px] flex items-center justify-center">
+                    <!-- Texte animé -->
+                </p>
+            
+            </div>
+        </div>
 
-                <span>Commencer maintenant</span>
+        <!-- CTA Button -->
+        <form asp-controller="Home" asp-action="LoginWithMicrosoft" method="post" class="relative">
+            <button type="submit" class="group relative overflow-hidden">
+                <!-- Button Background -->
+                <div class="relative bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 p-8
+                            hover:bg-white/20 transition-all duration-500 transform hover:scale-105">
+
+                    <!-- Animated Border -->
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774] opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+
+                    <!-- Button Content -->
+                    <div class="relative flex items-center gap-6 text-white">
+                        <!-- Animated Icon -->
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500">
+                                <svg class="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 34 34">
+                                    <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                                </svg>
+                            </div>
+                            <div class="absolute -inset-2 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500"></div>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="text-left">
+                            <span class="block text-2xl font-bold group-hover:text-[#FFCC00] transition-colors duration-300">Commencer maintenant</span>
+                           
+                        </div>
+
+                        <!-- Arrow -->
+                        <div class="w-8 h-[2px] bg-white/40 group-hover:bg-[#FFCC00] group-hover:w-12 transition-all duration-500"></div>
+                    </div>
+                </div>
             </button>
         </form>
-
     </div>
 
 
+</section>
 
-    <!-- Decorative blurred background -->
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
+<!-- Ultra Modern Steps Section - WHITE -->
+<section  class="py-32 bg-white relative overflow-hidden">
+    <!-- Background Effects -->
+    <div class="absolute inset-0">
+        <div class="absolute top-20 right-20 w-96 h-96 bg-[#742774] opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-96 h-96 bg-[#FFCC00] opacity-5 rounded-full blur-3xl"></div>
+        <!-- Subtle Grid -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="h-full w-full" style="background-image:
+                linear-gradient(rgba(116,39,116,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(116,39,116,0.1) 1px, transparent 1px);
+                background-size: 40px 40px;"></div>
+        </div>
+    </div>
 
-</div>
-
-<!-- Second Section (Features) -->
-<!-- Second Section (Features) -->
-<section class="py-20 bg-[#F9FAFB] text-center" data-aos="fade-up">
-    
-    <h2 class="text-4xl text-[#742774]  font-extrabold mb-10 drop-shadow-lg">
-        Fonctionnalités Clés
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
-        <!-- Card 1 -->
-        <div class="relative p-[2px] rounded-2xl overflow-hidden h-[200px] ">
-            <div class="absolute inset-0 bg-[conic-gradient(#742774_20deg,transparent_120deg)] animate-rotate rounded-2xl scale-[10]"></div>
-            <div class="relative bg-white p-8 rounded-2xl shadow hover:shadow-xl transition duration-300 h-full flex flex-col justify-center">
-                <h3 class="text-2xl font-bold mb-4 text-[#002050] ">Créer une application</h3>
-                <p class="text-gray-600">Créez une application complète Model-Driven avec vos entités personnalisées.</p>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+            <div class="inline-flex items-center gap-3 bg-[#742774]/5 backdrop-blur-xl rounded-full px-6 py-3 border border-[#742774]/10 mb-8">
+                <div class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                <span class="text-[#742774]/80 font-medium">Processus Simplifié</span>
             </div>
+
+            <h2 class="text-5xl md:text-6xl font-black text-[#742774] mb-6">
+                <span class="bg-gradient-to-r from-[#742774] to-[#FFCC00] bg-clip-text text-transparent">
+                    3 ÉTAPES
+                </span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Transformez vos idées en applications professionnelles en quelques minutes
+            </p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="relative p-[2px] rounded-2xl overflow-hidden h-[200px] ">
-            <div class="absolute inset-0 bg-[conic-gradient(#742774_20deg,transparent_120deg)] animate-rotate rounded-2xl scale-[10]"></div>
-            <div class=" relative bg-white p-8 rounded-2xl shadow hover:shadow-xl transition duration-300 h-full flex flex-col justify-center">
-                <h3 class="text-2xl font-bold mb-4 text-[#002050] ">Modèles prédéfinis</h3>
-                <p class="text-gray-600">Utilisez des templates pour démarrer encore plus vite vos projets professionnels.</p>
+        <!-- Steps Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Step 1 -->
+            <div class="group relative">
+                <!-- Holographic Container -->
+                <div class="relative bg-white/80 backdrop-blur-2xl rounded-3xl border border-[#742774]/10 p-8 shadow-2xl
+                            hover:bg-white hover:border-[#FFCC00]/30 hover:shadow-3xl transition-all duration-500 h-full">
+
+                    <!-- Step Number -->
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-2xl">
+                        01
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-r from-[#742774]/10 to-[#FFCC00]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-[#742774] group-hover:text-[#FFCC00] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="text-2xl font-bold text-[#742774] mb-4 group-hover:text-[#FFCC00] transition-colors duration-300">
+                        Décrivez votre vision
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Exprimez votre idée en langage naturel. Notre IA avancée comprend vos besoins et structure automatiquement votre application.
+                    </p>
+
+                    <!-- Progress Line -->
+                    <div class="absolute -right-4 top-1/2 w-8 h-[2px] bg-gradient-to-r from-[#FFCC00] to-transparent hidden md:block"></div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="group relative">
+                <!-- Holographic Container -->
+                <div class="relative bg-white/80 backdrop-blur-2xl rounded-3xl border border-[#742774]/10 p-8 shadow-2xl
+                            hover:bg-white hover:border-[#FFCC00]/30 hover:shadow-3xl transition-all duration-500 h-full">
+
+                    <!-- Step Number -->
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-2xl">
+                        02
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-r from-[#742774]/10 to-[#FFCC00]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-[#742774] group-hover:text-[#FFCC00] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="text-2xl font-bold text-[#742774] mb-4 group-hover:text-[#FFCC00] transition-colors duration-300">
+                        Visualisez & optimisez
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Explorez votre architecture via un graphe interactif 3D. Modifiez, ajustez et perfectionnez chaque élément en temps réel.
+                    </p>
+
+                    <!-- Progress Line -->
+                    <div class="absolute -right-4 top-1/2 w-8 h-[2px] bg-gradient-to-r from-[#FFCC00] to-transparent hidden md:block"></div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="group relative">
+                <!-- Holographic Container -->
+                <div class="relative bg-white/80 backdrop-blur-2xl rounded-3xl border border-[#742774]/10 p-8 shadow-2xl
+                            hover:bg-white hover:border-[#FFCC00]/30 hover:shadow-3xl transition-all duration-500 h-full">
+
+                    <!-- Step Number -->
+                    <div class="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-2xl">
+                        03
+                    </div>
+
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-r from-[#742774]/10 to-[#FFCC00]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-[#742774] group-hover:text-[#FFCC00] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="text-2xl font-bold text-[#742774] mb-4 group-hover:text-[#FFCC00] transition-colors duration-300">
+                        Déployez instantanément
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Un clic suffit ! Votre application est prête, déployée et accessible. Partagez le lien magique et commencez à utiliser immédiatement.
+                    </p>
+                </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Card 3 -->
-        <div class="relative p-[2px] rounded-2xl overflow-hidden h-[200px] ">
-            <div class="absolute inset-0 bg-[conic-gradient(#742774_20deg,transparent_120deg)] animate-rotate rounded-2xl scale-[10]"></div>
-            <div class=" relative bg-white p-8 rounded-2xl shadow hover:shadow-xl transition duration-300 h-full flex flex-col justify-center">
-                <h3 class="text-2xl font-bold mb-4 text-[#002050] ">Personnalisation complète</h3>
-                <p class="text-gray-600">Ajoutez des formulaires, des relations, des processus métiers sans écrire une ligne de code.</p>
+<!-- Clear Video Section - DARK with Better Contrast -->
+<section  class="relative overflow-hidden bg-gradient-to-b from-black to-gray-900">
+
+    <!-- Split Layout Container -->
+    <div class="min-h-screen flex items-center">
+        <div class="w-full max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Left Side - Content -->
+                <div class="space-y-8">
+                    
+
+                    <!-- Main Title -->
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+                        <span class="block">L'AVENIR</span>
+                        <span class="block bg-gradient-to-r from-[#FFCC00] to-[#742774] bg-clip-text text-transparent">
+                            EST LÀ
+                        </span>
+                    </h2>
+
+                  
+
+                    <!-- Description -->
+                    <p class="text-xl md:text-1xl text-white/70 leading-relaxed max-w-lg">
+                        Une innovation signée <span class="text-[#FFCC00] font-semibold">Ernst & Young (EY)</span>,
+                        exploitant la puissance de <span class="text-[#FFCC00] font-semibold">Microsoft Power Apps</span>
+                        pour transformer des idées en applications métier, en quelques secondes.
+                    </p>
+
+                    <!-- Features List -->
+                    <div class="space-y-4 mt-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-6 h-6 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-white/80">Génération intelligente d’applications via Power Apps</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-6 h-6 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-white/80">Une interface moderne pensée par EY pour les utilisateurs non techniques</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-6 h-6 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-white/80">Déploiement automatique sur l’écosystème Microsoft Power Platform</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Status Badge -->
+                   
+                </div>
+
+                <!-- Right Side - GIF Container -->
+                <div class="relative">
+                    <!-- Decorative Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#742774]/20 to-[#FFCC00]/20 rounded-3xl blur-3xl transform rotate-6 scale-110"></div>
+
+                    <!-- GIF Container -->
+                    <div class="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-8 overflow-hidden group hover:scale-105 transition-transform duration-500">
+
+                        <!-- Inner Container -->
+                        <div class="relative aspect-video rounded-2xl overflow-hidden">
+                            <!-- GIF -->
+                            <img src="~/videos/bg.gif"
+                                 alt="Animation technologique"
+                                 class="w-full h-full object-cover">
+
+                            <!-- Subtle Overlay for Better Integration -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Bottom Info -->
+                        <div class="mt-6 text-center">
+                            <h3 class="text-xl font-bold text-white mb-2">Technologie EY</h3>
+                            <p class="text-white/60 text-sm">Innovation et excellence technique</p>
+                        </div>
+
+                        <!-- Decorative Elements -->
+                        <div class="absolute top-4 right-4 w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                        <div class="absolute bottom-4 left-4 w-2 h-2 bg-[#742774] rounded-full animate-pulse delay-500"></div>
+                    </div>
+
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-8 -right-8 w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-20 animate-float"></div>
+                    <div class="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-[#FFCC00] to-[#742774] rounded-xl opacity-30 animate-float-delayed"></div>
+                </div>
             </div>
         </div>
+    </div>
 
+    <!-- Background Particles -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="particle particle-tech-1"></div>
+        <div class="particle particle-tech-2"></div>
+        <div class="particle particle-tech-3"></div>
+    </div>
+</section>
+
+
+<!-- Ultra Modern Features Section - WHITE -->
+<section  class="py-32 bg-white relative overflow-hidden">
+    <!-- Background Effects -->
+    <div class="absolute inset-0">
+        <div class="absolute top-40 left-20 w-96 h-96 bg-[#742774] opacity-5 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-40 right-20 w-96 h-96 bg-[#FFCC00] opacity-5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <!-- Subtle Grid -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="h-full w-full" style="background-image:
+                linear-gradient(rgba(116,39,116,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(116,39,116,0.1) 1px, transparent 1px);
+                background-size: 40px 40px;"></div>
+        </div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+            <div class="inline-flex items-center gap-3 bg-[#742774]/5 backdrop-blur-xl rounded-full px-6 py-3 border border-[#742774]/10 mb-8">
+                <div class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                <span class="text-[#742774]/80 font-medium">Fonctionnalités Avancées</span>
+            </div>
+
+            <h2 class="text-5xl md:text-6xl font-black text-[#742774] mb-6">
+                <span class="bg-gradient-to-r from-[#742774] to-[#FFCC00] bg-clip-text text-transparent">
+                    TECHNOLOGIE DE POINTE
+                </span>
+            </h2>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Feature 1 -->
+            <div class="group relative">
+                <div class="relative bg-white/80 backdrop-blur-2xl rounded-3xl border border-[#742774]/10 p-8 h-80 shadow-2xl
+                            hover:bg-white hover:border-[#FFCC00]/30 hover:shadow-3xl transition-all duration-500 overflow-hidden">
+
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#742774]/5 to-[#FFCC00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Icon -->
+                    <div class="relative z-10 w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="relative z-10 text-2xl font-bold text-[#742774] mb-4 group-hover:text-[#FFCC00] transition-colors duration-300">
+                        IA Générative Avancée
+                    </h3>
+                    <p class="relative z-10 text-gray-600 leading-relaxed">
+                        Créez des applications complètes Model-Driven avec des entités personnalisées générées par intelligence artificielle.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="group relative">
+                <div class="relative bg-white/80 backdrop-blur-2xl rounded-3xl border border-[#742774]/10 p-8 h-80 shadow-2xl
+                            hover:bg-white hover:border-[#FFCC00]/30 hover:shadow-3xl transition-all duration-500 overflow-hidden">
+
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#742774]/5 to-[#FFCC00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Icon -->
+                    <div class="relative z-10 w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="relative z-10 text-2xl font-bold text-[#742774] mb-4 group-hover:text-[#FFCC00] transition-colors duration-300">
+                        Templates Intelligents
+                    </h3>
+                    <p class="relative z-10 text-gray-600 leading-relaxed">
+                        Utilisez des modèles prédéfinis optimisés par IA pour démarrer vos projets professionnels en quelques secondes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="group relative">
+                <div class="relative bg-white/80 backdrop-blur-2xl rounded-3xl border border-[#742774]/10 p-8 h-80 shadow-2xl
+                            hover:bg-white hover:border-[#FFCC00]/30 hover:shadow-3xl transition-all duration-500 overflow-hidden">
+
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#742774]/5 to-[#FFCC00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <!-- Icon -->
+                    <div class="relative z-10 w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <h3 class="relative z-10 text-2xl font-bold text-[#742774] mb-4 group-hover:text-[#FFCC00] transition-colors duration-300">
+                        Personnalisation Totale
+                    </h3>
+                    <p class="relative z-10 text-gray-600 leading-relaxed">
+                        Ajoutez formulaires, relations et processus métiers complexes sans écrire une seule ligne de code.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -119,23 +460,65 @@
         document.addEventListener('DOMContentLoaded', function () {
             const text = "Une plateforme intelligente pour transformer vos idées en applications prêtes à déployer sur Microsoft Power Apps.";
             const typewriter = document.getElementById('typewriter');
+            const cursor = document.getElementById('cursor');
             let index = 0;
+            let isDeleting = false;
 
             function type() {
-                if (index <= text.length) {
+                if (!isDeleting && index <= text.length) {
                     typewriter.textContent = text.substring(0, index);
                     index++;
-                    setTimeout(type, 30); // écriture très fluide, rapide et naturelle
-                } else {
+                    setTimeout(type, 50);
+                } else if (!isDeleting && index > text.length) {
                     setTimeout(() => {
-                        index = 0;
+                        isDeleting = true;
                         type();
-                    }, 2500); // pause 2.5 secondes quand toute la phrase est écrite
+                    }, 3000);
+                } else if (isDeleting && index > 0) {
+                    typewriter.textContent = text.substring(0, index);
+                    index--;
+                    setTimeout(type, 30);
+                } else if (isDeleting && index === 0) {
+                    isDeleting = false;
+                    setTimeout(type, 500);
                 }
             }
 
             type();
+
+            // Enhanced scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(section);
+            });
+
+            // Add interactive hover effects
+            document.querySelectorAll('.group').forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
         });
     </script>
-
 }

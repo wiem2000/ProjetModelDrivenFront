@@ -145,7 +145,8 @@ public class HomeController : Controller
                     HttpContext.Session.SetString("UserLastName", user.LastName);
                     HttpContext.Session.SetString("UserRole", user.Role);
 
-                    return RedirectToAction("Index","AppGenerator");
+                return RedirectToAction("Index","AppGenerator");
+                   
                 }
                 else
                 {

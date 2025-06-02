@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .curved-bg-top {
+            clip-path: ellipse(80% 60% at 20% 0%);
+        }
+
+        .curved-bg-bottom {
+            clip-path: ellipse(80% 60% at 80% 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100 relative overflow-hidden">
+    <!-- Background Curved Shapes -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#742774] to-[#000000] curved-bg-top"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-[#000000] to-[#FFCC00] curved-bg-bottom"></div>
+    <!-- Cercles décoratifs -->
+    <div class="absolute top-8 right-8 w-4 h-4 bg-[#742774] rounded-full z-0"></div>
+    <div class="absolute top-1/3 right-12 w-32 h-32 border-4 border-[#FFCC00]/20 rounded-full z-0"></div>
+    <div class="absolute bottom-1/4 right-8 w-6 h-6 bg-[#FFCC00] rounded-full z-0"></div>
+    <div class="absolute bottom-8 right-1/3 w-48 h-48 border-2 border-[#742774]/10 rounded-full z-0"></div>
+
+    <!-- Bulles supplémentaires côté gauche -->
+  
+    
+    <div class="absolute top-1/3 left-6 w-32 h-32 border-4 border-[#FFCC00]/20 rounded-full z-0"></div>
+    <div class="absolute top-1/2 left-8 w-48 h-48 border-2 border-[#742774]/10 rounded-full z-0"></div>
+
+    <div class="absolute bottom-16 left-1/4 w-40 h-40 border-4 border-[#742774]/20 rounded-full z-0"></div>
+   
+    <div class="absolute top-3/4 left-1/2 w-24 h-24 border-2 border-[#FFCC00]/20 rounded-full z-0"></div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 min-h-screen flex items-center justify-center p-8 mt-10" data-aos="fade-up">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden max-w-4xl w-full flex">
+
+            <!-- Left Side - Login Form -->
+            <div class="w-1/2 p-12">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-gray-600 text-sm font-medium mb-1">WELCOME TO</h1>
+                    <div class="flex items-center justify-center mb-2">
+
+                        <img src="/images/logomauve.png" alt="logo" class="w-60 h-16">
+
+                    </div>
+                    <p class="text-gray-500 text-sm">
+                        Connectez-vous pour créer, visualiser et gérer vos applications générées avec Power Platform.
+                    </p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" method="post" action="/Auth/Login" class="space-y-4">
+                    @Html.AntiForgeryToken()
+
+                    <!-- Username Field -->
+                    <div class="relative">
+                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <input name="Username"
+                               type="text"
+                               placeholder="Username"
+                               required
+                               class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 focus:border-[#742774] focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none" />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="relative">
+                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <input name="Password"
+                               id="passwordField"
+                               type="password"
+                               placeholder="Password"
+                               required
+                               class="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 focus:border-[#742774] focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none" />
+                        <button type="button"
+                                onclick="togglePassword()"
+                                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
+                            <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Sign In Button -->
+                    <div class="pt-4">
+                        <button type="submit"
+                                class="w-full py-4 bg-gradient-to-r from-[#742774] to-[#FFCC00] hover:from-[#8a2f8a] hover:to-[#ffdd33] text-white font-bold rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                            SIGN IN
+                        </button>
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="text-center pt-4">
+                        <span class="text-gray-500 text-sm">
+                            Don't have an account?
+                            <a href="#" class="text-[#742774] hover:text-[#8a2f8a] font-medium transition-colors">Sign Up Now</a>
+                        </span>
+                    </div>
+
+                  
+                </form>
+            </div>
+
+            <!-- Right Side - Brand Section -->
+            <div class="w-1/2 bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] relative overflow-hidden">
+                <!-- Background GIF local -->
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+                     style="background-image: url('/videos/bg.gif');">
+                </div>
+
+                <!-- Content aligned at the bottom -->
+                <div class="relative z-10 h-full flex flex-col justify-end items-center text-center px-8 pb-16 text-white">
+                    <p class="text-lg leading-relaxed opacity-90">
+                      
+                        Générez automatiquement des applications Power Apps, sans écrire une seule ligne de code!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Écran de chargement de connexion -->
+    <div id="loginLoadingScreen" class="hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-50 flex items-center justify-center">
+        <div class="relative">
+            <!-- Holographic Container -->
+            <div class="bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-16 max-w-lg mx-4 text-center shadow-2xl relative overflow-hidden mt-36">
+
+                <!-- Animated Border -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774] opacity-20 animate-pulse"></div>
+                <div class="absolute inset-[1px] rounded-3xl bg-black/80 backdrop-blur-3xl"></div>
+
+                <!-- Content -->
+                <div class="relative z-10">
+                    <!-- Advanced Loading Animation -->
+                    <div class="mb-12">
+                        <div class="relative w-44 h-44 mx-auto">
+                            <!-- Container pour le GIF avec effets -->
+                            <div class="relative w-full h-full rounded-full overflow-hidden">
+                                <!-- Effet de lueur en arrière-plan -->
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full opacity-30 blur-xl animate-pulse"></div>
+
+                                <!-- GIF principal -->
+                                <img src="~/videos/logo.gif"
+                                     alt="Loading animation"
+                                     class="relative z-10 w-full h-full object-cover rounded-full animate-pulse">
+
+                                <!-- Overlay avec effet holographique -->
+                                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full opacity-50"></div>
+                            </div>
+
+                            <!-- Anneaux rotatifs autour du GIF -->
+                            <div class="absolute inset-0 border-2 border-transparent border-t-[#FFCC00]/50 rounded-full animate-spin"></div>
+                            <div class="absolute inset-2 border-2 border-transparent border-b-[#742774]/50 rounded-full animate-spin-reverse"></div>
+
+                            <!-- Particules orbitales -->
+                            <div class="absolute inset-0 animate-spin-slow">
+                                <div class="absolute top-0 left-1/2 w-3 h-3 bg-[#FFCC00] rounded-full transform -translate-x-1/2 -translate-y-2 shadow-lg shadow-[#FFCC00]/50"></div>
+                                <div class="absolute bottom-0 left-1/2 w-3 h-3 bg-[#742774] rounded-full transform -translate-x-1/2 translate-y-2 shadow-lg shadow-[#742774]/50"></div>
+                                <div class="absolute left-0 top-1/2 w-2 h-2 bg-white rounded-full transform -translate-y-1/2 -translate-x-2 animate-pulse"></div>
+                                <div class="absolute right-0 top-1/2 w-2 h-2 bg-white rounded-full transform -translate-y-1/2 translate-x-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages de connexion -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-4 text-sm">
+                            <div class="relative">
+                                <div class="w-3 h-3 bg-[#742774] rounded-full animate-pulse"></div>
+                                <div class="absolute inset-0 w-3 h-3 bg-[#742774] rounded-full animate-ping opacity-75"></div>
+                            </div>
+                            <span class="text-white/80">Vérification des identifiants...</span>
+                            <div class="flex-1 h-[1px] bg-gradient-to-r from-[#742774] to-transparent"></div>
+                        </div>
+                        <div class="flex items-center gap-4 text-sm">
+                            <div class="relative">
+                                <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse delay-500"></div>
+                                <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75 delay-500"></div>
+                            </div>
+                            <span class="text-white/80">Initialisation de votre session...</span>
+                            <div class="flex-1 h-[1px] bg-gradient-to-r from-[#FFCC00] to-transparent"></div>
+                        </div>
+                        <div class="flex items-center gap-4 text-sm">
+                            <div class="relative">
+                                <div class="w-3 h-3 bg-white rounded-full animate-pulse delay-1000"></div>
+                                <div class="absolute inset-0 w-3 h-3 bg-white rounded-full animate-ping opacity-75 delay-1000"></div>
+                            </div>
+                            <span class="text-white/80">Chargement de votre espace de travail...</span>
+                            <div class="flex-1 h-[1px] bg-gradient-to-r from-white to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Cancel Button -->
+                    <button onclick="cancelLogin()"
+                            class="px-8 py-3 text-white/60 hover:text-[#FFCC00] transition-colors duration-300 text-sm font-medium border border-white/10 rounded-xl hover:border-[#FFCC00]/30 backdrop-blur-xl">
+                        Annuler la connexion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('passwordField');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                `;
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.innerHTML = `
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                `;
+            }
+        }
+
+
+
+                document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêcher la soumission immédiate
+
+            // Afficher l'écran de chargement
+            document.getElementById('loginLoadingScreen').classList.remove('hidden');
+
+            // Attendre 3 secondes puis soumettre le formulaire
+            setTimeout(() => {
+                e.target.submit(); // Soumettre le formulaire réellement
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

@@ -1,191 +1,508 @@
 ﻿@{
     ViewData["Title"] = "Créer votre application";
+    var userName = Context.Session.GetString("UserFirstName") ?? "Utilisateur";
 }
 
-<div class="min-h-screen flex flex-col justify-center items-center
-    bg-gradient-to-r from-[#742774] via-[#FFCC00]  to-[#002050]
-    text-white text-center relative overflow-hidden">
+<section class="min-h-screen relative overflow-hidden bg-black">
+    <!-- Dynamic Animated Background -->
+    <div class="absolute inset-0">
+        <!-- Animated Mesh Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] opacity-90"></div>
 
-    <div data-aos="fade-up">
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
-            Décrivez votre application
-        </h1>
+        <!-- Floating Geometric Shapes -->
+        <div class="absolute top-20 left-20 w-96 h-96 bg-[#742774] opacity-20 rounded-full mix-blend-screen filter blur-3xl animate-float"></div>
+        <div class="absolute top-40 right-20 w-80 h-80 bg-[#FFCC00] opacity-30 rounded-full mix-blend-screen filter blur-2xl animate-float-delayed"></div>
+        <div class="absolute bottom-20 left-40 w-72 h-72 bg-[#742774] opacity-25 rounded-full mix-blend-screen filter blur-xl animate-float-slow"></div>
 
-        <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto opacity-90">
-            Saisissez votre besoin en langage naturel. Nous allons générer votre application Model-Driven.
-        </p>
+        <!-- Animated Grid -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full animate-grid-move" style="background-image:
+                linear-gradient(rgba(255,204,0,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,204,0,0.3) 1px, transparent 1px);
+                background-size: 60px 60px;"></div>
+        </div>
 
-        <!-- Formulaire de saisie -->
-        <form method="post" action="/Generator/ProcessPhrase" class="relative mx-auto w-full max-w-xl">
-            <input type="text" name="userPhrase"
-                   class="w-full rounded-full px-8 py-5 text-lg text-[#742774]
-                bg-white/80 backdrop-blur-md border-[6px] border-[#742774]/30
-                shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
-                focus:outline-none focus:ring-4 focus:ring-[#742774]/50"
-                   placeholder="Exemple : Je veux une application de gestion des commandes" required>
-
-            <button type="submit"
-                    class="mt-6 relative inline-flex items-center gap-4 px-10 py-5 rounded-full
-                bg-white/80 backdrop-blur-md
-                border-[6px] border-[#742774]/30
-                shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_4px_12px_rgba(116,39,116,0.4)]
-                text-[#742774] font-semibold text-2xl
-                hover:shadow-lg hover:scale-105 transition-all duration-300">
-                <!-- Icône SVG (grande + couleur violet PowerApps) -->
-                <span class="w-[48px] h-[48px] animate-pulse-scale">
-                    <svg width="48" height="48" viewBox="0 0 34 34" fill="#742774" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
-                        <path d="M10.1754 21.8741C10.5243 21.7967 10.7967 21.5243 10.8741 21.1754L11.1235 20.0524C11.2128 19.6492 11.7872 19.6492 11.8765 20.0524L12.1259 21.1754C12.2033 21.5243 12.4757 21.7967 12.8246 21.8741L13.9476 22.1235C14.3508 22.2128 14.3508 22.7872 13.9476 22.8765L12.8246 23.1259C12.4757 23.2033 12.2033 23.4757 12.1259 23.8246L11.8765 24.9476C11.7872 25.3508 11.2128 25.3508 11.1235 24.9476L10.8741 23.8246C10.7967 23.4757 10.5243 23.2033 10.1754 23.1259L9.05238 22.8765C8.64921 22.7872 8.64921 22.2128 9.05238 22.1235L10.1754 21.8741Z" />
-                    </svg>
-                </span>
-                <span>Générer l'application</span>
-            </button>
-        </form>
-    
-    </div>
-
-    <!-- Décor flou -->
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full mix-blend-overlay blur-3xl"></div>
-
-</div>
-
-
-
-
-<section class="min-h-screen py-20 bg-[#F9FAFB] text-center" data-aos="fade-up">
-
-
-
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-       
-       
-
-        <!-- Sidebar -->
-        <aside class="bg-white rounded-2xl shadow-md p-6 md:col-span-1">
-            <h5 id="drawer-navigation-label" class="text-base text-left font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
-           
-            <ul class="space-y-2 text-lg mt-5">
-                <li>
-                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" d="M9 8h10M9 12h10M9 16h10M4.99 8H5m-.02 4h.01m0 4H5" />
-                        </svg>
-                        Mes Applications
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7 7V5" />
-                        </svg>
-                        Créer une application
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z" />
-                        </svg>
-                        Application favorites
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex items-center gap-3 text-left text-[#742774]   hover:text-white hover:bg-[#742774] px-4 py-3 rounded-lg transition-all duration-200" ">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M21 13v-2a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L14 4.757V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L4.929 6.343a1 1 0 0 0 0 1.414l.536.536L4.757 10H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535 1.707.707V20a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H20a1 1 0 0 0 1-1Z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                        </svg>
-                        Paramètres
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
-
-        <!-- Contenu principal -->
-        <div class="md:col-span-3 bg-white rounded-2xl shadow-md p-8">
-            <h2 class="text-3xl font-bold mb-6 text-[#742774] drop-shadow-md mb-3"> Gérer mes applications</h2>
-            <hr />
-            <!-- Exemple de carte d'application -->
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-4">
-                <div class="bg-white border border-[#002050]/20 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative">
-
-                    <div class="flex items-center mb-5">
-                    <!-- Étoile Favoris (en haut à droite) -->
-                    <button onclick="toggleFavorite(this)" class="absolute top-4 left-4 text-gray-300 hover:text-yellow-400 transition-colors duration-200 mb-2">
-                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                    </button>
-                    </div>
-
-                    <!-- Contenu de la carte -->
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-2xl font-bold text-[#002050] mb-3">App Commandes</h3>
-                            <p class="text-sm text-[#002050]/70">Créée il y a 2 jours</p>
-                        </div>
-                        <div class="mt-2 mb-3">
-                            <a href="#" class="inline-flex items-center text-[#002050] font-semibold hover:underline">
-                                Voir l'application
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white border border-[#002050]/20 rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 relative">
-
-                    <div class="flex items-center mb-5">
-                        <!-- Étoile Favoris (en haut à droite) -->
-                        <button onclick="toggleFavorite(this)" class="absolute top-4 left-4 text-gray-300 hover:text-yellow-400 transition-colors duration-200 mb-2">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Contenu de la carte -->
-                    <div class="flex flex-col justify-between h-full">
-                        <div>
-                            <h3 class="text-2xl font-bold text-[#002050] mb-3">App Commandes</h3>
-                            <p class="text-sm text-[#002050]/70">Créée il y a 2 jours</p>
-                        </div>
-                        <div class="mt-2 mb-3">
-                            <a href="#" class="inline-flex items-center text-[#002050] font-semibold hover:underline">
-                                Voir l'application
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
+        <!-- Particle System -->
+        <div class="absolute inset-0">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
         </div>
     </div>
 
+    <!-- Navigation Button -->
+    <a asp-controller="AppGenerator" asp-action="Apps"
+       class="fixed top-8 right-8 z-50 group  mt-24">
+        <div class="relative p-4 bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20
+                    hover:bg-[#742774]/20 transition-all duration-500 transform hover:scale-110 hover:rotate-3
+                    shadow-2xl hover:shadow-[#FFCC00]/20">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#742774] to-[#FFCC00] opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-500"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white relative z-10 transition-transform duration-300 group-hover:rotate-12">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+            </svg>
+        </div>
+    </a>
+
+    <!-- Main Content -->
+    <div class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 py-12 mt-24">
+
+        <!-- Main Content Container -->
+        <div id="mainContent" class="w-full max-w-6xl text-center">
+
+            <!-- Welcome Section -->
+            <div class="mb-16 space-y-8">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl rounded-full px-8 py-4 border border-white/10 hover:border-[#FFCC00]/30 transition-all duration-500 group">
+                    <div class="relative">
+                        <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                        <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75"></div>
+                    </div>
+                    <span class="text-white/90 font-medium tracking-wide">Bienvenue, @userName</span>
+                    <div class="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+
+                <!-- Main Title -->
+                <div class="space-y-6">
+                    <h1 class="text-7xl md:text-5xl lg:text-6xl font-black leading-none">
+                        <span class=" bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent animate-gradient-x">
+                            CRÉEZ
+                        </span>
+                        <span class="text-[#FFCC00] drop-shadow-2xl animate-glow">
+                            L'AVENIR
+                        </span>
+                    </h1>
+
+                    <div class="relative">
+                        <p class="text-2xl md:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed font-light">
+                            Transformez vos idées en
+                            <span class="relative inline-block">
+                                <span class="text-[#FFCC00] font-semibold">applications intelligentes</span>
+                                <div class="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent animate-pulse"></div>
+                            </span>
+                            grâce à l'IA générative
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="relative">
+                <!-- Holographic Container -->
+                <div class="relative bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-8 md:p-12 max-w-5xl mx-auto
+                            shadow-2xl hover:shadow-[#FFCC00]/10 transition-all duration-700 group">
+
+                    <!-- Holographic Border Effect -->
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774]/20 via-transparent to-[#FFCC00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute inset-[1px] rounded-3xl bg-black/40 backdrop-blur-3xl"></div>
+
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <!-- Header -->
+                        <div class="mb-12 text-center">
+                            <div class="inline-flex items-center gap-4 mb-6">
+                                <div class="relative">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-6 transition-transform duration-300">
+                                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                    </div>
+                                    <div class="absolute -inset-2 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-20 blur-lg animate-pulse"></div>
+                                </div>
+                                <div class="text-left">
+                                    <h2 class="text-3xl font-bold text-white">AI App Generator</h2>
+                                    <p class="text-white/60">Powered by Advanced Intelligence</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="appGeneratorForm" method="post" action="/AppGenerator/ProcessPhrase" class="space-y-8">
+
+                            <!-- Input Section -->
+                            <div class="space-y-6">
+                                <div class="text-left">
+                                    <label for="userPhrase" class="block text-lg font-semibold text-white mb-4 flex items-center gap-3">
+                                        <span class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></span>
+                                        Décrivez votre vision
+                                    </label>
+                                </div>
+
+                                <div class="relative group">
+                                    <textarea id="userPhrase"
+                                              name="userPhrase"
+                                              rows="5"
+                                              class="w-full rounded-2xl px-8 py-6 text-white bg-white/5 backdrop-blur-xl border border-white/20 text-lg resize-none
+                                               focus:outline-none focus:ring-2 focus:ring-[#FFCC00]/50 focus:border-[#FFCC00]/50 transition-all duration-500
+                                               hover:border-white/30 placeholder-white/40 font-light leading-relaxed"
+                                              placeholder="Imaginez une application révolutionnaire qui transforme votre secteur d'activité..."
+                                              required></textarea>
+
+                                    <!-- Floating Character Counter -->
+                                    <div class="absolute bottom-4 right-4 px-3 py-1 bg-black/50 backdrop-blur-xl rounded-full text-xs text-white/60 border border-white/10">
+                                        <span id="charCount">0</span><span class="text-[#FFCC00]">/500</span>
+                                    </div>
+
+                                    <!-- Focus Ring Effect -->
+                                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
+                                </div>
+                            </div>
+
+                            <!-- AI Suggestions -->
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-3 text-white">
+                                    <div class="w-6 h-6 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                    <span class="font-semibold">Suggestions IA</span>
+                                    <div class="flex-1 h-[1px] bg-gradient-to-r from-white/20 to-transparent"></div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <button type="button" onclick="fillExample(this)"
+                                            class="suggestion-card group text-left p-6 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10
+                                                   hover:border-[#FFCC00]/30 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                                        <div class="flex items-start gap-3 mb-3">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-white group-hover:text-[#FFCC00] transition-colors duration-300">Healthcare Revolution</h4>
+                                                <p class="text-white/60 text-sm mt-1">Create an intelligent patient management system with AI diagnostics and appointment scheduling.</p>
+                                            </div>
+                                        </div>
+                                    </button>
+
+                                    <button type="button" onclick="fillExample(this)"
+                                            class="suggestion-card group text-left p-6 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10
+                                                   hover:border-[#FFCC00]/30 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                                        <div class="flex items-start gap-3 mb-3">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-white group-hover:text-[#FFCC00] transition-colors duration-300">Smart CRM</h4>
+                                                <p class="text-white/60 text-sm mt-1">Build an AI-powered customer relationship platform with predictive analytics and automated workflows.</p>
+                                            </div>
+                                        </div>
+                                    </button>
+
+                                    <button type="button" onclick="fillExample(this)"
+                                            class="suggestion-card group text-left p-6 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10
+                                                   hover:border-[#FFCC00]/30 hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                                        <div class="flex items-start gap-3 mb-3">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-lg flex items-center justify-center flex-shrink-0">
+                                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                                                </svg>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-semibold text-white group-hover:text-[#FFCC00] transition-colors duration-300">FinTech Innovation</h4>
+                                                <p class="text-white/60 text-sm mt-1">Design a next-generation financial platform with blockchain integration and smart contracts.</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Generate Button -->
+                            <div class="pt-8">
+                                <button type="submit" id="generateBtn"
+                                        class="w-full relative group bg-gradient-to-r from-[#742774] via-[#000000] to-[#FFCC00] text-white font-bold text-xl px-12 py-8 rounded-2xl
+                                               shadow-2xl hover:shadow-[#FFCC00]/20 transform hover:scale-[1.02] transition-all duration-500
+                                               focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/30 overflow-hidden">
+
+                                    <!-- Animated Background -->
+                                    <div class="absolute inset-0 bg-gradient-to-r from-[#FFCC00] via-[#742774] to-[#000000] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <!-- Button Content -->
+                                    <div class="relative flex items-center justify-center gap-4">
+                                        <div class="relative">
+                                            <div class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180 group-hover:scale-110">
+                                                <svg width="32" height="32" viewBox="0 0 34 34" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="absolute inset-0 w-8 h-8 bg-white/20 rounded-full animate-ping opacity-0 group-hover:opacity-75"></div>
+                                        </div>
+                                        <span class="tracking-wide">GÉNÉRER L'APPLICATION</span>
+                                        <div class="w-8 h-[2px] bg-white/40 group-hover:bg-white transition-colors duration-500"></div>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Configuration Link -->
+                        <div class="mt-12 pt-8 border-t border-white/10">
+                            <div class="flex items-center justify-center gap-3 text-white/60 mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                                </svg>
+                                <span class="text-sm">Environnement Power Apps non configuré ?</span>
+                            </div>
+                            <a href="/Admin/Panel?tab=config"
+                               class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl hover:bg-[#742774]/20 text-white hover:text-[#FFCC00]
+                                      font-semibold px-8 py-4 rounded-xl border border-white/10 hover:border-[#FFCC00]/30
+                                      transition-all duration-300 transform hover:scale-105">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                Configurer maintenant
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ultra Modern Loading Screen -->
+        <div id="loadingScreen" class="hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-50 flex items-center justify-center ">
+            <div class="relative ">
+                <!-- Holographic Container -->
+                <div class="bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-16 max-w-lg mx-4 text-center
+                            shadow-2xl relative overflow-hidden mt-36">
+
+                    <!-- Animated Border -->
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774] opacity-20 animate-pulse"></div>
+                    <div class="absolute inset-[1px] rounded-3xl bg-black/80 backdrop-blur-3xl"></div>
+
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <!-- Advanced Loading Animation -->
+                        <!-- Remplacez la section de l'animation de chargement par ceci : -->
+
+                        <div class="mb-12">
+                            <div class="relative w-44 h-44 mx-auto">
+                                <!-- Container pour le GIF avec effets -->
+                                <div class="relative w-full h-full rounded-full overflow-hidden">
+                                    <!-- Effet de lueur en arrière-plan -->
+                                    <div class="absolute inset-0 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full opacity-30 blur-xl animate-pulse"></div>
+
+                                    <!-- GIF principal -->
+                                    <img src="~/videos/logo.gif"
+                                         alt="Loading animation"
+                                         class="relative z-10 w-full h-full object-cover rounded-full animate-pulse">
+
+                                    <!-- Overlay avec effet holographique -->
+                                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full opacity-50"></div>
+                                </div>
+
+                                <!-- Anneaux rotatifs autour du GIF -->
+                                <div class="absolute inset-0 border-2 border-transparent border-t-[#FFCC00]/50 rounded-full animate-spin"></div>
+                                <div class="absolute inset-2 border-2 border-transparent border-b-[#742774]/50 rounded-full animate-spin-reverse"></div>
+
+                                <!-- Particules orbitales -->
+                                <div class="absolute inset-0 animate-spin-slow">
+                                    <div class="absolute top-0 left-1/2 w-3 h-3 bg-[#FFCC00] rounded-full transform -translate-x-1/2 -translate-y-2 shadow-lg shadow-[#FFCC00]/50"></div>
+                                    <div class="absolute bottom-0 left-1/2 w-3 h-3 bg-[#742774] rounded-full transform -translate-x-1/2 translate-y-2 shadow-lg shadow-[#742774]/50"></div>
+                                    <div class="absolute left-0 top-1/2 w-2 h-2 bg-white rounded-full transform -translate-y-1/2 -translate-x-2 animate-pulse"></div>
+                                    <div class="absolute right-0 top-1/2 w-2 h-2 bg-white rounded-full transform -translate-y-1/2 translate-x-2 animate-pulse"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Advanced Progress Steps -->
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-4 text-sm">
+                                <div class="relative">
+                                    <div class="w-3 h-3 bg-[#742774] rounded-full animate-pulse"></div>
+                                    <div class="absolute inset-0 w-3 h-3 bg-[#742774] rounded-full animate-ping opacity-75"></div>
+                                </div>
+                                <span class="text-white/80">Analyse sémantique avancée...</span>
+                                <div class="flex-1 h-[1px] bg-gradient-to-r from-[#742774] to-transparent"></div>
+                            </div>
+                            <div class="flex items-center gap-4 text-sm">
+                                <div class="relative">
+                                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse delay-500"></div>
+                                    <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75 delay-500"></div>
+                                </div>
+                                <span class="text-white/80">Génération de l'architecture...</span>
+                                <div class="flex-1 h-[1px] bg-gradient-to-r from-[#FFCC00] to-transparent"></div>
+                            </div>
+                           
+                        </div>
+
+                        <!-- Cancel Button -->
+                        <button onclick="cancelGeneration()"
+                                class="px-8 py-3 text-white/60 hover:text-[#FFCC00] transition-colors duration-300 text-sm font-medium
+                                       border border-white/10 rounded-xl hover:border-[#FFCC00]/30 backdrop-blur-xl">
+                            Annuler la génération
+                        </button>
+                    </div>
+                </div>
+          
+            
+            </div>
+        </div>
+   
+    </div>
 </section>
 
-@section Scripts {
+
+
 <script>
-    function toggleFavorite(button) {
-      button.classList.toggle("text-yellow-400");
-      button.classList.toggle("text-gray-300");
-      // Tu peux ajouter ici un appel API pour sauvegarder l'état "favori"
+    // Enhanced character counter with smooth animations
+    document.getElementById('userPhrase').addEventListener('input', function() {
+        const charCount = this.value.length;
+        const counter = document.getElementById('charCount');
+        counter.textContent = charCount;
+
+        // Smooth color transitions
+        if (charCount > 450) {
+            counter.classList.add('text-red-400');
+            counter.classList.remove('text-white');
+        } else if (charCount > 300) {
+            counter.classList.add('text-yellow-400');
+            counter.classList.remove('text-white', 'text-red-400');
+        } else {
+            counter.classList.add('text-white');
+            counter.classList.remove('text-yellow-400', 'text-red-400');
+        }
+    });
+
+    // Enhanced example filling with animations
+    function fillExample(button) {
+        const title = button.querySelector('h4').textContent;
+        const description = button.querySelector('p').textContent;
+        const textarea = document.getElementById('userPhrase');
+
+        // Create a more natural prompt
+        textarea.value = description;
+
+        // Update character count
+        const event = new Event('input');
+        textarea.dispatchEvent(event);
+
+        // Enhanced visual feedback
+        button.style.transform = 'scale(0.95)';
+        button.style.background = 'rgba(116, 39, 116, 0.3)';
+
+        setTimeout(() => {
+            button.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                button.style.transform = '';
+                button.style.background = '';
+            }, 200);
+        }, 100);
     }
+
+
+    document.getElementById('appGeneratorForm').addEventListener('submit', function (e) {
+    const userPhrase = document.querySelector('[name="userPhrase"]').value.trim();
+
+    if (!userPhrase) {
+        e.preventDefault();
+        alert('Veuillez décrire votre application');
+        return;
+    }
+
+    // Affiche l'écran de chargement
+    showLoading();
+
+    // ✅ Pas de e.preventDefault() ici = on laisse le formulaire POST se faire
+});
+
+
+
+    /*
+     document.getElementById('appGeneratorForm').addEventListener('submit', function(e) {
+         e.preventDefault();
+
+         const formData = new FormData(this);
+         const userPhrase = formData.get('userPhrase');
+
+         if (!userPhrase.trim()) {
+             alert('Veuillez décrire votre application');
+             return;
+         }
+
+         // Show loading screen
+         showLoading();
+
+         // Simulate API call (replace with your actual API call)
+         fetch('/AppGenerator/ProcessPhrase', {
+             method: 'POST',
+             body: formData
+         })
+            .then(response => response.text())
+    .then(data => {
+        hideLoading();
+        console.log('Succès brut:', data);
+        // Tu peux afficher dans une zone de texte ou passer à JSON.parse si tu veux
+    })
+         .catch(error => {
+             // Hide loading screen
+             hideLoading();
+
+             // Handle error
+             console.error('Error:', error);
+             alert('Une erreur est survenue lors de la génération. Veuillez réessayer.');
+         });
+     });
+   */
+
+   function showLoading() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        // Add entrance animation
+        setTimeout(() => {
+            loadingScreen.style.opacity = '1';
+        }, 10);
+    }
+
+    function hideLoading() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.style.opacity = '0';
+
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+
+    function cancelGeneration() {
+        hideLoading();
+    }
+
+    // Enhanced entrance animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Staggered entrance animations
+        const elements = document.querySelectorAll('[data-aos]');
+        elements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+
+            setTimeout(() => {
+                el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, index * 200 + 500);
+        });
+
+        // Add interactive hover effects
+        document.querySelectorAll('.suggestion-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) translateY(-5px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+    });
 </script>
-}

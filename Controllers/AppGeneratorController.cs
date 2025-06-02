@@ -1,6 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
 using ProjetModelDrivenFront.Models;
+using System.Text;
 using System.Text.Json;
+
+
+
+
 
 namespace ProjetModelDrivenFront.Controllers
 {
@@ -11,14 +17,79 @@ namespace ProjetModelDrivenFront.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult ProcessPhrase(string userPhrase)
-        {
-            // Ici tu peux traiter la phrase reçue ou la stocker temporairement
-            // Pour l'instant, redirige vers la page Create
 
-            return RedirectToAction("Create");
+        public IActionResult Apps()
+        {
+            return View();
         }
+
+
+
+
+
+
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> ProcessPhrase2(IFormCollection form)
+        {
+            var userPhrase = form["userPhrase"];
+            var client = new HttpClient();
+
+            var payload = new { prompt = userPhrase };
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("http://d8db-35-204-242-141.ngrok-free.app/generate", content);
+            var result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine(result);
+            // Retourne directement le JSON comme résultat
+            return Content(result, "application/json");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> ProcessPhrase(IFormCollection form)
+        {
+            var userPhrase = form["userPhrase"];
+            var client = new HttpClient();
+
+            var payload = new { prompt = userPhrase };
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("http://1789-35-204-242-141.ngrok-free.app/generate", content);
+            var result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine("🟢 JSON Reçu :");
+            Console.WriteLine(result);
+
+            try
+            {
+                // Désérialiser le JSON reçu en SchemaRoot
+                var schemaRoot = JsonSerializer.Deserialize<SchemaRoot>(result, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+                // Générer les éléments Cytoscape
+                var elements = GenerateElements(schemaRoot);
+                ViewData["elements"] = JsonSerializer.Serialize(elements);
+
+                Console.WriteLine(schemaRoot);
+                // Rediriger vers la vue Graph en passant le modèle et les éléments
+                return View("Graph", schemaRoot);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Erreur de désérialisation : " + ex.Message);
+                return Content("Erreur lors du traitement du schéma JSON : " + ex.Message);
+            }
+        }
+
+
         [HttpGet]
         public IActionResult Graph()
         {
