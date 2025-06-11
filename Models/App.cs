@@ -8,6 +8,8 @@
         public bool IsFavorite { get; set; }
         public string Status { get; set; }
 
+        public string AppUrl { get; set; }
+
         public Guid EnvironnementDynamicsId { get; set; }
         public EnvironnementDynamics Environment { get; set; }
     }

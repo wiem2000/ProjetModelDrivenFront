@@ -1,0 +1,20 @@
+﻿@model ProjetModelDrivenFront.Models.TargetSchema
+
+
+
+<div class="top-32">
+	<h2>Résultat JSON Power Apps</h2>
+<pre class="bg-light p-3 rounded shadow-sm">
+		@Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model, new System.Text.Json.JsonSerializerOptions { WriteIndented = true }))
+</pre>
+
+	<a href="/AppGenerator/Index" class="btn btn-secondary mt-3">⬅ Retour</a>
+
+</div>
+
+
+
+
+
+
+

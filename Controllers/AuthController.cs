@@ -5,6 +5,7 @@ using System.Text;
 
 using System.Security.Cryptography;
 using System.Drawing.Printing;
+using ProjetModelDrivenFront.Models;
 
 
 namespace ProjetModelDrivenFront.Controllers
@@ -65,5 +66,55 @@ namespace ProjetModelDrivenFront.Controllers
             var hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
             return Convert.ToBase64String(hash); // correspond à SSMS
         }
+
+
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(string Username, string Email, string Password, string ConfirmPassword)
+        {
+            // Vérifier si le nom d'utilisateur existe déjà
+            if (_context.Accounts.Any(a => a.Username == Username))
+            {
+                TempData["Error"] = "Ce nom d'utilisateur est déjà utilisé.";
+                return RedirectToAction("Register");
+            }
+
+
+            // Vérifier que les mots de passe correspondent
+            if (Password != ConfirmPassword)
+            {
+                TempData["Error"] = "Les mots de passe ne correspondent pas.";
+                return RedirectToAction("Register");
+            }
+
+            // Créer un nouvel utilisateur
+            var newAccount = new Account
+            {
+                Username = Username,
+              
+                Password = HashPassword(Password),
+                
+                // Ajouter d'autres champs selon votre modèle Account
+            };
+
+            _context.Accounts.Add(newAccount);
+            _context.SaveChanges();
+
+            // Connecter automatiquement l'utilisateur
+            HttpContext.Session.SetString("UserId", newAccount.Id.ToString());
+            HttpContext.Session.SetString("UserFirstName", newAccount.Username);
+
+            TempData["Success"] = "Votre compte a été créé avec succès!";
+            return RedirectToAction("Index", "AppGenerator");
+        }
+
+
+
     }
 }

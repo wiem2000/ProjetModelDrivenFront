@@ -1,19 +1,339 @@
-﻿<h2 class="text-2xl font-bold mb-4 text-[#002050]">📡 Monitoring des générations</h2>
-<p class="text-gray-600 mb-6">Visualisez ici les logs et l’état d’avancement des applications générées.</p>
-<!-- Exemple de tableau ou log -->
-<table class="w-full table-auto bg-white shadow rounded">
-    <thead>
-        <tr class="bg-gray-100 text-left">
-            <th class="p-3">Date</th>
-            <th class="p-3">Application</th>
-            <th class="p-3">Statut</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="p-3">24/05/2025</td>
-            <td class="p-3">App RH</td>
-            <td class="p-3 text-green-600 font-semibold">✅ Terminée</td>
-        </tr>
-    </tbody>
-</table>
+﻿<!-- Header Section -->
+<div class="mb-8">
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-4xl font-black mb-3">
+                <span class="bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent">
+                    🔍 Monitoring des Générations
+                </span>
+            </h1>
+            <p class="text-white/70 text-lg font-medium">
+                Visualisez l'état d'avancement de vos applications générées <span class="text-[#FFCC00] font-bold">SANS CODER</span>
+            </p>
+        </div>
+
+        <!-- Logo Integration -->
+        <div class="flex items-center space-x-4">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/output-onlinegiftools.gif-1e0Kr0koTBTkdOECKKgyFOQpvOPRKj.jpeg" alt="EY Logo" class="w-12 h-12 animate-pulse-glow rounded-lg" />
+            <div class="card-glass px-4 py-2 rounded-full">
+                <span class="text-[#FFCC00] font-bold text-sm">IA ACTIVE</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <!-- Total Generations -->
+    <div class="card-glass rounded-2xl p-6 hover-lift">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-xl flex items-center justify-center">
+                <span class="text-white text-xl font-bold">📱</span>
+            </div>
+            <div class="text-right">
+                <div class="text-3xl font-black text-white">127</div>
+                <div class="text-[#FFCC00] text-sm font-semibold">+12 ce mois</div>
+            </div>
+        </div>
+        <h3 class="text-white/80 font-semibold">Total Générations</h3>
+        <div class="mt-2 w-full bg-white/10 rounded-full h-2">
+            <div class="bg-gradient-to-r from-[#742774] to-[#FFCC00] h-2 rounded-full" style="width: 85%"></div>
+        </div>
+    </div>
+
+    <!-- Successful -->
+    <div class="card-glass rounded-2xl p-6 hover-lift">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 status-completed rounded-xl flex items-center justify-center">
+                <span class="text-white text-xl">✅</span>
+            </div>
+            <div class="text-right">
+                <div class="text-3xl font-black text-white">115</div>
+                <div class="text-green-400 text-sm font-semibold">90.5% réussite</div>
+            </div>
+        </div>
+        <h3 class="text-white/80 font-semibold">Terminées</h3>
+        <div class="mt-2 w-full bg-white/10 rounded-full h-2">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
+        </div>
+    </div>
+
+    <!-- Running -->
+    <div class="card-glass rounded-2xl p-6 hover-lift">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 status-running rounded-xl flex items-center justify-center animate-pulse-status">
+                <span class="text-white text-xl">⚡</span>
+            </div>
+            <div class="text-right">
+                <div class="text-3xl font-black text-white">3</div>
+                <div class="text-blue-400 text-sm font-semibold">En cours</div>
+            </div>
+        </div>
+        <h3 class="text-white/80 font-semibold">Actives</h3>
+        <div class="mt-2 w-full bg-white/10 rounded-full h-2">
+            <div class="bg-blue-500 h-2 rounded-full animate-pulse" style="width: 60%"></div>
+        </div>
+    </div>
+
+    <!-- Failed -->
+    <div class="card-glass rounded-2xl p-6 hover-lift">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 status-failed rounded-xl flex items-center justify-center">
+                <span class="text-white text-xl">❌</span>
+            </div>
+            <div class="text-right">
+                <div class="text-3xl font-black text-white">9</div>
+                <div class="text-red-400 text-sm font-semibold">7.1% échec</div>
+            </div>
+        </div>
+        <h3 class="text-white/80 font-semibold">Échouées</h3>
+        <div class="mt-2 w-full bg-white/10 rounded-full h-2">
+            <div class="bg-red-500 h-2 rounded-full" style="width: 15%"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Monitoring Table -->
+<div class="card-glass rounded-2xl overflow-hidden">
+    <!-- Table Header -->
+    <div class="bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 p-6 border-b border-white/10">
+        <div class="flex items-center justify-between">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-2">📊 Historique des Générations</h2>
+                <p class="text-white/70">Suivi en temps réel de vos applications Model-Driven</p>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-3">
+                <button class="card-glass px-4 py-2 rounded-lg text-white/80 hover:text-white transition-colors border border-white/20 hover:border-[#FFCC00]/50">
+                    <span class="mr-2">🔍</span> Filtrer
+                </button>
+                <button class="bg-gradient-to-r from-[#742774] to-[#FFCC00] px-6 py-2 rounded-lg text-white font-semibold hover:shadow-lg transition-all">
+                    <span class="mr-2">📥</span> Exporter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table Content -->
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr class="border-b border-white/10">
+                    <th class="text-left p-4 text-white/80 font-semibold">Date & Heure</th>
+                    <th class="text-left p-4 text-white/80 font-semibold">Application</th>
+                    <th class="text-left p-4 text-white/80 font-semibold">Utilisateur</th>
+                    <th class="text-left p-4 text-white/80 font-semibold">Durée</th>
+                    <th class="text-left p-4 text-white/80 font-semibold">Statut</th>
+                    <th class="text-right p-4 text-white/80 font-semibold">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                    <td class="p-4">
+                        <div class="text-white font-medium">24/05/2025</div>
+                        <div class="text-white/60 text-sm">14:32</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">HR</span>
+                            </div>
+                            <div>
+                                <div class="text-white font-semibold">App RH</div>
+                                <div class="text-white/60 text-sm">Gestion des employés</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80">admin@example.com</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80 font-mono">2m 15s</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="inline-flex items-center space-x-2 bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span class="font-semibold text-sm">Terminée</span>
+                        </div>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="text-[#FFCC00] hover:text-white transition-colors font-medium">
+                            Détails →
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                    <td class="p-4">
+                        <div class="text-white font-medium">24/05/2025</div>
+                        <div class="text-white/60 text-sm">13:45</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center animate-pulse-status">
+                                <span class="text-white font-bold text-sm">FN</span>
+                            </div>
+                            <div>
+                                <div class="text-white font-semibold">App Finance</div>
+                                <div class="text-white/60 text-sm">Comptabilité</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80">finance@example.com</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80 font-mono">1m 32s</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="inline-flex items-center space-x-2 bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full border border-blue-500/30">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                            <span class="font-semibold text-sm">En cours</span>
+                        </div>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="text-[#FFCC00] hover:text-white transition-colors font-medium">
+                            Suivre →
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                    <td class="p-4">
+                        <div class="text-white font-medium">24/05/2025</div>
+                        <div class="text-white/60 text-sm">12:18</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">MK</span>
+                            </div>
+                            <div>
+                                <div class="text-white font-semibold">App Marketing</div>
+                                <div class="text-white/60 text-sm">Campagnes</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80">marketing@example.com</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80 font-mono">45s</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="inline-flex items-center space-x-2 bg-red-500/20 text-red-400 px-3 py-1 rounded-full border border-red-500/30">
+                            <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                            <span class="font-semibold text-sm">Échouée</span>
+                        </div>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="text-[#FFCC00] hover:text-white transition-colors font-medium">
+                            Analyser →
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                    <td class="p-4">
+                        <div class="text-white font-medium">23/05/2025</div>
+                        <div class="text-white/60 text-sm">16:22</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">SP</span>
+                            </div>
+                            <div>
+                                <div class="text-white font-semibold">App Support</div>
+                                <div class="text-white/60 text-sm">Service client</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80">support@example.com</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80 font-mono">3m 8s</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="inline-flex items-center space-x-2 bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span class="font-semibold text-sm">Terminée</span>
+                        </div>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="text-[#FFCC00] hover:text-white transition-colors font-medium">
+                            Détails →
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-4">
+                        <div class="text-white font-medium">23/05/2025</div>
+                        <div class="text-white/60 text-sm">15:10</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">VT</span>
+                            </div>
+                            <div>
+                                <div class="text-white font-semibold">App Ventes</div>
+                                <div class="text-white/60 text-sm">CRM</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80">ventes@example.com</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="text-white/80 font-mono">1m 55s</div>
+                    </td>
+                    <td class="p-4">
+                        <div class="inline-flex items-center space-x-2 bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span class="font-semibold text-sm">Terminée</span>
+                        </div>
+                    </td>
+                    <td class="p-4 text-right">
+                        <button class="text-[#FFCC00] hover:text-white transition-colors font-medium">
+                            Détails →
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Table Footer -->
+    <div class="p-6 border-t border-white/10 bg-gradient-to-r from-[#742774]/10 to-[#FFCC00]/10">
+        <div class="flex items-center justify-between">
+            <div class="text-white/70">
+                Affichage de <span class="text-[#FFCC00] font-semibold">5</span> sur <span class="text-[#FFCC00] font-semibold">127</span> générations
+            </div>
+            <div class="flex items-center space-x-2">
+                <button class="card-glass px-3 py-1 rounded text-white/80 hover:text-white transition-colors border border-white/20">←</button>
+                <button class="bg-[#FFCC00] text-black px-3 py-1 rounded font-semibold">1</button>
+                <button class="card-glass px-3 py-1 rounded text-white/80 hover:text-white transition-colors border border-white/20">2</button>
+                <button class="card-glass px-3 py-1 rounded text-white/80 hover:text-white transition-colors border border-white/20">3</button>
+                <button class="card-glass px-3 py-1 rounded text-white/80 hover:text-white transition-colors border border-white/20">→</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom CTA -->
+<div class="mt-8 text-center">
+    <div class="inline-flex items-center gap-3 card-glass rounded-full px-8 py-4 border border-[#FFCC00]/30">
+        <img src="/videos/logo.gif" alt="EY Logo" class="w-8 h-8 animate-pulse-glow rounded" />
+        <span class="text-white/90 font-medium">Générez vos applications Model-Driven</span>
+        <span class="text-[#FFCC00] font-bold">SANS CODER</span>
+    </div>
+</div>

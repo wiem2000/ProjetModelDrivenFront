@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using ProjetModelDrivenFront.data;
 using ProjetModelDrivenFront.Models;
+using ProjetModelDrivenFront.Services;
 using System.Text;
 using System.Text.Json;
 
@@ -12,42 +14,46 @@ namespace ProjetModelDrivenFront.Controllers
 {
     public class AppGeneratorController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public AppGeneratorController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
         }
 
 
+
+
+        [HttpGet]
         public IActionResult Apps()
         {
+            var userIdStr = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(userIdStr) || !Guid.TryParse(userIdStr, out Guid userId))
+                return Unauthorized("Utilisateur non connecté.");
+
+            // Récupérer l'environnement par défaut
+            var environment = _context.Environments
+                .Include(e => e.Applications)
+                .FirstOrDefault(e => e.AccountId == userId && e.IsDefault);
+
+            if (environment == null)
+            {
+                ViewBag.Apps = new List<App>(); // Aucun environnement par défaut
+            }
+            else
+            {
+                var apps = environment.Applications?.OrderByDescending(a => a.CreatedAt).ToList() ?? new List<App>();
+                ViewBag.Apps = apps;
+            }
+
             return View();
         }
 
-
-
-
-
-
-
-
-
-        [HttpPost]
-        public async Task<IActionResult> ProcessPhrase2(IFormCollection form)
-        {
-            var userPhrase = form["userPhrase"];
-            var client = new HttpClient();
-
-            var payload = new { prompt = userPhrase };
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await client.PostAsync("http://d8db-35-204-242-141.ngrok-free.app/generate", content);
-            var result = await response.Content.ReadAsStringAsync();
-
-            Console.WriteLine(result);
-            // Retourne directement le JSON comme résultat
-            return Content(result, "application/json");
-        }
 
 
         [HttpPost]
@@ -60,7 +66,7 @@ namespace ProjetModelDrivenFront.Controllers
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("http://1789-35-204-242-141.ngrok-free.app/generate", content);
+            var response = await client.PostAsync("http://c144-34-148-115-230.ngrok-free.app/generate", content);
             var result = await response.Content.ReadAsStringAsync();
 
             Console.WriteLine("🟢 JSON Reçu :");
@@ -217,6 +223,38 @@ namespace ProjetModelDrivenFront.Controllers
             var elements = GenerateElements(model);
             return Json(new { success = true, elements });
         }
+
+
+
+
+
+        
+        public IActionResult ShowResult()
+        {
+            var json = HttpContext.Session.GetString("powerapps_json");
+            if (string.IsNullOrEmpty(json))
+                return RedirectToAction("Index");
+
+            var model = System.Text.Json.JsonSerializer.Deserialize<TargetSchema>(json);
+            return View("Result", model);
+        }
+
+        
+        public IActionResult StoreAndRedirect([FromBody] SchemaRoot root)
+        {
+            if (root?.schema == null)
+                return BadRequest("Schéma invalide");
+
+            var json = SchemaTransformer.Transform(root);
+            Console.WriteLine(json.ToString());
+            var serialized = System.Text.Json.JsonSerializer.Serialize(json);
+            Console.WriteLine(serialized);
+            HttpContext.Session.SetString("powerapps_json", serialized);
+
+            return Ok(new { redirectUrl = Url.Action("ShowResult") });
+        }
+
+
 
 
 

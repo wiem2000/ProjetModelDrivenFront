@@ -5,6 +5,7 @@
     var elementsJson = ViewData["elements"];
 }
 
+
 <!-- Professional Hero Section -->
 <div class="relative  min-h-[40vh] bg-black overflow-hidden">
     <!-- Animated Background -->
@@ -398,6 +399,10 @@
 
 
                 </div>
+
+                <button id="submit-json">Générer et afficher JSON</button>
+
+
             </div>
         </div>
     </div>
@@ -454,8 +459,9 @@
             <div class="w-40">
                 <select class="field-type w-full p-2 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
                     <option value="string">Texte</option>
-                    <option value="date">Date</option>
-                    <option value="int">Nombre</option>
+                    <option value="datetime">Date</option>
+                    <option value="int">Entier</option>
+                    <option value="float">Réel</option>
                     <option value="bool">Booléen</option>
                 </select>
             </div>
@@ -495,7 +501,7 @@
                 <select class="relation-type w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
                     <option value="one_to_many">Un vers Plusieurs</option>
                     <option value="many_to_many">Plusieurs vers Plusieurs</option>
-                    <option value="one_to_one">Un vers Un</option>
+                   
                 </select>
             </div>
         </div>
@@ -1147,6 +1153,34 @@
             showProfessionalNotification("Erreur de communication avec le serveur", "error");
         });
     }
+
+
+
+
+       document.getElementById("submit-json").addEventListener("click", function () {
+        const schema = generateJSON();
+
+        fetch("/AppGenerator/StoreAndRedirect", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(schema)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.redirectUrl) {
+                window.location.href = data.redirectUrl;
+            } else {
+                alert("Erreur de redirection.");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Une erreur est survenue.");
+        });
+    });
+
+
+
 </script>
 
 

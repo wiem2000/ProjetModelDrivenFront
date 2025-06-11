@@ -2,98 +2,606 @@
     ViewData["Title"] = "Générateur de Solution Power Apps";
 }
 
-<div style="margin-top:5cm">
+<!-- Background avec effets visuels -->
+<div class="min-h-screen bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#742774]/30 via-black/70 to-[#FFCC00]/30"></div>
+        <div class="absolute top-20 left-20 w-96 h-96 bg-[#742774]/20 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
+        <div class="absolute top-40 right-20 w-80 h-80 bg-[#FFCC00]/30 rounded-full mix-blend-screen filter blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-20 left-40 w-72 h-72 bg-[#742774]/25 rounded-full mix-blend-screen filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
 
-
-
-
-
-
-<div class="row">
-
-    <div class="col">
-
-<h2>🧠 Générateur PowerApps depuis JSON</h2>
-
-<form id="solutionForm">
-    <textarea id="jsonInput" rows="20" cols="100" placeholder="Collez ici votre JSON..."></textarea>
-    <br />
-    <button type="submit">🚀 Générer</button>
-</form>
-
-<div id="result"></div>
-    
-</div>
-
-    <div class="col">
-
-        <h2>Suivi en temps réel</h2>
-        <ul id="logs"></ul>
-
+        <!-- Animated Grid -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="h-full w-full animate-pulse" style="background-image:
+                linear-gradient(rgba(255,204,0,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,204,0,0.3) 1px, transparent 1px);
+                background-size: 60px 60px;"></div>
+        </div>
     </div>
 
-</div>
+    <!-- Navigation Header -->
+    <nav class="relative z-10 p-6">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <div class="w-14 h-14 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="absolute -inset-2 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-20 blur-lg animate-pulse"></div>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-black bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent">
+                        PowerApps Generator
+                    </h1>
+                    <p class="text-[#FFCC00]/80 text-sm font-medium">Générateur IA de Solutions Avancées</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-white/10 backdrop-blur-2xl rounded-full px-6 py-3 border border-white/20 hover:border-[#FFCC00]/30 transition-all duration-300">
+                <div class="relative">
+                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                    <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75"></div>
+                </div>
+                <span class="text-white text-sm font-semibold tracking-wide">Système Actif</span>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Main Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+
+            <!-- Left Column - Generator -->
+            <div class="space-y-8">
+                <!-- Header Section -->
+                <div class="text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-3 bg-[#742774]/20 backdrop-blur-2xl text-[#FFCC00] border border-[#742774]/30 rounded-full px-6 py-3 hover:border-[#FFCC00]/50 transition-all duration-500">
+                        <div class="relative">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
+                        <span class="font-bold tracking-wide">Générateur IA Avancé</span>
+                        <div class="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent"></div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h2 class="text-5xl md:text-6xl font-black leading-none">
+                            <span class="bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent">
+                                🧠 CRÉEZ
+                            </span>
+                            <span class="block text-[#FFCC00] drop-shadow-2xl animate-pulse">
+                                L'IMPOSSIBLE
+                            </span>
+                        </h2>
+                        <div class="relative">
+                            <p class="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed font-light">
+                                Transformez vos structures JSON en
+                                <span class="relative inline-block">
+                                    <span class="text-[#FFCC00] font-bold">applications PowerApps</span>
+                                    <div class="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent animate-pulse"></div>
+                                </span>
+                                révolutionnaires
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="relative bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-8 shadow-2xl hover:shadow-[#FFCC00]/10 transition-all duration-700 group">
+                    <!-- Holographic Border Effect -->
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774]/20 via-transparent to-[#FFCC00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute inset-[1px] rounded-3xl bg-black/40 backdrop-blur-3xl"></div>
+
+                    <form id="solutionForm" class="space-y-8 relative z-10">
+                        <div>
+                            <label for="jsonInput" class="block text-white font-bold mb-4 flex items-center gap-3 text-lg">
+                                <span class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></span>
+                                Configuration JSON Intelligente
+                            </label>
+                            <div class="relative group">
+                                <textarea id="jsonInput"
+                                          rows="16"
+                                          placeholder="Collez ici votre configuration JSON révolutionnaire..."
+                                          class="w-full rounded-2xl px-8 py-6 text-white bg-white/5 backdrop-blur-xl border border-white/20 text-sm resize-none font-mono
+                                           focus:outline-none focus:ring-2 focus:ring-[#FFCC00]/50 focus:border-[#FFCC00]/50 transition-all duration-500
+                                           hover:border-white/30 placeholder-white/40 leading-relaxed shadow-inner"
+                                          required></textarea>
+
+                                <!-- Character Counter -->
+                                <div class="absolute bottom-4 right-4 px-4 py-2 bg-black/60 backdrop-blur-xl rounded-full text-xs text-white/70 border border-white/10">
+                                    <span id="charCount">0</span><span class="text-[#FFCC00] font-bold"> caractères</span>
+                                </div>
+
+                                <!-- Focus Ring Effect -->
+                                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
+                            </div>
+                        </div>
+
+                        <!-- Example Button -->
+                        <div class="flex gap-4">
+                            <button type="button" onclick="fillExample()"
+                                    class="px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-xl font-semibold
+                                           hover:bg-[#742774]/20 hover:border-[#742774]/50 hover:text-[#FFCC00] transition-all duration-300 transform hover:scale-105 hover:rotate-1">
+                                <span class="flex items-center gap-2">
+                                    📝 <span>Exemple Magique</span>
+                                </span>
+                            </button>
+                        </div>
+
+                        <!-- Generate Button with Integrated Loading -->
+                        <div id="generateSection">
+                            <!-- Normal State -->
+                            <button type="submit" id="generateBtn"
+                                    class="w-full relative group bg-gradient-to-r from-[#742774] via-[#000000] to-[#FFCC00] text-white font-black text-xl px-12 py-8 rounded-2xl
+                                           shadow-2xl hover:shadow-[#FFCC00]/20 transform hover:scale-[1.02] transition-all duration-500
+                                           focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/30 overflow-hidden">
+
+                                <!-- Animated Background -->
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#FFCC00] via-[#742774] to-[#000000] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                <!-- Button Content -->
+                                <div class="relative flex items-center justify-center gap-4">
+                                    <div class="relative">
+                                        <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180 group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                        </svg>
+                                        <div class="absolute inset-0 w-8 h-8 bg-white/20 rounded-full animate-ping opacity-0 group-hover:opacity-75"></div>
+                                    </div>
+                                    <span class="tracking-wide">🚀 GÉNÉRER L'APPLICATION</span>
+                                    <div class="w-8 h-[2px] bg-white/40 group-hover:bg-white transition-colors duration-500"></div>
+                                </div>
+                            </button>
+
+                            <!-- Loading State (Hidden by default) -->
+                            <div id="loadingState" class="hidden w-full bg-gradient-to-r from-[#742774] via-[#000000] to-[#FFCC00] rounded-2xl p-8 shadow-2xl">
+                                <div class="flex items-center justify-center gap-6">
+                                    <!-- Advanced Loading Animation -->
+                                    <div class="relative w-16 h-16">
+                                        <div class="absolute inset-0 border-4 border-[#742774]/30 rounded-full"></div>
+                                        <div class="absolute inset-0 border-4 border-transparent border-t-[#742774] rounded-full animate-spin"></div>
+                                        <div class="absolute inset-2 border-4 border-transparent border-t-[#FFCC00] rounded-full animate-spin" style="animation-direction: reverse;"></div>
+                                        <svg class="absolute inset-0 w-6 h-6 text-white m-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <h3 class="text-xl font-bold text-white mb-2">🔮 Magie en cours...</h3>
+                                        <p id="loadingText" class="text-white/80 font-medium">Analyse de votre vision</p>
+                                        <div class="mt-3 w-48 h-2 bg-white/20 rounded-full overflow-hidden">
+                                            <div id="progressBar" class="h-full bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full transition-all duration-1000 w-0"></div>
+                                        </div>
+                                    </div>
+
+                                    <button onclick="cancelGeneration()"
+                                            class="px-6 py-3 border border-white/30 text-white rounded-xl hover:bg-white/10 transition-colors duration-300 font-semibold">
+                                        Annuler
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Result Section -->
+                    <div id="result" class="mt-8"></div>
+                </div>
+            </div>
+
+            <!-- Right Column - Real-time Logs -->
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-3 flex items-center gap-3">
+                        <div class="relative">
+                            <svg class="w-8 h-8 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        Suivi Temps Réel
+                    </h3>
+                    <p class="text-white/80 text-lg">Observez la magie opérer en direct</p>
+                </div>
+
+                <!-- Logs Container -->
+                <div class="relative bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-6 h-[500px] flex flex-col shadow-2xl">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774]/10 via-transparent to-[#FFCC00]/10 opacity-50"></div>
+
+                    <div class="relative z-10 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-[#FFCC00]/30">
+                        <ul id="logs" class="space-y-3"></ul>
+                        <div id="emptyState" class="flex items-center justify-center h-full text-white/50">
+                            <div class="text-center">
+                                <div class="relative w-16 h-16 mx-auto mb-4">
+                                    <svg class="w-16 h-16 opacity-30 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-lg font-medium">En attente de la magie...</p>
+                                <p class="text-sm text-white/40 mt-1">Les logs apparaîtront ici</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Status Indicators -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="relative">
+                                <div id="connectionStatus" class="w-4 h-4 rounded-full bg-gray-500 transition-all duration-300"></div>
+                                <div class="absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0" id="connectionPing"></div>
+                            </div>
+                            <div>
+                                <p class="text-white font-bold text-sm">Connexion</p>
+                                <p class="text-white/60 text-xs">SignalR Hub</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all duration-300">
+                        <div class="flex items-center gap-4">
+                            <div class="relative">
+                                <div id="generationStatus" class="w-4 h-4 rounded-full bg-gray-500 transition-all duration-300"></div>
+                                <div class="absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0" id="generationPing"></div>
+                            </div>
+                            <div>
+                                <p class="text-white font-bold text-sm">Statut</p>
+                                <p id="statusText" class="text-white/60 text-xs">En attente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
-
-    <script>
-        document.getElementById("solutionForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const json = document.getElementById("jsonInput").value;
-
-            try {
-                const response = await fetch("https://localhost:7094/api/PowerApps/build-solution", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: json
-                });
-
-                        const data = await response.json();
-
-        if (data.details && data.details.appUrl) {
-            document.getElementById("result").innerHTML =
-                `<p>✅ Solution générée avec succès ! <a href="${data.details.appUrl}" target="_blank">👉 Cliquez ici pour accéder à l'application</a></p>`;
-        } else {
-            document.getElementById("result").innerHTML =
-                `<p>✅ Solution générée mais aucun lien d'application trouvé dans la réponse.</p>`;
-        }
-
-            } catch (err) {
-                document.getElementById("result").innerHTML =
-                    `<span style="color:red">❌ Erreur : ${err}</span>`;
-            }
-        });
-    </script>
-
-    <!-- SignalR côté client -->
-
-  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 
     <script>
-        const connection = new signalR.HubConnectionBuilder()
-            .withUrl("https://localhost:7094/loghub") // 🔁 Remplace par le bon port de ton projet API
-            .configureLogging(signalR.LogLevel.Information)
-            .build();
+                let isGenerating = false;
+                let progressInterval;
+                let loadingMessages = [
+                    "🔍 Analyse sémantique avancée...",
+                    "🧠 Traitement par intelligence artificielle...",
+                    "⚡ Génération de l'architecture...",
+                    "🎨 Application des thèmes visuels...",
+                    "🔧 Optimisation des composants...",
+                    "🚀 Finalisation de l'application..."
+                ];
+                let currentMessageIndex = 0;
 
-        connection.start()
-            .then(() => {
-                console.log("✅ Connexion réussie !");
-                document.getElementById("logs").innerHTML += "<li>✅ Connexion réussie !</li>";
-            })
-            .catch(err => {
-                console.error("❌ Échec de connexion :", err);
-                document.getElementById("logs").innerHTML += "<li style='color:red'>❌ Connexion échouée</li>";
-            });
+                // Character counter with enhanced feedback
+                document.getElementById('jsonInput').addEventListener('input', function() {
+                    const charCount = this.value.length;
+                    const counter = document.getElementById('charCount');
+                    counter.textContent = charCount;
 
-        connection.on("ReceiveLog", (message) => {
-            document.getElementById("logs").innerHTML += `<li>${message}</li>`;
+                    // Enhanced visual feedback
+                    if (charCount > 1000) {
+                        counter.parentElement.className = counter.parentElement.className.replace(/text-white\/70/, 'text-[#FFCC00]');
+                    } else {
+                        counter.parentElement.className = counter.parentElement.className.replace(/text-\[#FFCC00\]/, 'text-white/70');
+                    }
+                });
+
+                // Enhanced example JSON
+                function fillExample() {
+                    const exampleJson = `{
+          "app": {
+            "name": "Gestion des Employés Révolutionnaire",
+            "description": "Application de gestion RH avec IA intégrée",
+            "version": "2.0",
+            "screens": [
+              {
+                "name": "Dashboard Intelligent",
+                "type": "overview",
+                "components": ["charts", "kpis", "notifications", "ai-insights"],
+                "layout": "modern-grid"
+              },
+              {
+                "name": "Employés",
+                "type": "list",
+                "dataSource": "employees",
+                "actions": ["create", "edit", "delete", "view", "ai-analyze"],
+                "features": ["smart-search", "predictive-analytics"]
+              },
+              {
+                "name": "Rapports IA",
+                "type": "analytics",
+                "components": ["ai-reports", "trend-analysis", "predictions"],
+                "permissions": ["manager", "hr"]
+              }
+            ],
+            "theme": {
+              "primaryColor": "#742774",
+              "secondaryColor": "#FFCC00",
+              "accentColor": "#000000",
+              "style": "futuristic",
+              "animations": true
+            },
+            "integrations": {
+              "ai": true,
+              "powerBI": true,
+              "teams": true
+            }
+          }
+        }`;
+                    document.getElementById('jsonInput').value = exampleJson;
+                    document.getElementById('charCount').textContent = exampleJson.length;
+
+                    // Visual feedback
+                    const textarea = document.getElementById('jsonInput');
+                    textarea.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        textarea.style.transform = 'scale(1)';
+                    }, 200);
+                }
+
+                // Enhanced log system
+                function addLog(message, type = 'info') {
+                    const logsContainer = document.getElementById('logs');
+                    const emptyState = document.getElementById('emptyState');
+
+                    if (emptyState) {
+                        emptyState.style.display = 'none';
+                    }
+
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start gap-4 p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 opacity-0 transform translate-y-4 transition-all duration-500 hover:bg-white/10';
+
+                    const timestamp = new Date().toLocaleTimeString();
+                    const iconColor = type === 'success' ? 'bg-green-400' : type === 'error' ? 'bg-red-400' : 'bg-[#FFCC00]';
+
+                    li.innerHTML = `
+                        <div class="relative">
+                            <div class="w-3 h-3 ${iconColor} rounded-full mt-2 flex-shrink-0 animate-pulse"></div>
+                            <div class="absolute inset-0 w-3 h-3 ${iconColor} rounded-full animate-ping opacity-75"></div>
+                        </div>
+                        <div class="flex-1">
+                            <span class="text-white/90 text-sm font-mono leading-relaxed">${message}</span>
+                            <div class="text-white/40 text-xs mt-1">${timestamp}</div>
+                        </div>
+                    `;
+
+                    logsContainer.appendChild(li);
+
+                    // Animate in
+                    setTimeout(() => {
+                        li.style.opacity = '1';
+                        li.style.transform = 'translateY(0)';
+                    }, 10);
+
+                    // Auto scroll with smooth behavior
+                    logsContainer.scrollTop = logsContainer.scrollHeight;
+                }
+
+                // Enhanced status system
+                function updateStatus(connection, generation, statusText) {
+                    const connectionEl = document.getElementById('connectionStatus');
+                    const generationEl = document.getElementById('generationStatus');
+                    const statusTextEl = document.getElementById('statusText');
+                    const connectionPing = document.getElementById('connectionPing');
+                    const generationPing = document.getElementById('generationPing');
+
+                    // Connection status
+                    if (connection === 'connected') {
+                        connectionEl.className = 'w-4 h-4 rounded-full bg-green-400 transition-all duration-300';
+                        connectionPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-green-400';
+                    } else if (connection === 'connecting') {
+                        connectionEl.className = 'w-4 h-4 rounded-full bg-[#FFCC00] transition-all duration-300';
+                        connectionPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-[#FFCC00]';
+                    } else {
+                        connectionEl.className = 'w-4 h-4 rounded-full bg-gray-500 transition-all duration-300';
+                        connectionPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0';
+                    }
+
+                    // Generation status
+                    if (generation === 'generating') {
+                        generationEl.className = 'w-4 h-4 rounded-full bg-[#FFCC00] transition-all duration-300';
+                        generationPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-[#FFCC00]';
+                    } else if (generation === 'completed') {
+                        generationEl.className = 'w-4 h-4 rounded-full bg-green-400 transition-all duration-300';
+                        generationPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0';
+                    } else {
+                        generationEl.className = 'w-4 h-4 rounded-full bg-red-500 transition-all duration-300';
+                        generationPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0';
+                    }
+
+                    statusTextEl.textContent = statusText;
+                }
+
+                // Integrated loading system
+                function showIntegratedLoading() {
+                    document.getElementById('generateBtn').style.display = 'none';
+                    document.getElementById('loadingState').classList.remove('hidden');
+                    isGenerating = true;
+                    updateStatus('connected', 'generating', 'Génération...');
+
+                    // Start progress animation
+                    let progress = 0;
+                    currentMessageIndex = 0;
+
+                    progressInterval = setInterval(() => {
+                        progress += Math.random() * 15 + 5;
+                        if (progress > 100) progress = 100;
+
+                        document.getElementById('progressBar').style.width = progress + '%';
+
+                        // Update loading message
+                        if (currentMessageIndex < loadingMessages.length - 1 && progress > (currentMessageIndex + 1) * (100 / loadingMessages.length)) {
+                            currentMessageIndex++;
+                            document.getElementById('loadingText').textContent = loadingMessages[currentMessageIndex];
+                        }
+
+                        if (progress >= 100) {
+                            clearInterval(progressInterval);
+                        }
+                    }, 800);
+                }
+
+                function hideIntegratedLoading() {
+                    document.getElementById('generateBtn').style.display = 'block';
+                    document.getElementById('loadingState').classList.add('hidden');
+                    document.getElementById('progressBar').style.width = '0%';
+                    isGenerating = false;
+
+                    if (progressInterval) {
+                        clearInterval(progressInterval);
+                    }
+                }
+
+                function cancelGeneration() {
+                    hideIntegratedLoading();
+                    addLog("❌ Génération annulée par l'utilisateur", 'error');
+                    updateStatus('connected', 'idle', 'Annulé');
+                }
+
+                // Enhanced form submission
+                document.getElementById("solutionForm").addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    const json = document.getElementById("jsonInput").value;
+
+                    if (!json.trim()) {
+                        alert('Veuillez saisir votre configuration JSON');
+                        return;
+                    }
+
+                    showIntegratedLoading();
+                    addLog("🚀 Démarrage de la génération révolutionnaire...");
+
+                    try {
+                        const response = await fetch("https://localhost:7094/api/PowerApps/build-solution", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: json
+                        });
+
+                        const data = await response.json();
+                        
+                        console.log(data)
+                        hideIntegratedLoading();
+
+                        if (data.details && data.details.appUrl) {
+                            console.log(data.details.appUrl);
+
+                            document.getElementById("result").innerHTML = `
+                                <div class="mt-8 p-6 bg-gradient-to-r from-green-500/10 via-green-400/5 to-green-500/10 border border-green-500/30 rounded-2xl backdrop-blur-xl shadow-2xl">
+                                    <div class="flex items-center gap-3 text-green-400 mb-4">
+                                        <div class="relative">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            <div class="absolute inset-0 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-30"></div>
+                                        </div>
+                                        <span class="font-bold text-lg">✅ Application générée avec succès!</span>
+                                    </div>
+                                    <a href="${data.details.appUrl}" target="_blank"
+                                       class="inline-flex items-center gap-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                        🚀 Lancer l'Application PowerApps
+                                    </a>
+                                </div>
+                            `;
+
+                            addLog("✅ Application PowerApps générée et déployée avec succès!", 'success');
+                            updateStatus('connected', 'completed', 'Terminé');
+                //save app in db
+                                   var appPayload = {
+                    Title:data.details.appName, // Vous pouvez remplacer dynamiquement
+
+            Status: "Success",
+            AppUrl: data.details.appUrl,
+            Id: data.details.currentOperationId
+
+
+        };
+        console.log(appPayload)
+
+        fetch("/Generator/SaveGeneratedApp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(appPayload)
+        })
+        .then(r => r.json())
+        .then(saveResponse => {
+            if (saveResponse.success) {
+                console.log("✅ Application enregistrée en base avec ID : " + saveResponse.appId, 'success');
+            } else {
+               console.log("⚠️ Application générée mais non enregistrée en base.", 'warning');
+            }
+        })
+        .catch(err => {
+            addLog("❌ Erreur lors de l'enregistrement en base : " + err, 'error');
         });
+        // end save app in db
+
+                        } else {
+                            document.getElementById("result").innerHTML = `
+                                <div class="mt-8 p-6 bg-gradient-to-r from-yellow-500/10 via-yellow-400/5 to-yellow-500/10 border border-yellow-500/30 rounded-2xl backdrop-blur-xl">
+                                    <p class="text-yellow-400 font-semibold">⚠️ Solution générée mais aucun lien d'application trouvé dans la réponse.</p>
+                                </div>
+                            `;
+                            addLog("⚠️ Erreur lors de la génération de l'application. Veuillez Consulter les logs pour en savoir plus! ");
+                            updateStatus('connected', 'Failed', 'Erreur');
+                        }
+
+                    } catch (err) {
+                        hideIntegratedLoading();
+                        document.getElementById("result").innerHTML = `
+                            <div class="mt-8 p-6 bg-gradient-to-r from-red-500/10 via-red-400/5 to-red-500/10 border border-red-500/30 rounded-2xl backdrop-blur-xl">
+                                <span class="text-red-400 font-semibold">❌ Erreur : ${err}</span>
+                            </div>
+                        `;
+                        addLog(`❌ Erreur critique : ${err}`, 'error');
+                        updateStatus('connected', 'idle', 'Erreur');
+                    }
+                });
+
+                // Enhanced SignalR Connection
+                const connection = new signalR.HubConnectionBuilder()
+                    .withUrl("https://localhost:7094/loghub")
+                    .configureLogging(signalR.LogLevel.Information)
+                    .build();
+
+                connection.start()
+                    .then(() => {
+                        console.log("✅ Connexion réussie !");
+                        addLog("✅ Connexion SignalR établie avec succès - Système opérationnel", 'success');
+                        updateStatus('connected', 'idle', 'En attente');
+                    })
+                    .catch(err => {
+                        console.error("❌ Échec de connexion :", err);
+                        addLog("❌ Échec de la connexion SignalR - Mode dégradé", 'error');
+                        updateStatus('disconnected', 'idle', 'Déconnecté');
+                    });
+
+                connection.on("ReceiveLog", (message) => {
+                    addLog(message);
+                });
+
+                // Enhanced entrance animations
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Staggered entrance animations for cards
+                    const cards = document.querySelectorAll('.space-y-6 > div, .space-y-8 > div');
+                    cards.forEach((card, index) => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 200 + 300);
+                    });
+                });
     </script>
 }

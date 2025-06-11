@@ -35,6 +35,12 @@
                 <span class="relative z-10">Accueil</span>
                 <div class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#FFCC00] group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
             </a>
+
+
+                @if (!string.IsNullOrEmpty(Context.Session.GetString("UserFirstName")))
+                {
+            
+            
             <a class="relative group py-2 px-4 rounded-xl hover:bg-white/10 transition-all duration-300" 
                asp-controller="AppGenerator" asp-action="Index">
                 <span class="relative z-10">Générer & Gérer mes applis</span>
@@ -46,8 +52,7 @@
                 <div class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[#FFCC00] group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
             </a>
             
-            @if (!string.IsNullOrEmpty(Context.Session.GetString("UserFirstName")))
-            {
+            
                 <!-- User Dropdown Desktop (When Logged In) -->
                 <div class="relative">
                     <button id="user-dropdown-btn" class="relative group py-2 px-4 rounded-xl hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
@@ -551,7 +556,7 @@
             // Attendre 3 secondes puis rediriger vers logout
             setTimeout(function() {
                 window.location.href = "/auth/logout";
-            }, 5000);
+            }, 3000);
         }
 
           
