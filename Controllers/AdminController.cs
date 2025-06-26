@@ -307,14 +307,7 @@ namespace ProjetModelDrivenFront.Controllers
         {
             try
             {
-                /*var connectionString = $@"
-            AuthType=OAuth;
-            Username={username};
-            Password={password};
-            Url={url};
-            RedirectUri=http://localhost;
-            LoginPrompt={(interactiveLogin ? "Always" : "Never")};
-        ";*/
+               
 
                 var connectionString = $@"
             AuthType=OAuth;

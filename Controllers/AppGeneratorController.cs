@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjetModelDrivenFront.data;
 using ProjetModelDrivenFront.Models;
 using ProjetModelDrivenFront.Services;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Text.Json;
 
@@ -16,10 +17,20 @@ namespace ProjetModelDrivenFront.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public AppGeneratorController(ApplicationDbContext context)
+        private readonly IConfiguration _configuration;
+
+        private readonly string _feedbackApiUrl;
+
+        public AppGeneratorController(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+
+            _feedbackApiUrl = _configuration["NLP_API:BaseUrl"];
         }
+
+
+
         public IActionResult Index()
         {
             return View();
@@ -60,13 +71,14 @@ namespace ProjetModelDrivenFront.Controllers
         public async Task<IActionResult> ProcessPhrase(IFormCollection form)
         {
             var userPhrase = form["userPhrase"];
+            HttpContext.Session.SetString("userprompt", userPhrase);
             var client = new HttpClient();
 
             var payload = new { prompt = userPhrase };
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("http://c144-34-148-115-230.ngrok-free.app/generate", content);
+            var response = await client.PostAsync(_feedbackApiUrl+ "/generate", content);
             var result = await response.Content.ReadAsStringAsync();
 
             Console.WriteLine("🟢 JSON Reçu :");
@@ -138,7 +150,7 @@ namespace ProjetModelDrivenFront.Controllers
         }
 
     
-
+        //va etre utiliser dans le mathode graph
         private List<object> GenerateElements(SchemaRoot root)
         {
             var elements = new List<object>();
@@ -163,18 +175,41 @@ namespace ProjetModelDrivenFront.Controllers
             }
             if (root?.schema?.relations != null)
             {
+                string relationType;
+
                 foreach (var relation in root.schema.relations)
                 {
-                    string relationType = relation.type == "many_to_many" ? "has_many_to_many" : "has_one_to_many";
-                    elements.Add(new
+                    if (relation.type == "many_to_one")
                     {
-                        data = new
+                        relationType = "has_one_to_many";
+                        elements.Add(new
                         {
-                            source = relation.from,
-                            target = relation.to,
-                            label = relationType
-                        }
-                    });
+                            data = new
+                            {
+                                source = relation.to,
+                                target = relation.from,
+                                label = relationType
+                            }
+                        });
+
+
+                    }
+                    else
+                    {
+
+                        relationType = relation.type == "many_to_many" ? "has_many_to_many" : "has_one_to_many";
+
+                        elements.Add(new
+                        {
+                            data = new
+                            {
+                                source = relation.from,
+                                target = relation.to,
+                                label = relationType
+                            }
+                        });
+                    }
+
                 }
             }
             return elements;
@@ -210,7 +245,7 @@ namespace ProjetModelDrivenFront.Controllers
             }
 
        
-            return View("Result", model); // ou rediriger, etc.
+            return View("Result", model); 
         }
 
         [HttpPost]
@@ -240,7 +275,7 @@ namespace ProjetModelDrivenFront.Controllers
         }
 
         
-        public IActionResult StoreAndRedirect([FromBody] SchemaRoot root)
+        public IActionResult StoreAndRedirect2([FromBody] SchemaRoot root)
         {
             if (root?.schema == null)
                 return BadRequest("Schéma invalide");
@@ -252,6 +287,55 @@ namespace ProjetModelDrivenFront.Controllers
             HttpContext.Session.SetString("powerapps_json", serialized);
 
             return Ok(new { redirectUrl = Url.Action("ShowResult") });
+        }
+
+
+        public async Task<IActionResult> StoreAndRedirect([FromBody] SchemaRoot root)
+        {
+            if (root?.schema == null)
+                return BadRequest("Schéma invalide");
+
+            var json = SchemaTransformer.Transform(root);
+     
+            var serialized = System.Text.Json.JsonSerializer.Serialize(json);
+           
+            HttpContext.Session.SetString("powerapps_json", serialized);
+           
+
+            // Appel vers l'API feedback
+            try
+            {
+                var feedbackPayload = new
+                {
+                    prompt = HttpContext.Session.GetString("userprompt") , // tu remplaces par ton vrai prompt
+                    corrected_json = serialized
+                };
+
+                var feedbackSerialized = System.Text.Json.JsonSerializer.Serialize(feedbackPayload);
+
+                using var httpClient = new HttpClient();
+                var content = new StringContent(feedbackSerialized, System.Text.Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PostAsync(_feedbackApiUrl +"/feedback", content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Feedback API error: {response.StatusCode}");
+                    // Tu peux décider de retourner une erreur ou juste logger
+                }
+                else
+                {
+                    var feedbackResponse = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Feedback API response: {feedbackResponse}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception lors de l'appel à l'API feedback: {ex.Message}");
+                // Tu peux aussi logger plus de détails si besoin
+            }
+
+            //return Ok(new { redirectUrl = Url.Action("ShowResult") });
+            return Ok(new { redirectUrl = Url.Action("Index", "Generator") , serializedJson= serialized });
         }
 
 

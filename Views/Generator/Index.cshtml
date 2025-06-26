@@ -2,90 +2,64 @@
     ViewData["Title"] = "Générateur de Solution Power Apps";
 }
 
-<!-- Background avec effets visuels -->
-<div class="min-h-screen bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] relative overflow-hidden">
+<!-- Background avec effets visuels modernes EY -->
+<div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#742774]/30 via-black/70 to-[#FFCC00]/30"></div>
-        <div class="absolute top-20 left-20 w-96 h-96 bg-[#742774]/20 rounded-full mix-blend-screen filter blur-3xl animate-pulse"></div>
-        <div class="absolute top-40 right-20 w-80 h-80 bg-[#FFCC00]/30 rounded-full mix-blend-screen filter blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
-        <div class="absolute bottom-20 left-40 w-72 h-72 bg-[#742774]/25 rounded-full mix-blend-screen filter blur-xl animate-pulse" style="animation-delay: 2s;"></div>
-
-        <!-- Animated Grid -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="h-full w-full animate-pulse" style="background-image:
-                linear-gradient(rgba(255,204,0,0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,204,0,0.3) 1px, transparent 1px);
-                background-size: 60px 60px;"></div>
+        <!-- EY Logo Background -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-15">
+            <div class="w-96 h-96 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full animate-pulse"></div>
         </div>
+
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
+
+        <!-- Floating orbs with blur effect -->
+        <div class="absolute top-20 right-1/4 w-72 h-72 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-32 left-1/4 w-96 h-96 bg-gradient-to-r from-[#FFCC00]/15 to-[#742774]/15 rounded-full blur-3xl animate-pulse" style="animation-delay: 1000ms;"></div>
+
+        <!-- Geometric accent lines -->
+        <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#742774]/30 to-transparent"></div>
+        <div class="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent"></div>
     </div>
 
-    <!-- Navigation Header -->
-    <nav class="relative z-10 p-6">
-        <div class="flex justify-between items-center max-w-7xl mx-auto">
-            <div class="flex items-center gap-4">
-                <div class="relative">
-                    <div class="w-14 h-14 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="absolute -inset-2 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-20 blur-lg animate-pulse"></div>
-                </div>
-                <div>
-                    <h1 class="text-3xl font-black bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent">
-                        PowerApps Generator
-                    </h1>
-                    <p class="text-[#FFCC00]/80 text-sm font-medium">Générateur IA de Solutions Avancées</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-3 bg-white/10 backdrop-blur-2xl rounded-full px-6 py-3 border border-white/20 hover:border-[#FFCC00]/30 transition-all duration-300">
-                <div class="relative">
-                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse"></div>
-                    <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75"></div>
-                </div>
-                <span class="text-white text-sm font-semibold tracking-wide">Système Actif</span>
-            </div>
-        </div>
-    </nav>
+    <!-- Sticky Messages Overlay -->
+    <div id="stickyMessages" class="fixed top-4 right-4 z-50 space-y-2 max-w-md mt-32"></div>
+
+
+
 
     <!-- Main Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 py-8">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-8 mt-32">
         <div class="grid lg:grid-cols-2 gap-8">
 
             <!-- Left Column - Generator -->
             <div class="space-y-8">
                 <!-- Header Section -->
                 <div class="text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-3 bg-[#742774]/20 backdrop-blur-2xl text-[#FFCC00] border border-[#742774]/30 rounded-full px-6 py-3 hover:border-[#FFCC00]/50 transition-all duration-500">
-                        <div class="relative">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                        </div>
-                        <span class="font-bold tracking-wide">Générateur IA Avancé</span>
-                        <div class="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent"></div>
-                    </div>
+                    
 
                     <div class="space-y-4">
-                        <h2 class="text-5xl md:text-6xl font-black leading-none">
-                            <span class="bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent">
-                                🧠 CRÉEZ
+
+                        <!-- Main Title -->
+                        <h6 class="text-3xl md:text-4xl lg:text-3xl font-bold text-white mb-4 leading-tight">
+                            <span class="block">Générez vos Applications</span>
+                            <span class="block bg-gradient-to-r from-[#FFCC00] via-white to-[#742774] bg-clip-text text-transparent">
+                                Model-Driven SANS CODER
                             </span>
-                            <span class="block text-[#FFCC00] drop-shadow-2xl animate-pulse">
-                                L'IMPOSSIBLE
-                            </span>
-                        </h2>
-                        <div class="relative">
-                            <p class="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed font-light">
-                                Transformez vos structures JSON en
-                                <span class="relative inline-block">
-                                    <span class="text-[#FFCC00] font-bold">applications PowerApps</span>
-                                    <div class="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent animate-pulse"></div>
-                                </span>
-                                révolutionnaires
-                            </p>
+                        </h6>
+
+                        <div class=" mt-3 inline-flex items-center gap-3 bg-[#742774]/20 backdrop-blur-2xl text-[#FFCC00] border border-[#742774]/30 rounded-full px-6 py-3 hover:border-[#FFCC00]/50 transition-all duration-500">
+                            <div class="relative">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                            </div>
+                            <span class="font-bold tracking-wide">Génération de l'application en cours</span>
+                            <div class="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent"></div>
                         </div>
+
+
                     </div>
                 </div>
 
@@ -97,10 +71,29 @@
 
                     <form id="solutionForm" class="space-y-8 relative z-10">
                         <div>
-                            <label for="jsonInput" class="block text-white font-bold mb-4 flex items-center gap-3 text-lg">
-                                <span class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></span>
-                                Configuration JSON Intelligente
-                            </label>
+
+
+                            <div class="relative z-10 flex justify-between items-center mb-4">
+                                <label for="jsonInput" class="block text-white font-bold mb-4 flex items-center gap-3 text-lg">
+                                    <span class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></span>
+                                    Configuration JSON
+                                </label>
+                               
+                                <button onclick="exportJsonToFile()" class="px-4 py-2 bg-gray-700/50 border border-gray-600/50 text-gray-300 rounded-xl hover:bg-gray-600/50 transition-colors duration-300 text-sm font-semibold flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                   Exporter
+                                </button>
+
+
+
+                            </div>
+
+
+
+
+                      
                             <div class="relative group">
                                 <textarea id="jsonInput"
                                           rows="16"
@@ -118,31 +111,24 @@
                                 <!-- Focus Ring Effect -->
                                 <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 -z-10 blur-xl"></div>
                             </div>
+                           
+                          
                         </div>
 
-                        <!-- Example Button -->
-                        <div class="flex gap-4">
-                            <button type="button" onclick="fillExample()"
-                                    class="px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-xl font-semibold
-                                           hover:bg-[#742774]/20 hover:border-[#742774]/50 hover:text-[#FFCC00] transition-all duration-300 transform hover:scale-105 hover:rotate-1">
-                                <span class="flex items-center gap-2">
-                                    📝 <span>Exemple Magique</span>
-                                </span>
-                            </button>
-                        </div>
+
 
                         <!-- Generate Button with Integrated Loading -->
                         <div id="generateSection">
-                            <!-- Normal State -->
+                            <!-- Normal State  -->
                             <button type="submit" id="generateBtn"
                                     class="w-full relative group bg-gradient-to-r from-[#742774] via-[#000000] to-[#FFCC00] text-white font-black text-xl px-12 py-8 rounded-2xl
                                            shadow-2xl hover:shadow-[#FFCC00]/20 transform hover:scale-[1.02] transition-all duration-500
                                            focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/30 overflow-hidden">
 
-                                <!-- Animated Background -->
+
                                 <div class="absolute inset-0 bg-gradient-to-r from-[#FFCC00] via-[#742774] to-[#000000] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                <!-- Button Content -->
+
                                 <div class="relative flex items-center justify-center gap-4">
                                     <div class="relative">
                                         <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180 group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
@@ -185,14 +171,15 @@
                         </div>
                     </form>
 
-                    <!-- Result Section -->
-                    <div id="result" class="mt-8"></div>
+
                 </div>
             </div>
 
-            <!-- Right Column - Real-time Logs -->
+            <!-- Right Column - Real-time Logs (Grayed out but copyable) -->
             <div class="space-y-6">
                 <div>
+                  
+
                     <h3 class="text-3xl font-bold text-white mb-3 flex items-center gap-3">
                         <div class="relative">
                             <svg class="w-8 h-8 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,9 +191,54 @@
                     <p class="text-white/80 text-lg">Observez la magie opérer en direct</p>
                 </div>
 
-                <!-- Logs Container -->
-                <div class="relative bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-6 h-[500px] flex flex-col shadow-2xl">
+                <!-- Notification professionnelle de succès -->
+                <div id="reopenModalBtn" class="hidden mt-8 relative mx-auto max-w-xl p-4 border border-[#742774]/40 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-xl backdrop-blur-xl text-white">
+                    <div class="flex items-center justify-between gap-4">
+                        <!-- Icône -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#742774] to-[#FFCC00] flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                          clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">Application générée avec succès</p>
+                                <p class="text-xs text-white/70">Votre solution PowerApps est prête.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bouton Voir les détails -->
+                        <button onclick="openResultModal()" class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774] text-white font-semibold text-sm rounded-xl shadow-lg hover:scale-105 transition-all duration-300">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12H9m0 0l3 3m-3-3l3-3" />
+                            </svg>
+                            Voir les détails
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Logs Container - Grayed out but copyable -->
+                <div class="relative bg-gray-800/20 backdrop-blur-3xl border border-gray-600/20 rounded-3xl p-6 h-[500px] flex flex-col shadow-2xl opacity-75">
                     <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774]/10 via-transparent to-[#FFCC00]/10 opacity-50"></div>
+
+                    <div class="relative z-10 flex justify-between items-center mb-4">
+                        <span class="text-gray-400 font-medium flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Messages système
+                        </span>
+                        <button onclick="copyLogsToClipboard()" class="px-4 py-2 bg-gray-700/50 border border-gray-600/50 text-gray-300 rounded-xl hover:bg-gray-600/50 transition-colors duration-300 text-sm font-semibold flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            Copier
+                        </button>
+                    </div>
 
                     <div class="relative z-10 flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-[#FFCC00]/30">
                         <ul id="logs" class="space-y-3"></ul>
@@ -223,6 +255,13 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Result Section 
+                <div id="result" class="mt-8">
+
+
+				</div>-->
+             
 
                 <!-- Enhanced Status Indicators -->
                 <div class="grid grid-cols-2 gap-4">
@@ -254,105 +293,206 @@
             </div>
         </div>
     </div>
+
+    <!-- Subtle bottom separator -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+
+
 </div>
+
+
+
+<!-- Modal -->
+<div id="resultModal" class="fixed inset-0 z-50  flex items-center justify-center bg-black/60 backdrop-blur-sm" >
+    <div class="bg-[#0b0f19] text-white max-w-3xl  w-full max-h-[90vh] overflow-y-auto p-6 rounded-2xl shadow-2xl relative">
+        <!-- Close Button -->
+        <button onclick="closeResultModal()" class="absolute top-4 right-4 text-white hover:text-yellow-400">
+            ✕
+        </button>
+
+        <div class="mt-8 relative overflow-hidden">
+            <!-- Success Card with EY Styling -->
+            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900
+                      border border-[#742774]/40 rounded-3xl backdrop-blur-2xl shadow-2xl
+                      hover:shadow-[#FFCC00]/10 transition-all duration-700 group">
+
+                <!-- Animated Background Pattern -->
+                <div class="absolute inset-0  opacity-50 pointer-events-none z-0">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-15">
+                        <img src="/videos/logo.gif" alt="EY Logo" class="w-80 h-80 object-contain animate-pulse" />
+                    </div>
+                    <div class="absolute inset-0 opacity-[0.03]"
+                         style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;">
+                    </div>
+                    <div class="absolute top-20 right-1/4 w-72 h-72 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full blur-3xl animate-pulse"></div>
+                    <div class="absolute bottom-32 left-1/4 w-96 h-96 bg-gradient-to-r from-[#FFCC00]/15 to-[#742774]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                </div>
+
+        <!-- Content injected here -->
+                <div id="result" style="height:800px;"></div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
 
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
-                let isGenerating = false;
-                let progressInterval;
-                let loadingMessages = [
+                // Configuration Tailwind pour les couleurs EY
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                'ey-purple': '#742774',
+                                'ey-yellow': '#FFCC00'
+                            }
+                        }
+                    }
+                }
+
+                // 🚀 LOGIQUE MÉTIER ORIGINALE PRÉSERVÉE - Variables globales
+                let isGenerating = false
+                let progressInterval
+                let stickyLogs = []
+                const loadingMessages = [
                     "🔍 Analyse sémantique avancée...",
                     "🧠 Traitement par intelligence artificielle...",
                     "⚡ Génération de l'architecture...",
                     "🎨 Application des thèmes visuels...",
                     "🔧 Optimisation des composants...",
-                    "🚀 Finalisation de l'application..."
-                ];
-                let currentMessageIndex = 0;
+                    "🚀 Finalisation de l'application...",
+                ]
+                let currentMessageIndex = 0
 
-                // Character counter with enhanced feedback
-                document.getElementById('jsonInput').addEventListener('input', function() {
-                    const charCount = this.value.length;
-                    const counter = document.getElementById('charCount');
-                    counter.textContent = charCount;
 
-                    // Enhanced visual feedback
-                    if (charCount > 1000) {
-                        counter.parentElement.className = counter.parentElement.className.replace(/text-white\/70/, 'text-[#FFCC00]');
-                    } else {
-                        counter.parentElement.className = counter.parentElement.className.replace(/text-\[#FFCC00\]/, 'text-white/70');
-                    }
-                });
 
-                // Enhanced example JSON
-                function fillExample() {
-                    const exampleJson = `{
-          "app": {
-            "name": "Gestion des Employés Révolutionnaire",
-            "description": "Application de gestion RH avec IA intégrée",
-            "version": "2.0",
-            "screens": [
-              {
-                "name": "Dashboard Intelligent",
-                "type": "overview",
-                "components": ["charts", "kpis", "notifications", "ai-insights"],
-                "layout": "modern-grid"
-              },
-              {
-                "name": "Employés",
-                "type": "list",
-                "dataSource": "employees",
-                "actions": ["create", "edit", "delete", "view", "ai-analyze"],
-                "features": ["smart-search", "predictive-analytics"]
-              },
-              {
-                "name": "Rapports IA",
-                "type": "analytics",
-                "components": ["ai-reports", "trend-analysis", "predictions"],
-                "permissions": ["manager", "hr"]
-              }
-            ],
-            "theme": {
-              "primaryColor": "#742774",
-              "secondaryColor": "#FFCC00",
-              "accentColor": "#000000",
-              "style": "futuristic",
-              "animations": true
-            },
-            "integrations": {
-              "ai": true,
-              "powerBI": true,
-              "teams": true
-            }
+
+        function addStickyMessage(message, type) {
+
+            stickyLogs = [{ message, type, timestamp: new Date().toLocaleTimeString() }];
+            updateStickyMessages();
+
+            // Supprimer après 5s
+            setTimeout(() => {
+              removeStickyMessage(0);
+            }, 5000);
+
+        }
+
+        function updateStickyMessages() {
+          const container = document.getElementById("stickyMessages");
+          container.innerHTML = "";
+
+          stickyLogs.forEach((log, index) => {
+            const div = document.createElement("div");
+            div.className =
+              "relative bg-black/80 backdrop-blur-xl border border-yellow-400/30 rounded-xl p-4 text-white shadow-2xl sticky-fade-in";
+
+            div.innerHTML = `
+              <button class="absolute top-1 right-2 text-white/60 hover:text-white text-lg" onclick="removeStickyMessage(${index})">✕</button>
+              <div class="flex items-start gap-3">
+                ${getLogIcon(log.type)}
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-mono leading-relaxed">${log.message}</p>
+                  <p class="text-xs text-white/60 mt-1">${log.timestamp}</p>
+                </div>
+              </div>
+            `;
+
+            container.appendChild(div);
+          });
+        }
+
+        function removeStickyMessage(index) {
+          const container = document.getElementById("stickyMessages");
+          const messageDiv = container.children[index];
+
+          if (messageDiv) {
+            messageDiv.classList.remove("sticky-fade-in");
+            messageDiv.classList.add("sticky-fade-out");
+
+            // Supprimer l'élément du DOM après l'animation
+            setTimeout(() => {
+              stickyLogs.splice(index, 1);
+              updateStickyMessages();
+            }, 400); // correspond à la durée de fadeOutDown
           }
-        }`;
-                    document.getElementById('jsonInput').value = exampleJson;
-                    document.getElementById('charCount').textContent = exampleJson.length;
+        }
 
-                    // Visual feedback
-                    const textarea = document.getElementById('jsonInput');
-                    textarea.style.transform = 'scale(1.02)';
-                    setTimeout(() => {
-                        textarea.style.transform = 'scale(1)';
-                    }, 200);
+
+
+
+
+
+
+
+                function getLogIcon(type) {
+                    switch(type) {
+                        case "success":
+                            return '<svg class="w-3 h-3 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>';
+                        case "error":
+                            return '<svg class="w-3 h-3 text-red-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>';
+                        case "warning":
+                            return '<svg class="w-3 h-3 text-yellow-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>';
+                        default:
+                            return '<svg class="w-3 h-3 text-blue-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>';
+                    }
                 }
 
-                // Enhanced log system
-                function addLog(message, type = 'info') {
-                    const logsContainer = document.getElementById('logs');
-                    const emptyState = document.getElementById('emptyState');
+                function copyLogsToClipboard() {
+                    const logs = document.querySelectorAll('#logs li');
+                    const logsText = Array.from(logs).map(log => log.textContent).join('\n');
+                    navigator.clipboard.writeText(logsText).then(() => {
+                        addLog("📋 Logs copiés dans le presse-papiers", "info");
+                    });
+                }
+
+                // Character counter with enhanced feedback - LOGIQUE ORIGINALE
+                document.getElementById("jsonInput").addEventListener("input", function () {
+                    const charCount = this.value.length
+                    const counter = document.getElementById("charCount")
+                    counter.textContent = charCount
+
+                    if (charCount > 1000) {
+                        counter.parentElement.className = counter.parentElement.className.replace(/text-white\/70/, "text-[#FFCC00]")
+                    } else {
+                        counter.parentElement.className = counter.parentElement.className.replace(/text-\[#FFCC00\]/, "text-white/70")
+                    }
+                })
+
+
+                // Enhanced log system - LOGIQUE ORIGINALE AVEC DESIGN MODERNE
+                function addLog(message, type = "info") {
+                    const logsContainer = document.getElementById("logs")
+                    const emptyState = document.getElementById("emptyState")
 
                     if (emptyState) {
-                        emptyState.style.display = 'none';
+                        emptyState.style.display = "none"
                     }
 
-                    const li = document.createElement('li');
-                    li.className = 'flex items-start gap-4 p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 opacity-0 transform translate-y-4 transition-all duration-500 hover:bg-white/10';
+                    const li = document.createElement("li")
+                    li.className = "flex items-start gap-4 p-4 bg-gray-800/30 backdrop-blur-xl rounded-xl border border-gray-600/20 hover:bg-gray-700/30 transition-colors cursor-text select-text opacity-0 transform translate-y-4 transition-all duration-500"
 
-                    const timestamp = new Date().toLocaleTimeString();
-                    const iconColor = type === 'success' ? 'bg-green-400' : type === 'error' ? 'bg-red-400' : 'bg-[#FFCC00]';
+                    const timestamp = new Date().toLocaleTimeString()
+                    const iconColor =
+                        type === "success"
+                            ? "bg-green-400"
+                            : type === "error"
+                                ? "bg-red-400"
+                                : type === "warning"
+                                    ? "bg-yellow-400"
+                                    : "bg-[#FFCC00]"
 
                     li.innerHTML = `
                         <div class="relative">
@@ -360,248 +500,595 @@
                             <div class="absolute inset-0 w-3 h-3 ${iconColor} rounded-full animate-ping opacity-75"></div>
                         </div>
                         <div class="flex-1">
-                            <span class="text-white/90 text-sm font-mono leading-relaxed">${message}</span>
-                            <div class="text-white/40 text-xs mt-1">${timestamp}</div>
+                            <span class="text-gray-300 text-sm font-mono leading-relaxed">${message}</span>
+                            <div class="text-gray-500 text-xs mt-1">${timestamp}</div>
                         </div>
-                    `;
+                    `
 
-                    logsContainer.appendChild(li);
+                    logsContainer.appendChild(li)
 
-                    // Animate in
                     setTimeout(() => {
-                        li.style.opacity = '1';
-                        li.style.transform = 'translateY(0)';
-                    }, 10);
+                        li.style.opacity = "1"
+                        li.style.transform = "translateY(0)"
+                    }, 10)
 
-                    // Auto scroll with smooth behavior
-                    logsContainer.scrollTop = logsContainer.scrollHeight;
+                    logsContainer.scrollTop = logsContainer.scrollHeight
+
+                    // Ajouter aux messages sticky si important
+                    addStickyMessage(message, type);
                 }
 
-                // Enhanced status system
+                // Enhanced status system - LOGIQUE ORIGINALE
                 function updateStatus(connection, generation, statusText) {
-                    const connectionEl = document.getElementById('connectionStatus');
-                    const generationEl = document.getElementById('generationStatus');
-                    const statusTextEl = document.getElementById('statusText');
-                    const connectionPing = document.getElementById('connectionPing');
-                    const generationPing = document.getElementById('generationPing');
+                    const connectionEl = document.getElementById("connectionStatus")
+                    const generationEl = document.getElementById("generationStatus")
+                    const statusTextEl = document.getElementById("statusText")
+                    const connectionPing = document.getElementById("connectionPing")
+                    const generationPing = document.getElementById("generationPing")
 
                     // Connection status
-                    if (connection === 'connected') {
-                        connectionEl.className = 'w-4 h-4 rounded-full bg-green-400 transition-all duration-300';
-                        connectionPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-green-400';
-                    } else if (connection === 'connecting') {
-                        connectionEl.className = 'w-4 h-4 rounded-full bg-[#FFCC00] transition-all duration-300';
-                        connectionPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-[#FFCC00]';
+                    if (connection === "connected") {
+                        connectionEl.className = "w-4 h-4 rounded-full bg-green-400 transition-all duration-300"
+                        connectionPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-green-400"
+                    } else if (connection === "connecting") {
+                        connectionEl.className = "w-4 h-4 rounded-full bg-[#FFCC00] transition-all duration-300"
+                        connectionPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-[#FFCC00]"
                     } else {
-                        connectionEl.className = 'w-4 h-4 rounded-full bg-gray-500 transition-all duration-300';
-                        connectionPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0';
+                        connectionEl.className = "w-4 h-4 rounded-full bg-gray-500 transition-all duration-300"
+                        connectionPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0"
                     }
 
                     // Generation status
-                    if (generation === 'generating') {
-                        generationEl.className = 'w-4 h-4 rounded-full bg-[#FFCC00] transition-all duration-300';
-                        generationPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-[#FFCC00]';
-                    } else if (generation === 'completed') {
-                        generationEl.className = 'w-4 h-4 rounded-full bg-green-400 transition-all duration-300';
-                        generationPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0';
+                    if (generation === "generating") {
+                        generationEl.className = "w-4 h-4 rounded-full bg-[#FFCC00] transition-all duration-300"
+                        generationPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-75 bg-[#FFCC00]"
+                    } else if (generation === "completed") {
+                        generationEl.className = "w-4 h-4 rounded-full bg-green-400 transition-all duration-300"
+                        generationPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0"
+                    } else if (generation === "failed") {
+                        generationEl.className = "w-4 h-4 rounded-full bg-red-500 transition-all duration-300"
+                        generationPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0"
                     } else {
-                        generationEl.className = 'w-4 h-4 rounded-full bg-red-500 transition-all duration-300';
-                        generationPing.className = 'absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0';
+                        generationEl.className = "w-4 h-4 rounded-full bg-gray-500 transition-all duration-300"
+                        generationPing.className = "absolute inset-0 w-4 h-4 rounded-full animate-ping opacity-0"
                     }
 
-                    statusTextEl.textContent = statusText;
+                    statusTextEl.textContent = statusText
                 }
 
-                // Integrated loading system
+                // Integrated loading system - LOGIQUE ORIGINALE
                 function showIntegratedLoading() {
-                    document.getElementById('generateBtn').style.display = 'none';
-                    document.getElementById('loadingState').classList.remove('hidden');
-                    isGenerating = true;
-                    updateStatus('connected', 'generating', 'Génération...');
+                    document.getElementById("generateBtn").style.display = "none"
+                    document.getElementById("loadingState").classList.remove("hidden")
+                    isGenerating = true
+                    updateStatus("connected", "generating", "Génération...")
 
-                    // Start progress animation
-                    let progress = 0;
-                    currentMessageIndex = 0;
+                    let progress = 0
+                    currentMessageIndex = 0
 
                     progressInterval = setInterval(() => {
-                        progress += Math.random() * 15 + 5;
-                        if (progress > 100) progress = 100;
+                        progress += Math.random() * 15 + 5
+                        if (progress > 100) progress = 100
 
-                        document.getElementById('progressBar').style.width = progress + '%';
+                        document.getElementById("progressBar").style.width = progress + "%"
 
-                        // Update loading message
-                        if (currentMessageIndex < loadingMessages.length - 1 && progress > (currentMessageIndex + 1) * (100 / loadingMessages.length)) {
-                            currentMessageIndex++;
-                            document.getElementById('loadingText').textContent = loadingMessages[currentMessageIndex];
+                        if (
+                            currentMessageIndex < loadingMessages.length - 1 &&
+                            progress > (currentMessageIndex + 1) * (100 / loadingMessages.length)
+                        ) {
+                            currentMessageIndex++
+                            document.getElementById("loadingText").textContent = loadingMessages[currentMessageIndex]
                         }
 
                         if (progress >= 100) {
-                            clearInterval(progressInterval);
+                            clearInterval(progressInterval)
                         }
-                    }, 800);
+                    }, 800)
                 }
 
                 function hideIntegratedLoading() {
-                    document.getElementById('generateBtn').style.display = 'block';
-                    document.getElementById('loadingState').classList.add('hidden');
-                    document.getElementById('progressBar').style.width = '0%';
-                    isGenerating = false;
+                    document.getElementById("generateBtn").style.display = "block"
+                    document.getElementById("loadingState").classList.add("hidden")
+                    document.getElementById("progressBar").style.width = "0%"
+                    isGenerating = false
 
                     if (progressInterval) {
-                        clearInterval(progressInterval);
+                        clearInterval(progressInterval)
                     }
                 }
 
                 function cancelGeneration() {
-                    hideIntegratedLoading();
-                    addLog("❌ Génération annulée par l'utilisateur", 'error');
-                    updateStatus('connected', 'idle', 'Annulé');
+                    hideIntegratedLoading()
+                    addLog("❌ Génération annulée par l'utilisateur", "error")
+                    updateStatus("connected", "idle", "Annulé")
                 }
 
-                // Enhanced form submission
-                document.getElementById("solutionForm").addEventListener("submit", async function (e) {
-                    e.preventDefault();
 
-                    const json = document.getElementById("jsonInput").value;
 
-                    if (!json.trim()) {
-                        alert('Veuillez saisir votre configuration JSON');
-                        return;
+
+
+
+                function openResultModal() {
+    document.getElementById("resultModal").classList.remove("hidden");
+}
+
+function closeResultModal() {
+    document.getElementById("resultModal").classList.add("hidden");
+}
+
+
+
+
+
+
+
+                // 🚀 FONCTION DE GÉNÉRATION AUTOMATIQUE - LOGIQUE ORIGINALE COMPLÈTE
+                async function autoTriggerGeneration(json) {
+                    if (!json || !json.trim()) {
+                        addLog("❌ Aucun JSON valide pour la génération automatique", "error")
+                        return
                     }
 
-                    showIntegratedLoading();
-                    addLog("🚀 Démarrage de la génération révolutionnaire...");
+                    addLog("🤖 Déclenchement automatique de la génération...", "info")
+                    showIntegratedLoading()
 
                     try {
+                        // APPEL API ORIGINAL PRÉSERVÉ
                         const response = await fetch("https://localhost:7094/api/PowerApps/build-solution", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
                             },
-                            body: json
-                        });
+                            body: json,
+                        })
 
-                        const data = await response.json();
-                        
+                        const data = await response.json()
+
                         console.log(data)
-                        hideIntegratedLoading();
+                        hideIntegratedLoading()
 
                         if (data.details && data.details.appUrl) {
-                            console.log(data.details.appUrl);
-
+                            // AFFICHAGE RÉSULTAT AVEC NOUVEAU DESIGN
                             document.getElementById("result").innerHTML = `
-                                <div class="mt-8 p-6 bg-gradient-to-r from-green-500/10 via-green-400/5 to-green-500/10 border border-green-500/30 rounded-2xl backdrop-blur-xl shadow-2xl">
-                                    <div class="flex items-center gap-3 text-green-400 mb-4">
-                                        <div class="relative">
-                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                                            </svg>
-                                            <div class="absolute inset-0 w-6 h-6 bg-green-400 rounded-full animate-ping opacity-30"></div>
-                                        </div>
-                                        <span class="font-bold text-lg">✅ Application générée avec succès!</span>
-                                    </div>
-                                    <a href="${data.details.appUrl}" target="_blank"
-                                       class="inline-flex items-center gap-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                                        </svg>
-                                        🚀 Lancer l'Application PowerApps
-                                    </a>
-                                </div>
-                            `;
-
-                            addLog("✅ Application PowerApps générée et déployée avec succès!", 'success');
-                            updateStatus('connected', 'completed', 'Terminé');
-                //save app in db
-                                   var appPayload = {
-                    Title:data.details.appName, // Vous pouvez remplacer dynamiquement
-
-            Status: "Success",
-            AppUrl: data.details.appUrl,
-            Id: data.details.currentOperationId
+                                 
 
 
-        };
-        console.log(appPayload)
 
-        fetch("/Generator/SaveGeneratedApp", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(appPayload)
-        })
-        .then(r => r.json())
-        .then(saveResponse => {
-            if (saveResponse.success) {
-                console.log("✅ Application enregistrée en base avec ID : " + saveResponse.appId, 'success');
-            } else {
-               console.log("⚠️ Application générée mais non enregistrée en base.", 'warning');
-            }
-        })
-        .catch(err => {
-            addLog("❌ Erreur lors de l'enregistrement en base : " + err, 'error');
-        });
-        // end save app in db
 
+            <!-- Content -->
+            <div class="relative z-10 p-8">
+              <!-- Header -->
+              <div class="flex items-center gap-4 mb-6">
+                <!-- Icon -->
+                <div class="relative">
+                  <div class="relative w-12 h-12 bg-gradient-to-br from-[#742774] to-[#FFCC00]
+                              rounded-2xl flex items-center justify-center shadow-lg
+                              group-hover:scale-110 transition-transform duration-500">
+                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Title -->
+                <div class="flex-1">
+                  <h3 class="text-2xl font-black bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774]
+                             bg-clip-text text-transparent mb-1">
+                    ✨ Application Générée avec Succès!
+                  </h3>
+                  <p class="text-white/80 font-medium">
+                    Votre solution PowerApps est prête à être utilisée
+                  </p>
+                </div>
+
+                <!-- Status -->
+                <div class="px-4 py-2 bg-green-400/20 border border-green-400/40 rounded-full">
+                  <span class="text-green-300 font-bold text-sm flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                    DÉPLOYÉ
+                  </span>
+                </div>
+              </div>
+
+              <!-- Features -->
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-center gap-3 p-4 bg-white/5 border border-white/10
+                            rounded-xl backdrop-blur-xl hover:bg-white/10 transition-colors duration-300">
+                  <div class="w-10 h-10 bg-gradient-to-br from-[#742774] to-[#FFCC00] rounded-xl flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white font-bold text-sm">Génération Automatique</p>
+                    <p class="text-white/60 text-xs">Créé sans intervention manuelle</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-4 bg-white/5 border border-white/10
+                            rounded-xl backdrop-blur-xl hover:bg-white/10 transition-colors duration-300">
+                  <div class="w-10 h-10 bg-gradient-to-br from-[#FFCC00] to-[#742774] rounded-xl flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white font-bold text-sm">Prêt à l'Emploi</p>
+                    <p class="text-white/60 text-xs">Application immédiatement utilisable</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Détails -->
+              <div class="mb-6 p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-xl">
+                <div class="flex items-center gap-3 mb-3">
+                  <svg class="w-5 h-5 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <span class="text-white font-bold">Détails de l'Application</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-white/70">Nom:</span>
+                    <span class="text-white font-medium">${data.details.appName || "Application PowerApps"}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-white/70">ID Opération:</span>
+                    <span class="text-white font-mono text-xs">${data.details.currentOperationId || "N/A"}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-white/70">Statut:</span>
+                    <span class="text-green-400 font-bold">Actif</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-white/70">Généré le:</span>
+                    <span class="text-white font-medium">${new Date().toLocaleString("fr-FR")}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Boutons -->
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a href="${data.details.appUrl}" target="_blank"
+                   class="flex-1 group relative overflow-hidden bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774]
+                          text-white font-black text-lg px-8 py-5 rounded-2xl shadow-2xl
+                          hover:shadow-[#FFCC00]/30 transform hover:scale-[1.02] transition-all duration-500
+                          focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/30">
+                  <div class="absolute inset-0 bg-gradient-to-r from-[#FFCC00] via-yellow-400 to-[#742774]
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="relative flex items-center justify-center gap-4">
+                    <svg class="w-6 h-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
+                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    <span class="tracking-wide">LANCER L'APPLICATION</span>
+                  </div>
+                </a>
+                <!-- Actions secondaires -->
+                <div class="flex gap-3">
+                  <button onclick="copyAppUrl('${data.details.appUrl}')" class="px-6 py-3 bg-white/10 border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold flex items-center gap-2 group">
+                    📋 Copier URL
+                  </button>
+                  <button onclick="shareApp('${data.details.appUrl}', '${data.details.appName}')" class="px-6 py-3 bg-white/10 border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all duration-300 font-semibold flex items-center gap-2 group">
+                    📤 Partager
+                  </button>
+                </div>
+              </div>
+            </div>
+          
+           
+
+                            `
+
+                             openResultModal()
+                             document.getElementById("reopenModalBtn").classList.remove("hidden")
+                            addLog("✅ Application PowerApps générée et déployée automatiquement!", "success")
+                            updateStatus("connected", "completed", "Terminé")
+
+                            // SAUVEGARDE EN BASE - LOGIQUE ORIGINALE PRÉSERVÉE
+                            var appPayload = {
+                                Title: data.details.appName,
+                                Status: "Success",
+                                AppUrl: data.details.appUrl,
+                                Id: data.details.currentOperationId,
+                            }
+
+                            fetch("/Generator/SaveGeneratedApp", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(appPayload),
+                            })
+                                .then((r) => r.json())
+                                .then((saveResponse) => {
+                                    if (saveResponse.success) {
+                                        addLog("✅ Application enregistrée en base avec ID : " + saveResponse.appId, "success")
+                                    } else {
+                                        addLog("⚠️ Application générée mais non enregistrée en base.", "warning")
+                                    }
+                                })
+                                .catch((err) => {
+                                    addLog("❌ Erreur lors de l'enregistrement en base : " + err, "error")
+                                })
                         } else {
                             document.getElementById("result").innerHTML = `
                                 <div class="mt-8 p-6 bg-gradient-to-r from-yellow-500/10 via-yellow-400/5 to-yellow-500/10 border border-yellow-500/30 rounded-2xl backdrop-blur-xl">
-                                    <p class="text-yellow-400 font-semibold">⚠️ Solution générée mais aucun lien d'application trouvé dans la réponse.</p>
+                                    <p class="text-yellow-400 font-semibold">⚠️ Génération automatique : Solution générée mais aucun lien d'application trouvé.</p>
                                 </div>
-                            `;
-                            addLog("⚠️ Erreur lors de la génération de l'application. Veuillez Consulter les logs pour en savoir plus! ");
-                            updateStatus('connected', 'Failed', 'Erreur');
+                            `
+                            document.getElementById("reopenModalBtn").classList.add("hidden")
+                            addLog("⚠️ Génération automatique échouée - Aucun lien d'application trouvé", "warning")
+                            updateStatus("connected", "failed", "Erreur")
                         }
-
                     } catch (err) {
-                        hideIntegratedLoading();
+                        hideIntegratedLoading()
                         document.getElementById("result").innerHTML = `
-                            <div class="mt-8 p-6 bg-gradient-to-r from-red-500/10 via-red-400/5 to-red-500/10 border border-red-500/30 rounded-2xl backdrop-blur-xl">
-                                <span class="text-red-400 font-semibold">❌ Erreur : ${err}</span>
-                            </div>
-                        `;
-                        addLog(`❌ Erreur critique : ${err}`, 'error');
-                        updateStatus('connected', 'idle', 'Erreur');
-                    }
-                });
+                           <div class="mt-8 relative overflow-hidden">
+                <div class="relative bg-gradient-to-br from-yellow-500/10 via-amber-400/5 to-orange-500/10
+                           border border-yellow-400/30 rounded-3xl backdrop-blur-2xl shadow-2xl p-8">
 
-                // Enhanced SignalR Connection
+                    <!-- Warning Header -->
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="relative">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl
+                                       flex items-center justify-center shadow-lg">
+                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute inset-0 w-12 h-12 border-2 border-yellow-400 rounded-2xl animate-pulse opacity-30"></div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-yellow-300 mb-1">⚠️ Génération Partielle</h3>
+                            <p class="text-yellow-200/80">La solution a été générée mais aucun lien d'application n'a été trouvé</p>
+                        </div>
+                    </div>
+
+                    <!-- Troubleshooting Section -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+                        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Actions Recommandées
+                        </h4>
+                        <ul class="text-white/80 text-sm space-y-1">
+                            <li>• Vérifiez votre configuration JSON</li>
+                            <li>• Consultez les logs pour plus de détails</li>
+                            <li>• Contactez le support technique si le problème persiste</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                        `
+                        addLog(`❌ Erreur critique lors de la génération automatique : ${err}`, "error")
+                        updateStatus("connected", "idle", "Erreur")
+                    }
+                }
+
+
+                
+
+                // Enhanced form submission - LOGIQUE ORIGINALE
+
+                document.getElementById("solutionForm").addEventListener("submit", async (e) => {
+                    e.preventDefault()
+                    const json = document.getElementById("jsonInput").value
+
+                    if (!json.trim()) {
+                        alert("Veuillez saisir votre configuration JSON")
+                        return
+                    }
+
+                    // Utiliser la même fonction pour la génération manuelle
+                    await autoTriggerGeneration(json)
+                })
+
+                // Enhanced SignalR Connection - LOGIQUE ORIGINALE COMPLÈTE
+                const signalR = window.signalR
                 const connection = new signalR.HubConnectionBuilder()
                     .withUrl("https://localhost:7094/loghub")
                     .configureLogging(signalR.LogLevel.Information)
-                    .build();
+                    .build()
 
-                connection.start()
+                connection
+                    .start()
                     .then(() => {
-                        console.log("✅ Connexion réussie !");
-                        addLog("✅ Connexion SignalR établie avec succès - Système opérationnel", 'success');
-                        updateStatus('connected', 'idle', 'En attente');
+                        console.log("✅ Connexion réussie !")
+                        addLog("✅ Connexion SignalR établie avec succès - Système opérationnel", "success")
+                        updateStatus("connected", "idle", "En attente")
                     })
-                    .catch(err => {
-                        console.error("❌ Échec de connexion :", err);
-                        addLog("❌ Échec de la connexion SignalR - Mode dégradé", 'error');
-                        updateStatus('disconnected', 'idle', 'Déconnecté');
-                    });
+                    .catch((err) => {
+                        console.error("❌ Échec de connexion :", err)
+                        addLog("❌ Échec de la connexion SignalR - Mode dégradé", "error")
+                        updateStatus("disconnected", "idle", "Déconnecté")
+                    })
 
                 connection.on("ReceiveLog", (message) => {
-                    addLog(message);
-                });
+                    addLog(message)
+                })
 
-                // Enhanced entrance animations
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Staggered entrance animations for cards
-                    const cards = document.querySelectorAll('.space-y-6 > div, .space-y-8 > div');
+                // 🚀 CHARGEMENT AUTOMATIQUE ET DÉCLENCHEMENT - LOGIQUE ORIGINALE COMPLÈTE
+                document.addEventListener("DOMContentLoaded", () => {
+                    // Vérifier s'il y a du JSON stocké dans sessionStorage - LOGIQUE ORIGINALE
+                    const storedJson = sessionStorage.getItem("powerapps_json_input")
+
+                    if (storedJson) {
+                        // Remplir automatiquement le textarea
+                        const jsonInput = document.getElementById("jsonInput")
+                        if (jsonInput) {
+                            jsonInput.value = storedJson
+
+                            // Mettre à jour le compteur de caractères
+                            const charCount = document.getElementById("charCount")
+                            if (charCount) {
+                                charCount.textContent = storedJson.length
+                            }
+
+                            // Effet visuel pour indiquer que le JSON a été chargé
+                            jsonInput.style.borderColor = "#FFCC00"
+                            jsonInput.style.boxShadow = "0 0 20px rgba(255, 204, 0, 0.3)"
+
+                            addLog("📋 JSON chargé automatiquement depuis la session précédente", "info")
+
+                            // Animation de mise en évidence
+                            setTimeout(() => {
+                                jsonInput.style.transform = "scale(1.02)"
+                                setTimeout(() => {
+                                    jsonInput.style.transform = "scale(1)"
+                                    jsonInput.style.borderColor = ""
+                                    jsonInput.style.boxShadow = ""
+                                }, 300)
+                            }, 500)
+
+                            // Nettoyer le sessionStorage
+                            sessionStorage.removeItem("powerapps_json_input")
+
+                            // 🚀 DÉCLENCHEMENT AUTOMATIQUE APRÈS 2 SECONDES - LOGIQUE ORIGINALE
+                            addLog("🤖 Préparation du déclenchement automatique...", "info")
+
+                            setTimeout(() => {
+                                addLog("⚡ Lancement automatique de la génération PowerApps!", "info")
+                                autoTriggerGeneration(storedJson)
+                            }, 2000)
+                        }
+                    }
+
+                    // Animations d'entrée - LOGIQUE ORIGINALE
+                    const cards = document.querySelectorAll(".space-y-6 > div, .space-y-8 > div")
                     cards.forEach((card, index) => {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(30px)';
+                        card.style.opacity = "0"
+                        card.style.transform = "translateY(30px)"
 
-                        setTimeout(() => {
-                            card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 200 + 300);
-                    });
-                });
+                        setTimeout(
+                            () => {
+                                card.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
+                                card.style.opacity = "1"
+                                card.style.transform = "translateY(0)"
+                            },
+                            index * 200 + 300,
+                        )
+                    })
+                })
+
+                        function exportJsonToFile() {
+          const textarea = document.getElementById("jsonInput");
+          let rawJson = textarea.value;
+
+          // Format avec des commentaires pour guider l'utilisateur
+          const commentedContent =
+            `// 🚀 Mode d'emploi :\n` +
+            `// Copiez le contenu JSON ci-dessous,\n` +
+            `// puis collez-le dans le champ de saisie de l'interface du générateur d'application.\n` +
+            `// Ce fichier peut être utilisé pour regénérer une application model-driven avec Power Platform.\n\n` +
+            rawJson;
+
+          const blob = new Blob([commentedContent], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "configuration_powerapps.json";
+          a.click();
+          URL.revokeObjectURL(url);
+        }
+
+        ///////
+
+                // ENHANCED UTILITY FUNCTIONS
+        function copyAppUrl(url) {
+          navigator.clipboard
+            .writeText(url)
+            .then(() => {
+             
+              showToast("URL copiée!", "success")
+            })
+            .catch((err) => {
+                       showToast("Erreur: l'URL ne peut pas etre copié!", "error")
+            })
+        }
+
+        function shareApp(url, appName) {
+          if (navigator.share) {
+            navigator
+              .share({
+                title: `Application PowerApps: ${appName}`,
+                text: "Découvrez cette nouvelle application PowerApps générée automatiquement!",
+                url: url,
+              })
+              .then(() => {
+                                    showToast("Application partagée avec succès!", "success")
+               
+              })
+              .catch((err) => {
+                                  showToast("Erreur lors du partage!", "error")
+
+                       
+              })
+          } else {
+            // Fallback: copy to clipboard
+            copyAppUrl(url)
+          }
+        }
+
+        function triggerCelebrationEffect() {
+          // Create confetti-like effect
+          const colors = ["#742774", "#FFCC00", "#10B981", "#3B82F6"]
+
+          for (let i = 0; i < 50; i++) {
+            setTimeout(() => {
+              createConfettiParticle(colors[Math.floor(Math.random() * colors.length)])
+            }, i * 20)
+          }
+        }
+
+        function createConfettiParticle(color) {
+          const particle = document.createElement("div")
+          particle.style.cssText = `
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background: ${color};
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                left: ${Math.random() * window.innerWidth}px;
+                top: -10px;
+                animation: confetti-fall 3s linear forwards;
+            `
+
+          document.body.appendChild(particle)
+
+          setTimeout(() => {
+            particle.remove()
+          }, 3000)
+        }
+
+        function showToast(message, type = "info") {
+          const toast = document.createElement("div")
+          const bgColor = type === "success" ? "bg-green-500" : type === "error" ? "bg-red-500" : "bg-blue-500"
+
+          toast.className = `fixed bottom-4 right-4 ${bgColor} text-white px-6 py-3 rounded-xl shadow-lg z-50 transform translate-y-full transition-transform duration-300`
+          toast.textContent = message
+
+          document.body.appendChild(toast)
+
+          setTimeout(() => {
+            toast.style.transform = "translateY(0)"
+          }, 100)
+
+          setTimeout(() => {
+            toast.style.transform = "translateY(full)"
+            setTimeout(() => toast.remove(), 300)
+          }, 3000)
+        }
+
+
     </script>
 }

@@ -16,10 +16,26 @@ namespace ProjetModelDrivenFront.Controllers
 
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index2()
         {
             return View();
         }
+
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            // Récupérer le JSON depuis la session si disponible
+            var jsonFromSession = HttpContext.Session.GetString("powerapps_json");
+
+            // Passer le JSON à la vue si nécessaire
+            ViewBag.InitialJson = jsonFromSession;
+
+            return View(); // Retourne votre page HTML du générateur
+        }
+
+
+
         [HttpPost]
         public IActionResult SaveGeneratedApp([FromBody] App newApp)
         {

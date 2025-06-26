@@ -1,108 +1,133 @@
 ﻿@{
     ViewData["Title"] = "Accueil";
 }
-
-<!-- Ultra Modern Hero Section - DARK -->
-<section class="min-h-screen relative overflow-hidden bg-black">
-    <!-- Dynamic Animated Background -->
+<section class="relative min-h-[60vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <!-- Animated Background Elements -->
     <div class="absolute inset-0">
-        <!-- Animated Mesh Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] opacity-90"></div>
-
-        <!-- Floating Geometric Shapes -->
-        <div class="absolute top-20 left-20 w-96 h-96 bg-[#742774] opacity-20 rounded-full mix-blend-screen filter blur-3xl animate-float"></div>
-        <div class="absolute top-40 right-20 w-80 h-80 bg-[#FFCC00] opacity-30 rounded-full mix-blend-screen filter blur-2xl animate-float-delayed"></div>
-        <div class="absolute bottom-20 left-40 w-72 h-72 bg-[#742774] opacity-25 rounded-full mix-blend-screen filter blur-xl animate-float-slow"></div>
-
-        <!-- Animated Grid -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="h-full w-full animate-grid-move" style="background-image:
-                linear-gradient(rgba(255,204,0,0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,204,0,0.3) 1px, transparent 1px);
-                background-size: 60px 60px;"></div>
+        <!-- EY Logo Background -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-15">
+            <img src="/videos/logo.gif" alt="EY Logo Background" class="w-96 h-96 object-contain animate-pulse" />
         </div>
 
-        <!-- Particle System -->
-        <div class="absolute inset-0">
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-            <div class="particle particle-5"></div>
-            <div class="particle particle-6"></div>
-        </div>
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
+
+        <!-- Floating orbs with blur effect -->
+        <div class="absolute top-20 right-1/4 w-72 h-72 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-32 left-1/4 w-96 h-96 bg-gradient-to-r from-[#FFCC00]/15 to-[#742774]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+        <!-- Geometric accent lines -->
+        <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#742774]/30 to-transparent"></div>
+        <div class="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent"></div>
     </div>
 
-    <!-- Hero Content -->
-    <div class="relative z-10 min-h-screen flex flex-col justify-center items-center px-6 text-center mt-24">
+    <!-- Content Container -->
+    <div class="relative z-10 flex items-center min-h-[60vh]">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid lg:grid-cols-12 gap-8 items-center mt-20">
 
-        <!-- Status Badge -->
-        <div class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl rounded-full px-8 py-4 border border-white/10 hover:border-[#FFCC00]/30 transition-all duration-500 mb-8 group">
-            <div class="relative">
-                <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse"></div>
-                <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75"></div>
-            </div>
-            <span class="text-white/90 font-medium tracking-wide">Plateforme IA Nouvelle Génération</span>
-            <div class="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#FFCC00] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        </div>
+                <!-- Left Content -->
+                <div class="lg:col-span-8">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+                        <div class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                        <span class="text-sm font-medium text-white/90">Plateforme IA Nouvelle Génération</span>
+                    </div>
 
-        <!-- Main Title -->
-        <div class="space-y-8 mb-12">
-            <h1 class="text-6xl md:text-5xl lg:text-6xl font-black leading-none">
-                <span class="block bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent animate-gradient-x">
-                    Générez vos Applications Model-Driven 
-                </span>
-                <span class="block text-[#FFCC00] drop-shadow-2xl animate-glow">
-                    SANS CODER
-                </span>
-            </h1>
+                    <!-- Main Title -->
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                        <span class="block">Générez vos Applications</span>
+                        <span class="block bg-gradient-to-r from-[#FFCC00] via-white to-[#742774] bg-clip-text text-transparent">
+                            Model-Driven SANS CODER
+                        </span>
+                    </h1>
 
-            <div class="relative max-w-4xl mx-auto">
-                <p id="typewriter" class="text-2xl md:text-3xl text-white/80 leading-relaxed font-light min-h-[120px] flex items-center justify-center">
-                    <!-- Texte animé -->
-                </p>
-            
-            </div>
-        </div>
+                    <!-- Subtitle with Typewriter Effect -->
+                    <div class="relative max-w-2xl mb-8">
+                        <p id="typewriter" class="text-lg text-white/70 leading-relaxed min-h-[60px] flex items-center">
+                            <!-- Texte animé sera injecté ici -->
+                        </p>
+                    </div>
 
-        <!-- CTA Button -->
-        <form asp-controller="Home" asp-action="LoginWithMicrosoft" method="post" class="relative">
-            <button type="submit" class="group relative overflow-hidden">
-                <!-- Button Background -->
-                <div class="relative bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 p-8
-                            hover:bg-white/20 transition-all duration-500 transform hover:scale-105">
-
-                    <!-- Animated Border -->
-                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774] opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-
-                    <!-- Button Content -->
-                    <div class="relative flex items-center gap-6 text-white">
-                        <!-- Animated Icon -->
-                        <div class="relative">
-                            <div class="w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-500">
-                                <svg class="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 34 34">
-                                    <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                    <!-- Action Button -->
+                    <div class="mb-8">
+                        <form asp-controller="Home" asp-action="LoginWithMicrosoft" method="post">
+                            <button type="submit" class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#742774]/25 hover:scale-105">
+                                <div class="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 34 34">
+                                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                                    </svg>
+                                </div>
+                                Commencer maintenant
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
-                            </div>
-                            <div class="absolute -inset-2 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500"></div>
-                        </div>
+                            </button>
+                        </form>
+                    </div>
 
-                        <!-- Text -->
-                        <div class="text-left">
-                            <span class="block text-2xl font-bold group-hover:text-[#FFCC00] transition-colors duration-300">Commencer maintenant</span>
-                           
+                    <!-- Stats -->
+                    <div class="flex items-center gap-8 pt-8 border-t border-white/10">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">500+</div>
+                            <div class="text-sm text-white/60">Applications Générées</div>
                         </div>
-
-                        <!-- Arrow -->
-                        <div class="w-8 h-[2px] bg-white/40 group-hover:bg-[#FFCC00] group-hover:w-12 transition-all duration-500"></div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">98%</div>
+                            <div class="text-sm text-white/60">Taux de Satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">2 min</div>
+                            <div class="text-sm text-white/60">Temps Moyen</div>
+                        </div>
                     </div>
                 </div>
-            </button>
-        </form>
+
+                <!-- Right Visual Element -->
+                <div class="lg:col-span-4 hidden lg:block">
+                    <div class="relative">
+                        <!-- Modern geometric illustration -->
+                        <div class="relative w-full h-80">
+                            <!-- Main card -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border border-white/20 p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                                <!-- Header -->
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full"></div>
+                                    <div class="w-3 h-3 bg-[#742774] rounded-full"></div>
+                                    <div class="w-3 h-3 bg-white/30 rounded-full"></div>
+                                </div>
+
+                                <!-- Content simulation -->
+                                <div class="space-y-3">
+                                    <div class="h-4 bg-white/20 rounded w-3/4"></div>
+                                    <div class="h-4 bg-white/15 rounded w-1/2"></div>
+                                    <div class="h-4 bg-white/10 rounded w-2/3"></div>
+                                </div>
+
+                                <!-- Chart simulation -->
+                                <div class="mt-6 flex items-end gap-2 h-16">
+                                    <div class="w-4 bg-[#742774]/60 rounded-t h-8"></div>
+                                    <div class="w-4 bg-[#FFCC00]/60 rounded-t h-12"></div>
+                                    <div class="w-4 bg-[#742774]/40 rounded-t h-6"></div>
+                                    <div class="w-4 bg-[#FFCC00]/40 rounded-t h-10"></div>
+                                    <div class="w-4 bg-[#742774]/60 rounded-t h-16"></div>
+                                </div>
+                            </div>
+
+                            <!-- Floating elements -->
+                            <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#FFCC00] to-[#742774] rounded-xl opacity-80 animate-bounce delay-300"></div>
+                            <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#742774] to-[#FFCC00] rounded-full opacity-60 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-
+    <!-- Subtle bottom separator -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 </section>
+
 
 <!-- Ultra Modern Steps Section - WHITE -->
 <section  class="py-32 bg-white relative overflow-hidden">

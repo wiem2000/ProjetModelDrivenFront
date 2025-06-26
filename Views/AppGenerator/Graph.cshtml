@@ -6,73 +6,127 @@
 }
 
 
-<!-- Professional Hero Section -->
-<div class="relative  min-h-[40vh] bg-black overflow-hidden">
-    <!-- Animated Background -->
+<!-- Modern Professional Hero Section -->
+<div class="relative min-h-[60vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <!-- Animated Background Elements -->
     <div class="absolute inset-0">
-        <!-- Main gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] opacity-95"></div>
+        <!-- EY Logo Background -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-5">
+            <img src="/videos/logo.gif" alt="EY Logo Background" class="w-96 h-96 object-contain animate-pulse" />
+        </div>
 
-        <!-- Geometric patterns -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-0 w-full h-full" style="background-image:
-                linear-gradient(45deg, rgba(255,204,0,0.1) 1px, transparent 1px),
-                linear-gradient(-45deg, rgba(116,39,116,0.1) 1px, transparent 1px);
-                background-size: 60px 60px;">
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
+
+        <!-- Floating orbs with blur effect -->
+        <div class="absolute top-20 right-1/4 w-72 h-72 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-32 left-1/4 w-96 h-96 bg-gradient-to-r from-[#FFCC00]/15 to-[#742774]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+        <!-- Geometric accent lines -->
+        <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#742774]/30 to-transparent"></div>
+        <div class="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 flex items-center min-h-[60vh]">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid lg:grid-cols-12 gap-8 items-center mt-20">
+
+                <!-- Left Content -->
+                <div class="lg:col-span-8">
+                    <!-- Main Title -->
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                        <span class="block">Validation du Schéma</span>
+                        <span class="block bg-gradient-to-r from-[#FFCC00] via-white to-[#742774] bg-clip-text text-transparent">
+                            Application Métier
+                        </span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg text-white/70 mb-8 leading-relaxed max-w-2xl">
+                        visualisez et validez l'architecture de votre application via une interface intuitive.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button id="hero-edit-btn" class="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#742774]/25 hover:scale-105">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:rotate-12" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                            </svg>
+                            Modifier le Schéma
+                        </button>
+
+                        <button id="hero-view-btn" class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-medium border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                            </svg>
+                            Voir l'architecture
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="flex items-center gap-8 mt-8 pt-8 border-t border-white/10">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">50+</div>
+                            <div class="text-sm text-white/60">Applications Générées</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">98%</div>
+                            <div class="text-sm text-white/60">Taux de Satisfaction</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">2 min</div>
+                            <div class="text-sm text-white/60">Temps Moyen</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Element -->
+                <div class="lg:col-span-4 hidden lg:block">
+                    <div class="relative">
+                        <!-- Modern geometric illustration -->
+                        <div class="relative w-full h-80">
+                            <!-- Main card -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border border-white/20 p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                                <!-- Header -->
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full"></div>
+                                    <div class="w-3 h-3 bg-[#742774] rounded-full"></div>
+                                    <div class="w-3 h-3 bg-white/30 rounded-full"></div>
+                                </div>
+
+                                <!-- Content simulation -->
+                                <div class="space-y-3">
+                                    <div class="h-4 bg-white/20 rounded w-3/4"></div>
+                                    <div class="h-4 bg-white/15 rounded w-1/2"></div>
+                                    <div class="h-4 bg-white/10 rounded w-2/3"></div>
+                                </div>
+
+                                <!-- Chart simulation -->
+                                <div class="mt-6 flex items-end gap-2 h-16">
+                                    <div class="w-4 bg-[#742774]/60 rounded-t h-8"></div>
+                                    <div class="w-4 bg-[#FFCC00]/60 rounded-t h-12"></div>
+                                    <div class="w-4 bg-[#742774]/40 rounded-t h-6"></div>
+                                    <div class="w-4 bg-[#FFCC00]/40 rounded-t h-10"></div>
+                                    <div class="w-4 bg-[#742774]/60 rounded-t h-16"></div>
+                                </div>
+                            </div>
+
+                            <!-- Floating elements -->
+                            <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#FFCC00] to-[#742774] rounded-xl opacity-80 animate-bounce delay-300"></div>
+                            <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#742774] to-[#FFCC00] rounded-full opacity-60 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Floating geometric elements -->
-        <div class="absolute top-20 right-20 w-96 h-96 opacity-20">
-            <div class="w-full h-full bg-gradient-to-br from-[#742774] to-transparent rounded-3xl transform rotate-12 animate-float-slow"></div>
-        </div>
-        <div class="absolute bottom-20 left-20 w-80 h-80 opacity-15">
-            <div class="w-full h-full bg-gradient-to-tr from-[#FFCC00] to-transparent rounded-2xl transform -rotate-12 animate-float-delayed"></div>
-        </div>
     </div>
 
-
-    <!-- EY Animation Container -->
-    <div class="absolute top-1/2 right-10 transform -translate-y-1/2 hidden lg:block">
-        <div class="relative">
-            <img src="/videos/logo.gif" alt="EY Professional Animation" class="w-64 h-64 object-contain opacity-80" />
-            <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent rounded-2xl"></div>
-        </div>
-    </div>
-   
-    <!-- Content -->
-    <div class="relative z-10 min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-6 py-24">
-            <div class="max-w-4xl">
-
-                <!-- Main Title -->
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-snug tracking-tight">
-                    <span class="block">Validation du Schéma</span>
-                    <span class="block bg-gradient-to-r from-[#FFCC00] via-white to-[#742774] bg-clip-text text-transparent">
-                        de l'Application Métier
-                    </span>
-                </h1>
-
-                <!-- Subtitle -->
-                <p class="text-lg md:text-xl text-white/70 mb-10 leading-relaxed max-w-3xl">
-                    Visualisez et modifiez la structure de votre application via une représentation graphique interactive.
-                    Une fois le modèle validé, notre système génère automatiquement l’application dans Power Apps.
-                </p>
-
-
-
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Bottom Wave -->
-    <div class="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full h-auto">
-            <path fill="#f8fafc" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
-        </svg>
-    </div>
+    <!-- Subtle bottom separator -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 </div>
+
 
 <!-- Professional Main Content -->
 <div class="bg-gray-50 min-h-screen">
@@ -488,12 +542,17 @@
         <div class="grid md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Entité Source</label>
-                <input type="text" class="relation-from w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300" placeholder="ex: Client" />
+                <select class="relation-from w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
+                    <option value="">Sélectionner une entité</option>
+                </select>
+
             </div>
 
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Entité Cible</label>
-                <input type="text" class="relation-to w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300" placeholder="ex: Commande" />
+                <select class="relation-to w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
+                    <option value="">Sélectionner une entité</option>
+                </select>
             </div>
 
             <div>
@@ -604,9 +663,38 @@
         // Professional Tab Management
         document.addEventListener('DOMContentLoaded', function() {
             initializeProfessionalInterface();
+             initializeHeroButtons();
             loadInitialData();
             updateCounts();
         });
+
+
+        // Fonction pour initialiser les boutons du hero
+        function initializeHeroButtons() {
+            // Bouton "Modifier le Schéma" - affiche l'éditeur
+            document.getElementById('hero-edit-btn').addEventListener('click', function() {
+                // Déclencher le clic sur le bouton tab-editor
+                document.getElementById('tab-editor').click();
+
+                // Scroll vers la section content
+                document.querySelector('#content-editor').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+
+            // Bouton "Voir l'architecture" - affiche la visualisation
+            document.getElementById('hero-view-btn').addEventListener('click', function() {
+                // Déclencher le clic sur le bouton tab-visualization
+                document.getElementById('tab-visualization').click();
+
+                // Scroll vers la section content
+                document.querySelector('#content-visualization').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        }
 
         function initializeProfessionalInterface() {
             const tabBtns = document.querySelectorAll('.tab-btn');
@@ -675,6 +763,8 @@
                     }, 3000);
                 });
             });
+        
+        
         }
 
         function scrollToEditor() {
@@ -701,6 +791,7 @@
                 }
 
                 generateJSON();
+              updateRelationSelectors();
             }
         }
 
@@ -726,9 +817,16 @@
                 tableDiv.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => {
                     tableDiv.remove();
-                    updateCounts();
+                    updateCounts();  
+                     updateRelationSelectors();
                 }, 300);
             });
+
+            // Event listener pour détecter les changements de nom de table
+        tableDiv.querySelector('.table-name').addEventListener('input', function() {
+            updateRelationSelectors();
+        });
+
 
             // Add with animation
             tableDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
@@ -739,6 +837,7 @@
             }, 10);
 
             updateCounts();
+            updateRelationSelectors();
             return tableDiv;
         }
 
@@ -768,7 +867,7 @@
             return fieldDiv;
         }
 
-        function addRelation(from = '', to = '', type = 'one_to_many') {
+        function addRelation2(from = '', to = '', type = 'one_to_many') {
             const template = document.getElementById('professional-relation-template');
             const relationDiv = template.content.cloneNode(true).firstElementChild;
 
@@ -794,7 +893,103 @@
             updateCounts();
             return relationDiv;
         }
+    
+          function addRelation(from = '', to = '', type = 'one_to_many') {
+        const template = document.getElementById('professional-relation-template');
+        const relationDiv = template.content.cloneNode(true).firstElementChild;
 
+        // Initialiser les sélecteurs avec les tables disponibles
+        const availableTableNames = getAvailableTableNames();
+        const fromSelect = relationDiv.querySelector('.relation-from');
+        const toSelect = relationDiv.querySelector('.relation-to');
+
+        // Ajouter les options pour les tables disponibles
+        availableTableNames.forEach(tableName => {
+            const fromOption = document.createElement('option');
+            fromOption.value = tableName;
+            fromOption.textContent = tableName;
+            fromSelect.appendChild(fromOption);
+
+            const toOption = document.createElement('option');
+            toOption.value = tableName;
+            toOption.textContent = tableName;
+            toSelect.appendChild(toOption);
+        });
+
+        // Définir les valeurs par défaut si fournies
+        if (from) fromSelect.value = from;
+        if (to) toSelect.value = to;
+        if (type) relationDiv.querySelector('.relation-type').value = type;
+
+        relationDiv.querySelector('.delete-relation-btn').addEventListener('click', function() {
+            relationDiv.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                relationDiv.remove();
+                updateCounts();
+            }, 300);
+        });
+
+        relationDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
+        document.getElementById('relationsContainer').appendChild(relationDiv);
+
+        setTimeout(() => {
+            relationDiv.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+
+        updateCounts();
+        return relationDiv;
+    }
+            // Fonction pour obtenir la liste des noms de tables disponibles
+    function getAvailableTableNames() {
+        const tableNames = [];
+        document.querySelectorAll("#tablesContainer .table-item").forEach(tableDiv => {
+            const tableName = tableDiv.querySelector(".table-name").value.trim();
+            if (tableName) {
+                tableNames.push(tableName);
+            }
+        });
+        return tableNames;
+    }
+
+    // Fonction pour mettre à jour tous les sélecteurs de relations
+    function updateRelationSelectors() {
+        const availableTableNames = getAvailableTableNames();
+
+        document.querySelectorAll("#relationsContainer .relation-item").forEach(relationDiv => {
+            const fromSelect = relationDiv.querySelector(".relation-from");
+            const toSelect = relationDiv.querySelector(".relation-to");
+
+            // Sauvegarder les valeurs actuelles
+            const currentFromValue = fromSelect.value;
+            const currentToValue = toSelect.value;
+
+            // Vider les sélecteurs
+            fromSelect.innerHTML = '<option value="">Sélectionner une entité</option>';
+            toSelect.innerHTML = '<option value="">Sélectionner une entité</option>';
+
+            // Ajouter les nouvelles options
+            availableTableNames.forEach(tableName => {
+                const fromOption = document.createElement('option');
+                fromOption.value = tableName;
+                fromOption.textContent = tableName;
+                fromSelect.appendChild(fromOption);
+
+                const toOption = document.createElement('option');
+                toOption.value = tableName;
+                toOption.textContent = tableName;
+                toSelect.appendChild(toOption);
+            });
+
+            // Restaurer les valeurs si elles existent encore
+            if (availableTableNames.includes(currentFromValue)) {
+                fromSelect.value = currentFromValue;
+            }
+            if (availableTableNames.includes(currentToValue)) {
+                toSelect.value = currentToValue;
+            }
+        });
+    }
+        
         function updateCounts() {
             const tableCount = document.querySelectorAll("#tablesContainer .table-item").length;
             const relationCount = document.querySelectorAll("#relationsContainer .relation-item").length;
@@ -1156,7 +1351,7 @@
 
 
 
-
+    /*
        document.getElementById("submit-json").addEventListener("click", function () {
         const schema = generateJSON();
 
@@ -1178,6 +1373,42 @@
             alert("Une erreur est survenue.");
         });
     });
+    */
+
+       // Modifiez votre gestionnaire d'événement existant
+    document.getElementById("submit-json").addEventListener("click", () => {
+      const schema = generateJSON()
+
+      fetch("/AppGenerator/StoreAndRedirect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(schema),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.redirectUrl) {
+            
+
+           if (data.serializedJson) {
+          // Stocker le JSON dans sessionStorage pour le récupérer sur la page suivante
+          const formattedJson = JSON.stringify(JSON.parse(data.serializedJson), null, 2);
+          sessionStorage.setItem("powerapps_json_input", formattedJson);
+        } else {
+          console.warn("Aucun JSON sérialisé reçu.");
+        }
+
+            // Rediriger vers la page du générateur
+            window.location.href = data.redirectUrl
+          } else {
+            alert("Erreur de redirection.")
+          }
+        })
+        .catch((err) => {
+          console.error(err)
+          alert("Une erreur est survenue.")
+        })
+    })
+
 
 
 

@@ -1,16 +1,204 @@
 ﻿@{
     ViewData["Title"] = "Power BI Embedded";
 }
+<div class="relative min-h-screen p-8">
+    <!-- Header Section with Glass Effect -->
+    <div class="mb-8">
+        <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-8 shadow-2xl">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+                <div class="w-2 h-2 bg-[#FFCC00] rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium text-white/90">Tableau de Bord Analytique</span>
+            </div>
 
-<div class="container mt-10">
-    <h2>Tableau de bord Power BI</h2>
+            <!-- Title -->
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                <span class="block">Tableau de bord</span>
+                <span class="block bg-gradient-to-r from-[#FFCC00] via-white to-[#742774] bg-clip-text text-transparent">
+                    Power BI
+                </span>
+            </h2>
 
-    <div class="ratio ratio-16x9">
-        <iframe title="powerbilogs"
-                width="100%" height="600"
-                src="https://app.powerbi.com/view?r=eyJrIjoiOTQ0ZTNkNjItYjhhYi00NjZiLWFkODEtZDUwMDgzMTg1YzhmIiwidCI6ImRiZDY2NjRkLTRlYjktNDZlYi05OWQ4LTVjNDNiYTE1M2M2MSIsImMiOjl9"
-                frameborder="0"
-                allowfullscreen="true">
-        </iframe>
+            <!-- Subtitle -->
+            <p class="text-lg text-white/70 leading-relaxed max-w-2xl">
+                Visualisations en temps réel des historiques de création de chaque composant et indicateurs de performance clés
+            </p>
+        </div>
+    </div>
+
+    <!-- Power BI Dashboard Container with Glass Effect -->
+    <div class="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-8 shadow-2xl">
+        <!-- Dashboard Header -->
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-4">
+               
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white">Analytics Dashboard</h3>
+                    <p class="text-sm text-white/60">Résultats de création des applications dans Microsoft Power Apps</p>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center gap-3">
+                <button class="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 text-white hover:bg-white/20 transition-all duration-300" title="Actualiser">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <button class="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 text-white hover:bg-white/20 transition-all duration-300" title="Plein écran">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm12 0a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12a1 1 0 010-2h4zm-12 8a1 1 0 011 1v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm12 0a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Power BI Iframe Container with Glass Border -->
+        <div class="relative">
+            <!-- Glass Frame -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/20 p-4 shadow-inner">
+                <!-- Status Indicator -->
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-sm text-white/70">Connecté à Power BI</span>
+                    </div>
+
+                    <div class="text-sm text-white/50">
+                        Dernière mise à jour: <span id="last-update">Il y a quelques instants</span>
+                    </div>
+                </div>
+
+                <!-- Iframe with Enhanced Styling -->
+                <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                    <!-- Loading Overlay -->
+                    <div id="dashboard-loading" class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center z-10">
+                        <div class="flex flex-col items-center gap-4">
+                            <div class="w-8 h-8 border-4 border-[#742774] border-t-transparent rounded-full animate-spin"></div>
+                            <p class="text-sm font-medium text-white">Chargement du tableau de bord...</p>
+                        </div>
+                    </div>
+
+                    <!-- Power BI Iframe -->
+                    <iframe title="Power BI Dashboard - Analytics"
+                            width="100%"
+                            height="600"
+                            src="https://app.powerbi.com/view?r=eyJrIjoiOTQ0ZTNkNjItYjhhYi00NjZiLWFkODEtZDUwMDgzMTg1YzhmIiwidCI6ImRiZDY2NjRkLTRlYjktNDZlYi05OWQ4LTVjNDNiYTE1M2M2MSIsImMiOjl9"
+                            frameborder="0"
+                            allowfullscreen="true"
+                            class="w-full rounded-lg"
+                            onload="hideDashboardLoading()">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Floating Action Buttons -->
+            <div class="absolute bottom-6 right-6 flex flex-col gap-3">
+                <button class="w-12 h-12 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-white hover:scale-110" title="Exporter">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <button class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-white hover:scale-110 hover:bg-white/20" title="Partager">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+            <div class="bg-white/5 backdrop-blur-sm rounded-lg border border-white/20 p-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#742774]/20 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#FFCC00]" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm text-white/60">Rapports Actifs</p>
+                        <p class="text-xl font-bold text-white">24</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm rounded-lg border border-white/20 p-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-[#FFCC00]/20 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#742774]" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm text-white/60">Temps de Réponse</p>
+                        <p class="text-xl font-bold text-white">1.2s</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm rounded-lg border border-white/20 p-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm text-white/60">Statut</p>
+                        <p class="text-xl font-bold text-white">En ligne</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm rounded-lg border border-white/20 p-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm text-white/60">Utilisateurs</p>
+                        <p class="text-xl font-bold text-white">156</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<script>
+    // Hide loading overlay when iframe loads
+    function hideDashboardLoading() {
+        const loadingOverlay = document.getElementById('dashboard-loading');
+        if (loadingOverlay) {
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 300);
+            }, 1000); // Show loading for at least 1 second
+        }
+    }
+
+    // Update timestamp
+    function updateTimestamp() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('fr-FR');
+        const updateElement = document.getElementById('last-update');
+        if (updateElement) {
+            updateElement.textContent = `${timeString}`;
+        }
+    }
+
+    // Update every minute
+    setInterval(updateTimestamp, 60000);
+
+    // Initial update
+    document.addEventListener('DOMContentLoaded', updateTimestamp);
+</script>
