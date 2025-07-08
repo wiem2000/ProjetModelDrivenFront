@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetModelDrivenFront.data;
+using ProjetModelDrivenFront.Filters;
 using ProjetModelDrivenFront.Models;
 using ProjetModelDrivenFront.Services;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,6 +14,7 @@ using System.Text.Json;
 
 namespace ProjetModelDrivenFront.Controllers
 {
+    [SessionAuthorize]
     public class AppGeneratorController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -35,7 +37,6 @@ namespace ProjetModelDrivenFront.Controllers
         {
             return View();
         }
-
 
 
 
@@ -64,6 +65,159 @@ namespace ProjetModelDrivenFront.Controllers
 
             return View();
         }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> ToggleFavorite([FromBody] ToggleFavoriteRequest request)
+        {
+            try
+            {
+                var userIdStr = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userIdStr) || !Guid.TryParse(userIdStr, out Guid userId))
+                    return Unauthorized(new { success = false, message = "Utilisateur non connecté" });
+
+                var app = await _context.Applications.FindAsync(request.AppId);
+                if (app == null)
+                {
+                    return NotFound(new { success = false, message = "Application non trouvée" });
+                }
+
+                // Vérifier que l'application appartient à l'utilisateur
+                var environment = await _context.Environments.FindAsync(app.EnvironnementDynamicsId);
+                if (environment == null || environment.AccountId != userId)
+                {
+                    return Forbid();
+                }
+
+                // Toggle favorite status
+                app.IsFavorite = !app.IsFavorite;
+
+                await _context.SaveChangesAsync();
+
+                return Json(new
+                {
+                    success = true,
+                    isFavorite = app.IsFavorite,
+                    message = app.IsFavorite ? "Application ajoutée aux favoris" : "Application retirée des favoris"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Erreur lors de la mise à jour" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ArchiveApp([FromBody] ArchiveAppRequest request)
+        {
+            try
+            {
+                var userIdStr = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userIdStr) || !Guid.TryParse(userIdStr, out Guid userId))
+                    return Unauthorized(new { success = false, message = "Utilisateur non connecté" });
+
+                var app = await _context.Applications.FindAsync(request.AppId);
+                if (app == null)
+                {
+                    return NotFound(new { success = false, message = "Application non trouvée" });
+                }
+
+                // Vérifier que l'application appartient à l'utilisateur
+                var environment = await _context.Environments.FindAsync(app.EnvironnementDynamicsId);
+                if (environment == null || environment.AccountId != userId)
+                {
+                    return Forbid();
+                }
+
+                // Set status to archived
+                app.Status = "Archived";
+
+                await _context.SaveChangesAsync();
+
+                return Json(new
+                {
+                    success = true,
+                    message = "Application archivée avec succès"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Erreur lors de l'archivage" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UnarchiveApp([FromBody] UnarchiveAppRequest request)
+        {
+            try
+            {
+                var userIdStr = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userIdStr) || !Guid.TryParse(userIdStr, out Guid userId))
+                    return Unauthorized(new { success = false, message = "Utilisateur non connecté" });
+
+                var app = await _context.Applications.FindAsync(request.AppId);
+                if (app == null)
+                {
+                    return NotFound(new { success = false, message = "Application non trouvée" });
+                }
+
+                // Vérifier que l'application appartient à l'utilisateur
+                var environment = await _context.Environments.FindAsync(app.EnvironnementDynamicsId);
+                if (environment == null || environment.AccountId != userId)
+                {
+                    return Forbid();
+                }
+
+                // Restore to Success status (you can modify this logic as needed)
+                app.Status = "Success";
+
+                await _context.SaveChangesAsync();
+
+                return Json(new
+                {
+                    success = true,
+                    newStatus = app.Status,
+                    message = "Application désarchivée avec succès"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "Erreur lors du désarchivage" });
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> RecommendAPP([FromBody] RecommendRequest request)
+        {
+            var userPhrase = request.Prompt;
+
+            HttpContext.Session.SetString("userprompt", userPhrase);
+
+            var client = new HttpClient();
+            var payload = new { prompt = userPhrase };
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync(_feedbackApiUrl + "/find_app", content);
+            var result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine("🟢 JSON Reçu :");
+            Console.WriteLine(result);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                return Content("Pas de résultats");
+            }
+
+            return Content(result, "application/json");
+        }
+
+
+
+
+
 
 
 
@@ -106,6 +260,27 @@ namespace ProjetModelDrivenFront.Controllers
                 return Content("Erreur lors du traitement du schéma JSON : " + ex.Message);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GraphFromDb(Guid appId)
+        {
+            var app = await _context.Applications.FindAsync(appId);
+
+            if (app == null || string.IsNullOrEmpty(app.JsonSchema))
+            {
+                return NotFound("Aucune conception trouvée pour cette application.");
+            }
+
+            var schemaRoot = System.Text.Json.JsonSerializer.Deserialize<SchemaRoot>(
+                app.JsonSchema,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            );
+
+            ViewData["elements"] = JsonSerializer.Serialize(GenerateElements(schemaRoot));
+
+            return View("Graph", schemaRoot);
+        }
+
 
 
         [HttpGet]
@@ -300,7 +475,12 @@ namespace ProjetModelDrivenFront.Controllers
             var serialized = System.Text.Json.JsonSerializer.Serialize(json);
            
             HttpContext.Session.SetString("powerapps_json", serialized);
-           
+
+
+            // Stockage JSON original
+            var originalSchemaJson = System.Text.Json.JsonSerializer.Serialize(root);
+            HttpContext.Session.SetString("powerapps_json_before_transform", originalSchemaJson);
+
 
             // Appel vers l'API feedback
             try
@@ -344,5 +524,28 @@ namespace ProjetModelDrivenFront.Controllers
 
     }
 
+
+    // Request models
+    public class ToggleFavoriteRequest
+    {
+        public Guid AppId { get; set; }
+    }
+
+    public class ArchiveAppRequest
+    {
+        public Guid AppId { get; set; }
+    }
+
+    public class UnarchiveAppRequest
+    {
+        public Guid AppId { get; set; }
+    }
+
+    public class RecommendRequest
+    {
+        public string Prompt { get; set; }
+    }
+
 }
+
 

@@ -21,9 +21,10 @@
         <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#742774]/30 to-transparent"></div>
         <div class="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent"></div>
     </div>
+
     <!-- Navigation Button -->
     <a asp-controller="AppGenerator" asp-action="Apps"
-       class="fixed top-8 right-8 z-50 group  mt-24">
+       class="fixed top-8 right-8 z-50 group mt-24">
         <div class="relative p-4 bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20
                     hover:bg-[#742774]/20 transition-all duration-500 transform hover:scale-110 hover:rotate-3
                     shadow-2xl hover:shadow-[#FFCC00]/20">
@@ -57,15 +58,13 @@
                 <!-- Main Title -->
                 <div class="space-y-6">
                     <h5 class="text-7xl md:text-5xl lg:text-6xl font-black leading-none">
-                        <span class=" bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent animate-gradient-x">
+                        <span class="bg-gradient-to-r from-white via-[#FFCC00] to-white bg-clip-text text-transparent animate-gradient-x">
                             Transformez vos idées en
                         </span>
                         <span class="text-[#FFCC00] drop-shadow-2xl animate-glow">
                             APPLICATION
                         </span>
                     </h5>
-
-
                 </div>
             </div>
 
@@ -81,26 +80,10 @@
 
                     <!-- Content -->
                     <div class="relative z-10">
-                        <!-- Header -->
-                        <div class="mb-12 text-center">
-                            <div class="inline-flex items-center gap-4 mb-6">
-                                <div class="relative">
-                                    <div class="w-16 h-16 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-6 transition-transform duration-300">
-                                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                        </svg>
-                                    </div>
-                                    <div class="absolute -inset-2 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-2xl opacity-20 blur-lg animate-pulse"></div>
-                                </div>
-                                <div class="text-left">
-                                    <h2 class="text-3xl font-bold text-white">AI App Generator</h2>
-                                    <p class="text-white/60">Powered by Advanced Intelligence</p>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <!-- Form -->
-                        <form id="appGeneratorForm" method="post" action="/AppGenerator/ProcessPhrase" class="space-y-8">
+                        <form id="appGeneratorForm" class="space-y-8">
 
                             <!-- Input Section -->
                             <div class="space-y-6">
@@ -194,30 +177,156 @@
                                 </div>
                             </div>
 
-                            <!-- Generate Button -->
-                            <div class="pt-8">
-                                <button type="submit" id="generateBtn"
-                                        class="w-full relative group bg-gradient-to-r from-[#742774] via-[#000000] to-[#FFCC00] text-white font-bold text-xl px-12 py-8 rounded-2xl
-                                               shadow-2xl hover:shadow-[#FFCC00]/20 transform hover:scale-[1.02] transition-all duration-500
-                                               focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/30 overflow-hidden">
+                            <!-- Enhanced Action Section -->
+                            <div class="pt-12 space-y-8">
+                               
 
-                                    <!-- Animated Background -->
-                                    <div class="absolute inset-0 bg-gradient-to-r from-[#FFCC00] via-[#742774] to-[#000000] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <!-- Action Cards Container -->
+                                <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
-                                    <!-- Button Content -->
-                                    <div class="relative flex items-center justify-center gap-4">
-                                        <div class="relative">
-                                            <div class="w-8 h-8 transition-transform duration-500 group-hover:rotate-180 group-hover:scale-110">
-                                                <svg width="32" height="32" viewBox="0 0 34 34" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
-                                                </svg>
+                                    <!-- Recommend Card -->
+                                    <div class="group relative bg-gradient-to-br from-black/40 via-black/60 to-black/40 backdrop-blur-3xl rounded-3xl border border-[#FFCC00]/20 p-8 hover:border-[#FFCC00]/50 transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 shadow-2xl hover:shadow-[#FFCC00]/20">
+
+                                        <!-- Card Header -->
+                                        <div class="flex items-center gap-4 mb-6">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-[#FFCC00] to-[#FFD700] rounded-2xl flex items-center justify-center shadow-lg shadow-[#FFCC00]/40 group-hover:scale-110 transition-transform duration-500">
+                                                    <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="absolute -inset-2 bg-[#FFCC00]/20 rounded-2xl blur-lg animate-pulse"></div>
                                             </div>
-                                            <div class="absolute inset-0 w-8 h-8 bg-white/20 rounded-full animate-ping opacity-0 group-hover:opacity-75"></div>
+                                            <div>
+                                                <h3 class="text-2xl font-black text-white group-hover:text-[#FFCC00] transition-colors duration-300">RECOMMANDATIONS</h3>
+                                                <p class="text-white/60 font-medium">Applications existantes</p>
+                                            </div>
                                         </div>
-                                        <span class="tracking-wide">GÉNÉRER L'APPLICATION</span>
-                                        <div class="w-8 h-[2px] bg-white/40 group-hover:bg-white transition-colors duration-500"></div>
+
+                                        <!-- Card Content -->
+                                        <div class="space-y-4 mb-8">
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Analyse intelligente de votre description</p>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Top 3 des applications les plus pertinentes</p>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Score de compatibilité en temps réel</p>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Accès direct aux applications</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Recommend Button -->
+                                        <button type="button" id="recommendBtn"
+                                                class="w-full relative group/btn bg-gradient-to-r from-[#FFCC00] via-[#FFD700] to-[#FFCC00] text-black font-black text-lg px-8 py-6 rounded-2xl
+                           shadow-xl hover:shadow-2xl hover:shadow-[#FFCC00]/40 transform hover:scale-105 transition-all duration-500
+                           focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/50 overflow-hidden">
+
+                                            <!-- Button Background Animation -->
+                                            <div class="absolute inset-0 bg-gradient-to-r from-[#FFD700] via-[#FFCC00] to-[#FFD700] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
+
+                                            <!-- Button Content -->
+                                            <div class="relative flex items-center justify-center gap-4">
+                                                <div class="relative">
+                                                    <div class="w-6 h-6 transition-transform duration-500 group-hover/btn:rotate-180 group-hover/btn:scale-110">
+                                                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="absolute inset-0 w-6 h-6 bg-black/20 rounded-full animate-ping opacity-0 group-hover/btn:opacity-75"></div>
+                                                </div>
+                                                <span class="tracking-wider">RECOMMANDER</span>
+                                                <div class="w-8 h-[3px] bg-black/40 group-hover/btn:bg-black transition-colors duration-500 rounded-full"></div>
+                                            </div>
+                                        </button>
+
+                                        <!-- Time Indicator -->
+                                        <div class="mt-4 flex items-center justify-center gap-2 text-white/50 text-sm">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span>~30 secondes</span>
+                                        </div>
                                     </div>
-                                </button>
+
+                                    <!-- Generate Card -->
+                                    <div class="group relative bg-gradient-to-br from-black/40 via-black/60 to-black/40 backdrop-blur-3xl rounded-3xl border border-white/20 p-8 hover:border-[#FFCC00]/50 transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 shadow-2xl hover:shadow-black/40">
+
+                                        <!-- Card Header -->
+                                        <div class="flex items-center gap-4 mb-6">
+                                            <div class="relative">
+                                                <div class="w-16 h-16 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center shadow-lg shadow-black/60 group-hover:scale-110 transition-transform duration-500 border border-[#FFCC00]/30">
+                                                    <svg width="32" height="32" viewBox="0 0 34 34" fill="#FFCC00" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="absolute -inset-2 bg-[#FFCC00]/10 rounded-2xl blur-lg animate-pulse"></div>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-2xl font-black text-white group-hover:text-[#FFCC00] transition-colors duration-300">GÉNÉRATION</h3>
+                                                <p class="text-white/60 font-medium">Application sur mesure</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Card Content -->
+                                        <div class="space-y-4 mb-8">
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Création d'une application unique</p>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Architecture personnalisée</p>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Fonctionnalités sur mesure</p>
+                                            </div>
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-2 h-2 bg-[#FFCC00] rounded-full mt-2 flex-shrink-0"></div>
+                                                <p class="text-white/80 leading-relaxed">Déploiement automatique</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Generate Button -->
+                                        <button type="submit" id="generateBtn"
+                                                class="w-full relative group/btn bg-gradient-to-r from-black via-gray-900 to-black text-[#FFCC00] font-black text-lg px-8 py-6 rounded-2xl border-2 border-[#FFCC00]/50
+                           shadow-xl hover:shadow-2xl hover:shadow-[#FFCC00]/20 transform hover:scale-105 transition-all duration-500
+                           focus:outline-none focus:ring-4 focus:ring-[#FFCC00]/30 overflow-hidden hover:bg-gradient-to-r hover:from-[#FFCC00] hover:to-[#FFD700] hover:text-black hover:border-[#FFCC00]">
+
+                                            <!-- Button Content -->
+                                            <div class="relative flex items-center justify-center gap-4">
+                                                <div class="relative">
+                                                    <div class="w-6 h-6 transition-transform duration-500 group-hover/btn:rotate-180 group-hover/btn:scale-110">
+                                                        <svg width="24" height="24" viewBox="0 0 34 34" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="absolute inset-0 w-6 h-6 bg-[#FFCC00]/20 rounded-full animate-ping opacity-0 group-hover/btn:opacity-75"></div>
+                                                </div>
+                                                <span class="tracking-wider">GÉNÉRER</span>
+                                                <div class="w-8 h-[3px] bg-[#FFCC00]/40 group-hover/btn:bg-current transition-colors duration-500 rounded-full"></div>
+                                            </div>
+                                        </button>
+
+                                        <!-- Time Indicator -->
+                                        <div class="mt-4 flex items-center justify-center gap-2 text-white/50 text-sm">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span>~2-3 minutes</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </form>
 
@@ -247,9 +356,52 @@
             </div>
         </div>
 
+        <!-- Recommendations Section -->
+        <div id="recommendationsSection" class="hidden w-full max-w-6xl mt-16">
+            <div class="relative bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-8 md:p-12
+                        shadow-2xl hover:shadow-[#742774]/10 transition-all duration-700">
+
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center gap-4 mb-6">
+                        <div class="relative">
+                            <div class="w-16 h-16 bg-gradient-to-r from-[#FFCC00] to-[#8B4B8B] rounded-2xl flex items-center justify-center transform rotate-3">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <div class="absolute -inset-2 bg-gradient-to-r from-[#FFCC00] to-[#8B4B8B] rounded-2xl opacity-20 blur-lg animate-pulse"></div>
+                        </div>
+                        <div class="text-left">
+                            <h2 class="text-3xl font-bold text-white">Applications Recommandées</h2>
+                            <p class="text-white/60">Basées sur votre description</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations Grid -->
+                <div id="recommendationsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Recommendations will be populated here -->
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center mt-12">
+                    <button onclick="hideRecommendations()"
+                            class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl hover:bg-[#742774]/20 text-white hover:text-[#FFCC00]
+                                   font-semibold px-8 py-4 rounded-xl border border-white/10 hover:border-[#FFCC00]/30
+                                   transition-all duration-300 transform hover:scale-105">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Retour à la génération
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <!-- Ultra Modern Loading Screen -->
-        <div id="loadingScreenGenerate" class="hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-50 flex items-center justify-center ">
-            <div class="relative ">
+        <div id="loadingScreenGenerate" class="hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-50 flex items-center justify-center">
+            <div class="relative">
                 <!-- Holographic Container -->
                 <div class="bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-16 max-w-lg mx-4 text-center
                             shadow-2xl relative overflow-hidden mt-36">
@@ -260,9 +412,6 @@
 
                     <!-- Content -->
                     <div class="relative z-10">
-                        <!-- Advanced Loading Animation -->
-                        <!-- Remplacez la section de l'animation de chargement par ceci : -->
-
                         <div class="mb-12">
                             <div class="relative w-44 h-44 mx-auto">
                                 <!-- Container pour le GIF avec effets -->
@@ -291,28 +440,18 @@
                                     <div class="absolute right-0 top-1/2 w-2 h-2 bg-white rounded-full transform -translate-y-1/2 translate-x-2 animate-pulse"></div>
                                 </div>
                             </div>
-
                         </div>
 
                         <!-- Advanced Progress Steps -->
-                        <div class="space-y-4 mb-8">
+                        <div class="space-y-4 mb-8" id="loadingSteps">
                             <div class="flex items-center gap-4 text-sm">
                                 <div class="relative">
                                     <div class="w-3 h-3 bg-[#742774] rounded-full animate-pulse"></div>
                                     <div class="absolute inset-0 w-3 h-3 bg-[#742774] rounded-full animate-ping opacity-75"></div>
                                 </div>
-                                <span class="text-white/80">Analyse sémantique avancée...</span>
+                                <span class="text-white/80" id="loadingText">Analyse sémantique avancée...</span>
                                 <div class="flex-1 h-[1px] bg-gradient-to-r from-[#742774] to-transparent"></div>
                             </div>
-                            <div class="flex items-center gap-4 text-sm">
-                                <div class="relative">
-                                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full animate-pulse delay-500"></div>
-                                    <div class="absolute inset-0 w-3 h-3 bg-[#FFCC00] rounded-full animate-ping opacity-75 delay-500"></div>
-                                </div>
-                                <span class="text-white/80">Génération de l'architecture...</span>
-                                <div class="flex-1 h-[1px] bg-gradient-to-r from-[#FFCC00] to-transparent"></div>
-                            </div>
-
                         </div>
 
                         <!-- Cancel Button -->
@@ -323,16 +462,14 @@
                         </button>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
     </div>
 </section>
 
-
 <script>
+
     // Enhanced character counter with smooth animations
     document.getElementById('userPhrase').addEventListener('input', function() {
         const charCount = this.value.length;
@@ -377,30 +514,205 @@
             }, 200);
         }, 100);
     }
+    document.getElementById('recommendBtn').addEventListener('click', async function() {
+        const userPhrase = document.querySelector('[name="userPhrase"]').value.trim();
+
+        if (!userPhrase) {
+            alert('Veuillez décrire votre application pour obtenir des recommandations');
+            return;
+        }
+
+        // Show loading
+        showLoading('Recherche d\'applications similaires...');
+
+        try {
+            const response = await fetch('/AppGenerator/RecommendAPP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: userPhrase })  // <-- corps JSON
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            // Hide loading and show recommendations
+            hideLoading();
+            showRecommendations(data.results);
+
+        } catch (error) {
+            console.error('Erreur lors de la récupération des recommandations:', error);
+            hideLoading();
+            alert('Erreur lors de la récupération des recommandations. Veuillez réessayer.');
+        }
+    });
+
+
 
 
     document.getElementById('appGeneratorForm').addEventListener('submit', function (e) {
-    const userPhrase = document.querySelector('[name="userPhrase"]').value.trim();
+        const userPhrase = document.querySelector('[name="userPhrase"]').value.trim();
 
-    if (!userPhrase) {
-        e.preventDefault();
-        alert('Veuillez décrire votre application');
-        return;
+        if (!userPhrase) {
+            e.preventDefault();
+            alert('Veuillez décrire votre application');
+            return;
+        }
+
+        // Show loading for generation
+        showLoading('Génération de l\'architecture...');
+
+        // Continue with form submission to original endpoint
+        this.action = '/AppGenerator/ProcessPhrase';
+        this.method = 'post';
+    });
+
+    function showRecommendations(recommendations) {
+        const recommendationsSection = document.getElementById('recommendationsSection');
+        const recommendationsGrid = document.getElementById('recommendationsGrid');
+        const mainContent = document.getElementById('mainContent');
+
+        // Clear previous recommendations
+        recommendationsGrid.innerHTML = '';
+
+        // Create recommendation cards
+        recommendations.forEach((app, index) => {
+            const similarityPercentage = Math.round(app.similarity * 100);
+            const card = createRecommendationCard(app, similarityPercentage, index);
+            recommendationsGrid.appendChild(card);
+        });
+
+        // Hide main content and show recommendations
+        mainContent.style.display = 'none';
+        recommendationsSection.classList.remove('hidden');
+
+        // Animate cards entrance
+        setTimeout(() => {
+            const cards = recommendationsGrid.querySelectorAll('.recommendation-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }, 100);
     }
 
-    // Affiche l'écran de chargement
-    showLoading();
+    function createRecommendationCard(app, similarityPercentage, index) {
+        const card = document.createElement('div');
+        card.className = 'recommendation-card group relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-[#742774]/30 hover:bg-white/10 transition-all duration-500 transform hover:scale-105 cursor-pointer';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
 
-    
-});
+        // Determine color based on similarity score
+        let scoreColor = 'text-red-400';
+        let bgColor = 'from-red-500/20 to-red-600/20';
+        let borderColor = 'border-red-500/30';
+
+        if (similarityPercentage >= 60) {
+            scoreColor = 'text-green-400';
+            bgColor = 'from-green-500/20 to-green-600/20';
+            borderColor = 'border-green-500/30';
+        } else if (similarityPercentage >= 30) {
+            scoreColor = 'text-yellow-400';
+            bgColor = 'from-yellow-500/20 to-yellow-600/20';
+            borderColor = 'border-yellow-500/30';
+        }
+
+        card.innerHTML = `
+            <!-- Holographic Border Effect -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r ${bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+                <!-- Header with similarity score -->
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-r from-[#FFCC00] to-[#8B4B8B] rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg group-hover:text-[#FFCC00] transition-colors duration-300">${app.name}</h3>
+                            <p class="text-white/60 text-sm">Application Power Apps</p>
+                        </div>
+                    </div>
 
 
+                </div>
 
-    
- 
+                <!-- App ID -->
+                <div class="mb-4 p-3 bg-black/30 rounded-lg border border-white/10">
+                    <div class="flex items-center gap-2 mb-1">
+                        <svg class="w-4 h-4 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                        </svg>
+                        <span class="text-white/80 text-xs font-medium">ID Application</span>
+                    </div>
+                    <code class="text-white/60 text-xs font-mono break-all">${app.id}</code>
+                </div>
 
-   function showLoading() {
+                <!-- Similarity Progress Bar -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-white/80 text-sm font-medium">Similarité</span>
+                        <span class="${scoreColor} text-sm font-bold">${similarityPercentage}%</span>
+                    </div>
+                    <div class="w-full bg-black/30 rounded-full h-2 overflow-hidden">
+                        <div class="h-full bg-gradient-to-r ${bgColor.replace('/20', '/60')} rounded-full transition-all duration-1000 ease-out"
+                             style="width: 0%; animation: fillProgress 1.5s ease-out ${index * 0.2}s forwards;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <button onclick="openApp('${app.url}')"
+                        class="w-full bg-gradient-to-r from-[#742774] to-[#8B4B8B] hover:from-[#8B4B8B] hover:to-[#742774] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform group-hover:scale-105 flex items-center justify-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Ouvrir l'application
+                </button>
+            </div>
+        `;
+
+        // Add click handler for the entire card
+        card.addEventListener('click', function(e) {
+            if (e.target.tagName !== 'BUTTON') {
+                openApp(app.url);
+            }
+        });
+
+        return card;
+    }
+
+    function openApp(url) {
+        window.open(url, '_blank');
+    }
+
+    function hideRecommendations() {
+        const recommendationsSection = document.getElementById('recommendationsSection');
+        const mainContent = document.getElementById('mainContent');
+
+        recommendationsSection.classList.add('hidden');
+        mainContent.style.display = 'block';
+    }
+
+    function showLoading(customText = 'Analyse sémantique avancée...') {
         const loadingScreen = document.getElementById('loadingScreenGenerate');
+        const loadingText = document.getElementById('loadingText');
+
+        loadingText.textContent = customText;
         loadingScreen.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
 
@@ -426,6 +738,8 @@
 
     // Enhanced entrance animations
     document.addEventListener('DOMContentLoaded', function() {
+
+
         // Staggered entrance animations
         const elements = document.querySelectorAll('[data-aos]');
         elements.forEach((el, index) => {
@@ -449,5 +763,25 @@
                 this.style.transform = '';
             });
         });
+
+        // Update progress bars with actual percentages
+        setTimeout(() => {
+            document.querySelectorAll('.recommendation-card').forEach((card, index) => {
+                const progressBar = card.querySelector('.h-full');
+                if (progressBar) {
+                    const percentage = card.querySelector('.text-sm.font-bold').textContent.replace('%', '');
+                    progressBar.style.setProperty('--progress-width', percentage + '%');
+                }
+            });
+        }, 1000);
     });
+
+    @if (TempData["Success"] != null)
+    {
+        <text>
+                        setTimeout(() => {
+                            showProfessionalNotification("Bienvenue @userName, Que voulez vous faire aujourd'hui ?", "success");
+                        }, 500);
+        </text>
+    }
 </script>

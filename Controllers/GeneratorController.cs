@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetModelDrivenFront.data;
+using ProjetModelDrivenFront.Filters;
 using ProjetModelDrivenFront.Models;
 
 namespace ProjetModelDrivenFront.Controllers
 {
+
+    [SessionAuthorize]
     public class GeneratorController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -57,7 +60,9 @@ namespace ProjetModelDrivenFront.Controllers
             Console.WriteLine($"Reçu App : {System.Text.Json.JsonSerializer.Serialize(newApp)}");
             newApp.CreatedAt = DateTime.UtcNow;
             newApp.EnvironnementDynamicsId = environment.Id;
+            newApp.JsonSchema =HttpContext.Session.GetString("powerapps_json_before_transform");
            
+
 
             _context.Applications.Add(newApp);
             _context.SaveChanges();

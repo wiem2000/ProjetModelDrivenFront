@@ -1,175 +1,319 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inscription</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .curved-bg-top {
-            clip-path: ellipse(80% 60% at 20% 0%);
-        }
+﻿<section class="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <!-- EY Logo Background -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-15">
+            <img src="/videos/logo.gif" alt="Logo Background" class="w-96 h-96 object-contain animate-pulse" />
+        </div>
 
-        .curved-bg-bottom {
-            clip-path: ellipse(80% 60% at 80% 100%);
-        }
-    </style>
-</head>
-<body class="min-h-screen bg-gray-100 relative overflow-hidden">
-    <!-- Background Curved Shapes -->
-    <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#742774] to-[#000000] curved-bg-top"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-[#000000] to-[#FFCC00] curved-bg-bottom"></div>
-    <!-- Cercles décoratifs -->
-    <div class="absolute top-8 right-8 w-4 h-4 bg-[#742774] rounded-full z-0"></div>
-    <div class="absolute top-1/3 right-12 w-32 h-32 border-4 border-[#FFCC00]/20 rounded-full z-0"></div>
-    <div class="absolute bottom-1/4 right-8 w-6 h-6 bg-[#FFCC00] rounded-full z-0"></div>
-    <div class="absolute bottom-8 right-1/3 w-48 h-48 border-2 border-[#742774]/10 rounded-full z-0"></div>
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
 
-    <!-- Bulles supplémentaires côté gauche -->
-    <div class="absolute top-1/3 left-6 w-32 h-32 border-4 border-[#FFCC00]/20 rounded-full z-0"></div>
-    <div class="absolute top-1/2 left-8 w-48 h-48 border-2 border-[#742774]/10 rounded-full z-0"></div>
-    <div class="absolute bottom-16 left-1/4 w-40 h-40 border-4 border-[#742774]/20 rounded-full z-0"></div>
-    <div class="absolute top-3/4 left-1/2 w-24 h-24 border-2 border-[#FFCC00]/20 rounded-full z-0"></div>
+        <!-- Floating orbs with blur effect -->
+        <div class="absolute top-20 right-1/4 w-72 h-72 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-32 left-1/4 w-96 h-96 bg-gradient-to-r from-[#FFCC00]/15 to-[#742774]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-    <!-- Main Container -->
-    <div class="relative z-10 min-h-screen flex items-center justify-center p-8 mt-10" data-aos="fade-up">
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden max-w-4xl w-full flex">
+        <!-- Geometric accent lines -->
+        <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#742774]/30 to-transparent"></div>
+        <div class="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent"></div>
+    </div>
 
-            <!-- Left Side - Registration Form -->
-            <div class="w-1/2 p-12">
-                <!-- Header -->
-                <div class="text-center mb-8">
-                    <h1 class="text-gray-600 text-sm font-medium mb-1">CRÉER UN COMPTE</h1>
-                    <div class="flex items-center justify-center mb-2">
-                        <img src="/images/logomauve.png" alt="logo" class="w-60 h-16">
-                    </div>
-                    <p class="text-gray-500 text-sm">
-                        Inscrivez-vous pour commencer à créer et gérer vos applications Power Platform.
-                    </p>
-                </div>
+    <!-- Content Container -->
+    <div class="relative z-10 flex items-center min-h-screen overflow-hidden pt-16">
+        <div class="max-w-7xl mx-auto px-6 py-16 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
 
-                <!-- Registration Form -->
-                <form id="registerForm" method="post" action="/Auth/Register" class="space-y-4">
-                    @Html.AntiForgeryToken()
-
-                    <!-- Username Field -->
-                    <div class="relative">
-                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
-                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                        </div>
-                        <input name="Username"
-                               type="text"
-                               placeholder="Nom d'utilisateur"
-                               required
-                               class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 focus:border-[#742774] focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none" />
-                    </div>
-
-                    <!-- Email Field -->
-                    <div class="relative">
-                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
-                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <input name="Email"
-                               type="email"
-                               placeholder="Email"
-                               required
-                               class="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 focus:border-[#742774] focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none" />
-                    </div>
-
-                    <!-- Password Field -->
-                    <div class="relative">
-                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
-                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                        </div>
-                        <input name="Password"
-                               id="passwordField"
-                               type="password"
-                               placeholder="Mot de passe"
-                               required
-                               class="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 focus:border-[#742774] focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none" />
-                        <button type="button"
-                                onclick="togglePassword('passwordField', 'eyeIcon')"
-                                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
-                            <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Confirm Password Field -->
-                    <div class="relative">
-                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
-                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                        </div>
-                        <input name="ConfirmPassword"
-                               id="confirmPasswordField"
-                               type="password"
-                               placeholder="Confirmer le mot de passe"
-                               required
-                               class="w-full pl-12 pr-12 py-4 border border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 focus:border-[#742774] focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none" />
-                        <button type="button"
-                                onclick="togglePassword('confirmPasswordField', 'eyeIconConfirm')"
-                                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
-                            <svg id="eyeIconConfirm" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Register Button -->
-                    <div class="pt-4">
-                        <button type="submit"
-                                class="w-full py-4 bg-gradient-to-r from-[#742774] to-[#FFCC00] hover:from-[#8a2f8a] hover:to-[#ffdd33] text-white font-bold rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
-                            CRÉER MON COMPTE
-                        </button>
-                    </div>
-
-                    <!-- Sign In Link -->
-                    <div class="text-center pt-4">
-                        <span class="text-gray-500 text-sm">
-                            Vous avez déjà un compte?
-                            <a href="/Auth/Login" class="text-[#742774] hover:text-[#8a2f8a] font-medium transition-colors">Se connecter</a>
+                <!-- Left Content - Registration Form -->
+                <div class="lg:col-span-6">
+                    <!-- Main Title -->
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                        <span class="block">Créez </span>
+                        <span class="block bg-gradient-to-r from-[#FFCC00] via-white to-[#742774] bg-clip-text text-transparent">
+                            votre Compte
                         </span>
-                    </div>
-                </form>
-            </div>
+                    </h1>
 
-            <!-- Right Side - Brand Section -->
-            <div class="w-1/2 bg-gradient-to-br from-[#742774] via-[#000000] to-[#FFCC00] relative overflow-hidden">
-                <!-- Background GIF local -->
-                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-                     style="background-image: url('/videos/bg.gif');">
+                    <!-- Error Message -->
+                    @if (TempData["Error"] != null)
+                    {
+                        <div id="errorAlert" class="mb-8 animate-slide-in">
+                            <div class="relative bg-gradient-to-r from-red-500/20 to-red-600/20 backdrop-blur-xl rounded-2xl border border-red-500/30 p-6 animate-shake">
+                                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-red-500/10 to-red-600/10 animate-pulse"></div>
+                                <div class="relative z-10 flex items-start gap-4">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <div class="relative">
+                                            <div class="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center">
+                                                <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="absolute inset-0 w-6 h-6 bg-red-500/30 rounded-full animate-ping"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-red-200 font-semibold mb-1">Erreur d'inscription</h3>
+                                        <p class="text-red-300/80 text-sm">@TempData["Error"]</p>
+                                    </div>
+                                    <button onclick="closeError()" class="text-red-300/60 hover:text-red-200 transition-colors">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Registration Form -->
+                    <form id="registerForm" method="post" action="/Auth/Register" class="space-y-6">
+                        @Html.AntiForgeryToken()
+
+                        <!-- Username Field with Real-time Validation -->
+                        <div class="relative group">
+                            <label class="block text-white/60 text-sm font-medium mb-2">Nom d'utilisateur</label>
+                            <div class="relative">
+                                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                                    <svg class="w-5 h-5 text-white/40 group-focus-within:text-[#FFCC00] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                </div>
+                                <input name="Username"
+                                       id="usernameField"
+                                       type="text"
+                                       placeholder="Choisissez un nom d'utilisateur"
+                                       required
+                                       class="w-full pl-12 pr-12 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:border-[#FFCC00]/50 focus:ring-2 focus:ring-[#FFCC00]/20 transition-all duration-300 focus:outline-none focus:bg-white/10 hover:bg-white/8" />
+
+                                <!-- Validation Status Icon -->
+                                <div id="usernameStatus" class="absolute right-4 top-1/2 transform -translate-y-1/2 hidden">
+                                    <!-- Loading -->
+                                    <div id="usernameLoading" class="hidden">
+                                        <svg class="w-5 h-5 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Available -->
+                                    <div id="usernameAvailable" class="hidden">
+                                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Taken -->
+                                    <div id="usernameTaken" class="hidden">
+                                        <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Username feedback message -->
+                            <div id="usernameFeedback" class="mt-2 text-sm hidden">
+                                <span id="feedbackText"></span>
+                            </div>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="relative group">
+                            <label class="block text-white/60 text-sm font-medium mb-2">Adresse email</label>
+                            <div class="relative">
+                                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                                    <svg class="w-5 h-5 text-white/40 group-focus-within:text-[#742774] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <input name="Email"
+                                       type="email"
+                                       placeholder="votre.email@exemple.com"
+                                       required
+                                       class="w-full pl-12 pr-4 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:border-[#742774]/50 focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none focus:bg-white/10 hover:bg-white/8" />
+                            </div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="relative group">
+                            <label class="block text-white/60 text-sm font-medium mb-2">Mot de passe</label>
+                            <div class="relative">
+                                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                                    <svg class="w-5 h-5 text-white/40 group-focus-within:text-[#FFCC00] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                </div>
+                                <input name="Password"
+                                       id="passwordField"
+                                       type="password"
+                                       placeholder="Créez un mot de passe sécurisé"
+                                       required
+                                       class="w-full pl-12 pr-12 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:border-[#FFCC00]/50 focus:ring-2 focus:ring-[#FFCC00]/20 transition-all duration-300 focus:outline-none focus:bg-white/10 hover:bg-white/8" />
+                                <button type="button"
+                                        onclick="togglePassword('passwordField', 'eyeIcon')"
+                                        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/40 hover:text-white/70 transition-colors z-10">
+                                    <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password Field -->
+                        <div class="relative group">
+                            <label class="block text-white/60 text-sm font-medium mb-2">Confirmer le mot de passe</label>
+                            <div class="relative">
+                                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                                    <svg class="w-5 h-5 text-white/40 group-focus-within:text-[#742774] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                </div>
+                                <input name="ConfirmPassword"
+                                       id="confirmPasswordField"
+                                       type="password"
+                                       placeholder="Confirmez votre mot de passe"
+                                       required
+                                       class="w-full pl-12 pr-12 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/40 focus:border-[#742774]/50 focus:ring-2 focus:ring-[#742774]/20 transition-all duration-300 focus:outline-none focus:bg-white/10 hover:bg-white/8" />
+                                <button type="button"
+                                        onclick="togglePassword('confirmPasswordField', 'eyeIconConfirm')"
+                                        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/40 hover:text-white/70 transition-colors z-10">
+                                    <svg id="eyeIconConfirm" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </button>
+                                <!-- Validation Status Icon -->
+                                <div id="passwordMatchStatus" class="absolute right-16 top-1/2 transform -translate-y-1/2 hidden">
+                                    <!-- Passwords don't match -->
+                                    <div id="passwordMismatch" class="hidden">
+                                        <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </div>
+                                    <!-- Passwords match -->
+                                    <div id="passwordMatch" class="hidden">
+                                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password match feedback message -->
+                        <div id="passwordMatchFeedback" class="mt-2 text-sm hidden">
+                            <span id="passwordFeedbackText"></span>
+                        </div>
+
+                        <!-- Register Button -->
+                        <div class="pt-4">
+                            <button type="submit"
+                                    id="registerButton"
+                                    class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#742774]/25 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+                                <div class="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 34 34">
+                                        <path d="M15.9367 13.8928C16.2892 13.8146 16.5646 13.5392 16.6428 13.1867L17.467 9.47843C17.6828 8.50719 19.0672 8.50719 19.283 9.47843L20.1072 13.1867C20.1854 13.5392 20.4608 13.8146 20.8133 13.8928L24.5216 14.717C25.4928 14.9328 25.4928 16.3172 24.5216 16.533L20.8133 17.3572C20.4608 17.4354 20.1854 17.7108 20.1072 18.0633L19.283 21.7716C19.0672 22.7428 17.6828 22.7428 17.467 21.7716L16.6428 18.0633C16.5646 17.7108 16.2892 17.4354 15.9367 17.3572L12.2284 16.533C11.2572 16.3172 11.2572 14.9328 12.2284 14.717L15.9367 13.8928Z" />
+                                    </svg>
+                                </div>
+                                Créer mon compte
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Sign In Link -->
+                        <div class="text-center pt-6">
+                            <span class="text-white/60 text-sm">
+                                Vous avez déjà un compte ?
+                                <a href="/Auth/Login" class="text-[#FFCC00] hover:text-[#ffdd33] font-medium transition-colors ml-1 hover:underline">Se connecter</a>
+                            </span>
+                        </div>
+                    </form>
                 </div>
 
-                <!-- Content aligned at the bottom -->
-                <div class="relative z-10 h-full flex flex-col justify-end items-center text-center px-8 pb-16 text-white">
-                    <p class="text-lg leading-relaxed opacity-90">
+                <!-- Right Visual Element -->
+                <div class="lg:col-span-6 hidden lg:block">
+
+                    <p class="text-white/60 text-lg mb-8">
                         Rejoignez-nous et commencez à créer des applications Power Apps sans écrire une seule ligne de code!
                     </p>
+
+                    
+                    <div class="relative">
+
+                      
+                        <!-- Modern registration illustration -->
+                        <div class="relative w-full h-96">
+                            <!-- Main registration card mockup -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl border border-white/20 p-8 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                                <!-- Header -->
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-3 h-3 bg-[#FFCC00] rounded-full"></div>
+                                    <div class="w-3 h-3 bg-[#742774] rounded-full"></div>
+                                    <div class="w-3 h-3 bg-white/30 rounded-full"></div>
+                                </div>
+
+                                <!-- Logo mockup -->
+                                <div class="flex justify-center mb-6">
+                                    <div class="w-32 h-8 bg-gradient-to-r from-[#742774]/40 to-[#FFCC00]/40 rounded-lg"></div>
+                                </div>
+
+                                <!-- Form fields mockup -->
+                                <div class="space-y-3 mb-6">
+                                    <div class="h-10 bg-white/10 rounded-lg flex items-center px-4">
+                                        <div class="w-3 h-3 bg-white/30 rounded-full mr-3"></div>
+                                        <div class="h-1.5 bg-white/20 rounded flex-1"></div>
+                                    </div>
+                                    <div class="h-10 bg-white/10 rounded-lg flex items-center px-4">
+                                        <div class="w-3 h-3 bg-white/30 rounded-full mr-3"></div>
+                                        <div class="h-1.5 bg-white/20 rounded flex-1"></div>
+                                    </div>
+                                    <div class="h-10 bg-white/10 rounded-lg flex items-center px-4">
+                                        <div class="w-3 h-3 bg-white/30 rounded-full mr-3"></div>
+                                        <div class="h-1.5 bg-white/20 rounded flex-1"></div>
+                                    </div>
+                                    <div class="h-10 bg-white/10 rounded-lg flex items-center px-4">
+                                        <div class="w-3 h-3 bg-white/30 rounded-full mr-3"></div>
+                                        <div class="h-1.5 bg-white/20 rounded flex-1"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Button mockup -->
+                                <div class="h-10 bg-gradient-to-r from-[#742774]/60 to-[#FFCC00]/60 rounded-lg mb-4"></div>
+
+                                <!-- Progress indicators -->
+                                <div class="flex items-center gap-2 mb-4">
+                                    <div class="w-8 h-2 bg-[#FFCC00]/60 rounded-full"></div>
+                                    <div class="w-6 h-2 bg-[#742774]/40 rounded-full"></div>
+                                    <div class="w-4 h-2 bg-white/20 rounded-full"></div>
+                                </div>
+
+                                <!-- Floating elements -->
+                                <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#FFCC00] to-[#742774] rounded-xl opacity-80 animate-bounce delay-300"></div>
+                                <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#742774] to-[#FFCC00] rounded-full opacity-60 animate-pulse"></div>
+
+                                <!-- User creation badge -->
+                                <div class="absolute top-1/2 -right-8 transform -translate-y-1/2">
+                                    <div class="bg-white/10 backdrop-blur-sm rounded-full p-4 border border-white/20 animate-float">
+                                        <svg class="w-6 h-6 text-[#FFCC00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Écran de chargement d'inscription -->
-    <div id="registerLoadingScreen" class="hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-50 flex items-center justify-center">
+    <!-- Loading Screen -->
+    <div id="registerLoadingScreen" class="hidden fixed inset-0 bg-slate-900/95 backdrop-blur-2xl z-50 flex items-center justify-center">
         <div class="relative">
             <!-- Holographic Container -->
-            <div class="bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-16 max-w-lg mx-4 text-center shadow-2xl relative overflow-hidden mt-36">
-
+            <div class="bg-white/5 backdrop-blur-3xl rounded-3xl border border-white/10 p-16 max-w-lg mx-4 text-center shadow-2xl relative overflow-hidden mt-16">
                 <!-- Animated Border -->
                 <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#742774] via-[#FFCC00] to-[#742774] opacity-20 animate-pulse"></div>
-                <div class="absolute inset-[1px] rounded-3xl bg-black/80 backdrop-blur-3xl"></div>
+                <div class="absolute inset-[1px] rounded-3xl bg-slate-900/80 backdrop-blur-3xl"></div>
 
                 <!-- Content -->
                 <div class="relative z-10">
@@ -180,12 +324,10 @@
                             <div class="relative w-full h-full rounded-full overflow-hidden">
                                 <!-- Effet de lueur en arrière-plan -->
                                 <div class="absolute inset-0 bg-gradient-to-r from-[#742774] to-[#FFCC00] rounded-full opacity-30 blur-xl animate-pulse"></div>
-
                                 <!-- GIF principal -->
                                 <img src="~/videos/logo.gif"
                                      alt="Loading animation"
                                      class="relative z-10 w-full h-full object-cover rounded-full animate-pulse">
-
                                 <!-- Overlay avec effet holographique -->
                                 <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full opacity-50"></div>
                             </div>
@@ -242,50 +384,241 @@
         </div>
     </div>
 
-    <script>
-        function togglePassword(fieldId, iconId) {
-            const passwordInput = document.getElementById(fieldId);
-            const eyeIcon = document.getElementById(iconId);
+    <!-- Subtle bottom separator -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+</section>
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
-                `;
+<script>
+    let usernameTimeout;
+    let isUsernameValid = false;
+    let isPasswordValid = false;
+
+    // Real-time username validation
+    document.getElementById('usernameField').addEventListener('input', function(e) {
+        const username = e.target.value.trim();
+        const statusContainer = document.getElementById('usernameStatus');
+        const feedback = document.getElementById('usernameFeedback');
+        const feedbackText = document.getElementById('feedbackText');
+
+        // Clear previous timeout
+        clearTimeout(usernameTimeout);
+
+        // Reset states
+        hideAllUsernameStates();
+        feedback.classList.add('hidden');
+        isUsernameValid = false;
+        updateRegisterButton();
+
+        if (username.length === 0) {
+            statusContainer.classList.add('hidden');
+            return;
+        }
+
+        // Basic validation
+        if (username.length < 3) {
+            showUsernameFeedback('Le nom d\'utilisateur doit contenir au moins 3 caractères', 'error');
+            return;
+        }
+
+        if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+            showUsernameFeedback('Seules les lettres, chiffres, tirets et underscores sont autorisés', 'error');
+            return;
+        }
+
+        // Show loading state
+        statusContainer.classList.remove('hidden');
+        document.getElementById('usernameLoading').classList.remove('hidden');
+
+        // Debounce API call
+        usernameTimeout = setTimeout(() => {
+            checkUsernameAvailability(username);
+        }, 500);
+    });
+
+    // Real-time password confirmation validation
+    document.getElementById('confirmPasswordField').addEventListener('input', function(e) {
+        validatePasswordMatch();
+    });
+
+    document.getElementById('passwordField').addEventListener('input', function(e) {
+        validatePasswordMatch();
+    });
+
+    function validatePasswordMatch() {
+        const password = document.getElementById('passwordField').value;
+        const confirmPassword = document.getElementById('confirmPasswordField').value;
+        const statusContainer = document.getElementById('passwordMatchStatus');
+        const feedback = document.getElementById('passwordMatchFeedback');
+        const feedbackText = document.getElementById('passwordFeedbackText');
+
+        // Reset states
+        hideAllPasswordStates();
+        feedback.classList.add('hidden');
+        isPasswordValid = false;
+
+        if (confirmPassword.length === 0) {
+            statusContainer.classList.add('hidden');
+            updateRegisterButton();
+            return;
+        }
+
+        statusContainer.classList.remove('hidden');
+
+        if (password === confirmPassword && password.length > 0) {
+            document.getElementById('passwordMatch').classList.remove('hidden');
+            showPasswordFeedback('✓ Les mots de passe correspondent', 'success');
+            isPasswordValid = true;
+        } else {
+            document.getElementById('passwordMismatch').classList.remove('hidden');
+            showPasswordFeedback('✗ Les mots de passe ne correspondent pas', 'error');
+            isPasswordValid = false;
+        }
+
+        updateRegisterButton();
+    }
+
+    async function checkUsernameAvailability(username) {
+        try {
+            const response = await fetch('/Auth/CheckUsername', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                },
+                body: JSON.stringify({ username: username })
+            });
+
+            const data = await response.json();
+            hideAllUsernameStates();
+
+            if (data.available) {
+                document.getElementById('usernameAvailable').classList.remove('hidden');
+                showUsernameFeedback('✓ Ce nom d\'utilisateur est disponible', 'success');
+                isUsernameValid = true;
             } else {
-                passwordInput.type = 'password';
-                eyeIcon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                `;
+                document.getElementById('usernameTaken').classList.remove('hidden');
+                showUsernameFeedback('✗ Ce nom d\'utilisateur est déjà pris', 'error');
+                isUsernameValid = false;
             }
+        } catch (error) {
+            hideAllUsernameStates();
+            showUsernameFeedback('Erreur lors de la vérification', 'error');
+            isUsernameValid = false;
         }
 
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            // Vérifier que les mots de passe correspondent
-            const password = document.getElementById('passwordField').value;
-            const confirmPassword = document.getElementById('confirmPasswordField').value;
+        updateRegisterButton();
+    }
 
-            if (password !== confirmPassword) {
-                e.preventDefault(); // Empêcher la soumission
-                alert('Les mots de passe ne correspondent pas.');
-                return;
-            }
+    function hideAllUsernameStates() {
+        document.getElementById('usernameLoading').classList.add('hidden');
+        document.getElementById('usernameAvailable').classList.add('hidden');
+        document.getElementById('usernameTaken').classList.add('hidden');
+    }
 
-            e.preventDefault(); // Empêcher la soumission immédiate
+    function hideAllPasswordStates() {
+        document.getElementById('passwordMatch').classList.add('hidden');
+        document.getElementById('passwordMismatch').classList.add('hidden');
+    }
 
-            // Afficher l'écran de chargement
-            document.getElementById('registerLoadingScreen').classList.remove('hidden');
+    function showUsernameFeedback(message, type) {
+        const feedback = document.getElementById('usernameFeedback');
+        const feedbackText = document.getElementById('feedbackText');
 
-            // Attendre 3 secondes puis soumettre le formulaire
-            setTimeout(() => {
-                e.target.submit(); // Soumettre le formulaire réellement
-            }, 3000);
-        });
+        feedbackText.textContent = message;
+        feedback.classList.remove('hidden');
 
-        function cancelRegistration() {
-            document.getElementById('registerLoadingScreen').classList.add('hidden');
+        if (type === 'success') {
+            feedbackText.className = 'text-green-400';
+        } else {
+            feedbackText.className = 'text-red-400';
         }
-    </script>
-</body>
-</html>
+    }
+
+    function showPasswordFeedback(message, type) {
+        const feedback = document.getElementById('passwordMatchFeedback');
+        const feedbackText = document.getElementById('passwordFeedbackText');
+
+        //feedbackText.textContent = message;
+        feedback.classList.remove('hidden');
+
+        if (type === 'success') {
+            feedbackText.className = 'text-green-400';
+        } else {
+            feedbackText.className = 'text-red-400';
+        }
+    }
+
+    function updateRegisterButton() {
+        const registerButton = document.getElementById('registerButton');
+        const username = document.getElementById('usernameField').value.trim();
+        const password = document.getElementById('passwordField').value;
+        const confirmPassword = document.getElementById('confirmPasswordField').value;
+
+        // Désactiver le bouton si :
+        // - Le nom d'utilisateur n'est pas valide
+        // - Les mots de passe ne correspondent pas (et qu'il y a du contenu)
+        if ((username.length > 0 && !isUsernameValid) ||
+            (confirmPassword.length > 0 && !isPasswordValid)) {
+            registerButton.disabled = true;
+        } else {
+            registerButton.disabled = false;
+        }
+    }
+
+    function togglePassword(fieldId, iconId) {
+        const passwordInput = document.getElementById(fieldId);
+        const eyeIcon = document.getElementById(iconId);
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+            `;
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            `;
+        }
+    }
+
+    function closeError() {
+        const errorAlert = document.getElementById('errorAlert');
+        if (errorAlert) {
+            errorAlert.style.opacity = '0';
+            errorAlert.style.transform = 'translateY(-20px)';
+            setTimeout(() => errorAlert.remove(), 300);
+        }
+    }
+
+    function cancelRegistration() {
+        document.getElementById('registerLoadingScreen').classList.add('hidden');
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Empêcher la soumission immédiate
+
+        // Afficher l'écran de chargement
+        document.getElementById('registerLoadingScreen').classList.remove('hidden');
+
+        // Attendre 3 secondes puis soumettre le formulaire
+        setTimeout(() => {
+            e.target.submit(); // Soumettre le formulaire réellement
+        }, 3000);
+    });
+
+    // Auto-hide error message after 8 seconds
+    @if (TempData["Error"] != null)
+    {
+        <text>
+                setTimeout(() => {
+                    closeError();
+                }, 8000);
+        </text>
+    }
+
+
+</script>
+
+

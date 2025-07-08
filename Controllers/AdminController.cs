@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk.Query;
 using ProjetModelDrivenFront.data;
+using ProjetModelDrivenFront.Filters;
 using ProjetModelDrivenFront.Models;
 using ProjetModelDrivenFront.ViewModels;
 
@@ -19,7 +20,7 @@ namespace ProjetModelDrivenFront.Controllers
         }
     }
     */
-
+    [SessionAuthorize]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;

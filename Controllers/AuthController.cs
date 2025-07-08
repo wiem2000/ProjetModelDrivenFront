@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjetModelDrivenFront.data;
 using System.Text;
-
-
 using System.Security.Cryptography;
 using System.Drawing.Printing;
 using ProjetModelDrivenFront.Models;
-
 
 namespace ProjetModelDrivenFront.Controllers
 {
@@ -35,11 +32,12 @@ namespace ProjetModelDrivenFront.Controllers
                 return RedirectToAction("Login");
             }
 
+            TempData["Success"] = "Bienvenue!";
             // Stocker dans la session
             HttpContext.Session.SetString("UserId", account.Id.ToString());
-            HttpContext.Session.SetString("UserFirstName", account.Username); // si tu veux l'utiliser dans la navbar
+            HttpContext.Session.SetString("UserFirstName", account.Username);
 
-            return RedirectToAction("Index", "AppGenerator"); // ou vers un tableau de bord
+            return RedirectToAction("Index", "AppGenerator");
         }
 
         [HttpGet]
@@ -64,10 +62,8 @@ namespace ProjetModelDrivenFront.Controllers
         {
             using var sha256 = SHA256.Create();
             var hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(hash); // correspond à SSMS
+            return Convert.ToBase64String(hash);
         }
-
-
 
         [HttpGet]
         public IActionResult Register()
@@ -85,6 +81,12 @@ namespace ProjetModelDrivenFront.Controllers
                 return RedirectToAction("Register");
             }
 
+            /* Vérifier si l'email existe déjà
+            if (_context.Accounts.Any(a => a.Email == Email))
+            {
+                TempData["Error"] = "Cette adresse email est déjà utilisée.";
+                return RedirectToAction("Register");
+            }*/
 
             // Vérifier que les mots de passe correspondent
             if (Password != ConfirmPassword)
@@ -97,9 +99,8 @@ namespace ProjetModelDrivenFront.Controllers
             var newAccount = new Account
             {
                 Username = Username,
-              
+                //Email = Email, // Assurez-vous d'ajouter l'email
                 Password = HashPassword(Password),
-                
                 // Ajouter d'autres champs selon votre modèle Account
             };
 
@@ -114,7 +115,37 @@ namespace ProjetModelDrivenFront.Controllers
             return RedirectToAction("Index", "AppGenerator");
         }
 
+        // API endpoint pour vérifier la disponibilité du nom d'utilisateur
+        [HttpPost]
+        public IActionResult CheckUsername([FromBody] UsernameCheckRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.Username))
+            {
+                return Json(new { available = false, message = "Nom d'utilisateur requis" });
+            }
 
+            // Validation des caractères
+            if (!System.Text.RegularExpressions.Regex.IsMatch(request.Username, @"^[a-zA-Z0-9_-]+$"))
+            {
+                return Json(new { available = false, message = "Caractères non autorisés" });
+            }
 
+            // Validation de la longueur
+            if (request.Username.Length < 3 || request.Username.Length > 50)
+            {
+                return Json(new { available = false, message = "Longueur invalide" });
+            }
+
+            // Vérifier la disponibilité dans la base de données
+            bool isAvailable = !_context.Accounts.Any(a => a.Username.ToLower() == request.Username.ToLower());
+
+            return Json(new { available = isAvailable });
+        }
+    }
+
+    // Classe pour la requête de vérification du nom d'utilisateur
+    public class UsernameCheckRequest
+    {
+        public string Username { get; set; } = string.Empty;
     }
 }

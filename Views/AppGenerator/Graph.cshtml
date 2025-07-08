@@ -5,7 +5,6 @@
     var elementsJson = ViewData["elements"];
 }
 
-
 <!-- Modern Professional Hero Section -->
 <div class="relative min-h-[60vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
     <!-- Animated Background Elements -->
@@ -14,14 +13,11 @@
         <div class="absolute inset-0 flex items-center justify-center opacity-5">
             <img src="/videos/logo.gif" alt="EY Logo Background" class="w-96 h-96 object-contain animate-pulse" />
         </div>
-
         <!-- Subtle grid pattern -->
         <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
-
         <!-- Floating orbs with blur effect -->
         <div class="absolute top-20 right-1/4 w-72 h-72 bg-gradient-to-r from-[#742774]/20 to-[#FFCC00]/20 rounded-full blur-3xl animate-pulse"></div>
         <div class="absolute bottom-32 left-1/4 w-96 h-96 bg-gradient-to-r from-[#FFCC00]/15 to-[#742774]/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-
         <!-- Geometric accent lines -->
         <div class="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#742774]/30 to-transparent"></div>
         <div class="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent"></div>
@@ -31,7 +27,6 @@
     <div class="relative z-10 flex items-center min-h-[60vh]">
         <div class="max-w-7xl mx-auto px-6 py-16">
             <div class="grid lg:grid-cols-12 gap-8 items-center mt-20">
-
                 <!-- Left Content -->
                 <div class="lg:col-span-8">
                     <!-- Main Title -->
@@ -41,12 +36,10 @@
                             Application Métier
                         </span>
                     </h1>
-
                     <!-- Subtitle -->
                     <p class="text-lg text-white/70 mb-8 leading-relaxed max-w-2xl">
                         visualisez et validez l'architecture de votre application via une interface intuitive.
                     </p>
-
                     <!-- Action Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button id="hero-edit-btn" class="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#742774]/25 hover:scale-105">
@@ -55,7 +48,6 @@
                             </svg>
                             Modifier le Schéma
                         </button>
-
                         <button id="hero-view-btn" class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-medium border border-white/20 transition-all duration-300 hover:bg-white/20 hover:border-white/30">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
@@ -64,7 +56,6 @@
                             Voir l'architecture
                         </button>
                     </div>
-
                     <!-- Stats -->
                     <div class="flex items-center gap-8 mt-8 pt-8 border-t border-white/10">
                         <div class="text-center">
@@ -81,7 +72,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Right Visual Element -->
                 <div class="lg:col-span-4 hidden lg:block">
                     <div class="relative">
@@ -95,14 +85,12 @@
                                     <div class="w-3 h-3 bg-[#742774] rounded-full"></div>
                                     <div class="w-3 h-3 bg-white/30 rounded-full"></div>
                                 </div>
-
                                 <!-- Content simulation -->
                                 <div class="space-y-3">
                                     <div class="h-4 bg-white/20 rounded w-3/4"></div>
                                     <div class="h-4 bg-white/15 rounded w-1/2"></div>
                                     <div class="h-4 bg-white/10 rounded w-2/3"></div>
                                 </div>
-
                                 <!-- Chart simulation -->
                                 <div class="mt-6 flex items-end gap-2 h-16">
                                     <div class="w-4 bg-[#742774]/60 rounded-t h-8"></div>
@@ -112,7 +100,6 @@
                                     <div class="w-4 bg-[#742774]/60 rounded-t h-16"></div>
                                 </div>
                             </div>
-
                             <!-- Floating elements -->
                             <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#FFCC00] to-[#742774] rounded-xl opacity-80 animate-bounce delay-300"></div>
                             <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#742774] to-[#FFCC00] rounded-full opacity-60 animate-pulse"></div>
@@ -122,16 +109,13 @@
             </div>
         </div>
     </div>
-
     <!-- Subtle bottom separator -->
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 </div>
 
-
 <!-- Professional Main Content -->
 <div class="bg-gray-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-6 py-16">
-       
         <!-- Professional Layout -->
         <div class="grid lg:grid-cols-4 gap-8">
             <!-- Professional Sidebar -->
@@ -154,7 +138,6 @@
                                     <p class="text-sm text-gray-500">Définir le schéma</p>
                                 </div>
                             </button>
-
                             <button id="tab-visualization" class="tab-btn w-full flex items-center gap-3 p-4 rounded-xl hover:bg-gray-50 transition-all duration-300 text-left">
                                 <div class="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -166,7 +149,6 @@
                                     <p class="text-sm text-gray-500">Graphe interactif</p>
                                 </div>
                             </button>
-
                             <button id="tab-export" class="tab-btn w-full flex items-center gap-3 p-4 rounded-xl hover:bg-gray-50 transition-all duration-300 text-left">
                                 <div class="w-10 h-10 rounded-lg bg-gray-200 flex items-center justify-center text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -180,7 +162,6 @@
                             </button>
                         </div>
                     </div>
-
                     <!-- Professional Info Panel -->
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                         <h4 class="font-semibold text-gray-900 mb-4">Informations</h4>
@@ -205,7 +186,7 @@
             <!-- Main Content Area -->
             <div class="lg:col-span-3">
                 <!-- Editor Tab -->
-                <div id="content-editor" class="tab-content active">
+                <div id="content-editor" class="tab-content hidden">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                         <!-- App Configuration -->
                         <div class="p-8 bg-gradient-to-r from-[#742774]/5 to-[#FFCC00]/5 border-b border-gray-100">
@@ -230,7 +211,6 @@
                                     Nouvelle Entité
                                 </button>
                             </div>
-
                             <div id="tablesContainer" class="space-y-8">
                                 <!-- Tables will be added here -->
                             </div>
@@ -250,37 +230,16 @@
                                     Nouvelle Relation
                                 </button>
                             </div>
-
                             <div id="relationsContainer" class="space-y-6">
                                 <!-- Relations will be added here -->
                             </div>
                         </div>
 
-                        <!-- Actions -->
-                        <div class="p-8 bg-gray-50">
-                            <div class="flex justify-between items-center">
-                                <div class="text-sm text-gray-500">
-                                    Dernière modification: <span id="last-modified">Jamais</span>
-                                </div>
-                                <div class="flex gap-4">
-                                    <button type="button" class="px-6 py-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-100 transition-all duration-300 font-medium">
-                                        Réinitialiser
-                                    </button>
-                                    <button onclick="generateJSON()" class="flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 font-semibold">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        Valider & Générer
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Visualization Tab -->
-                <!-- Visualization Tab -->
-                <div id="content-visualization" class="tab-content hidden">
+                <div id="content-visualization" class="tab-content active">
                     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                         <div class="p-8 bg-gradient-to-r from-[#742774]/5 to-[#FFCC00]/5 border-b border-gray-100">
                             <div class="flex justify-between items-center">
@@ -288,7 +247,6 @@
                                     <h3 class="text-2xl font-bold text-gray-900 mb-2">Visualisation Architecturale</h3>
                                     <p class="text-gray-600">Représentation graphique de l'architecture de votre application</p>
                                 </div>
-
                                 <!-- Professional Controls -->
                                 <div class="flex items-center gap-3">
                                     <div class="flex items-center bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
@@ -315,7 +273,6 @@
                                             </svg>
                                         </button>
                                     </div>
-
                                     <div class="flex items-center bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
                                         <button id="reset-graph" class="p-3 hover:bg-gray-50 transition-all duration-200 border-r border-gray-200" title="Réinitialiser">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
@@ -342,7 +299,6 @@
                             <div class="relative">
                                 <!-- Graph Canvas -->
                                 <div id="cy" class="w-full h-[600px] border-2 border-gray-100 rounded-2xl shadow-inner bg-gradient-to-br from-gray-50 to-white relative overflow-hidden"></div>
-
                                 <!-- Zoom Level Indicator -->
                                 <div id="zoom-indicator" class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-gray-200">
                                     <div class="flex items-center gap-2">
@@ -352,7 +308,6 @@
                                         <span id="zoom-level" class="text-sm font-medium text-gray-700">100%</span>
                                     </div>
                                 </div>
-
                                 <!-- Node Count Indicator -->
                                 <div id="node-indicator" class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-sm border border-gray-200">
                                     <div class="flex items-center gap-2">
@@ -362,7 +317,6 @@
                                         <span id="node-count" class="text-sm font-medium text-gray-700">0 éléments</span>
                                     </div>
                                 </div>
-
                                 <!-- Loading Overlay -->
                                 <div id="graph-loading" class="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center hidden">
                                     <div class="flex flex-col items-center gap-4">
@@ -398,7 +352,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <!-- Graph Info -->
                                 <div>
                                     <h4 class="text-lg font-semibold text-gray-900 mb-4">Informations du Graphe</h4>
@@ -425,21 +378,17 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
                 <!-- Export Tab -->
-                <!-- JSON Tab -->
                 <div id="content-export" class="tab-content hidden">
                     <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                         <div class="p-6 border-b border-gray-100">
                             <h3 class="text-2xl font-bold text-gray-800">Code JSON</h3>
                             <p class="text-gray-500">Représentation technique du schéma</p>
                         </div>
-
                         <div class="p-6">
                             <div class="relative">
                                 <textarea id="generatedJson" class="w-full h-[600px] p-4 font-mono text-sm bg-gray-50 border border-gray-200 rounded-xl shadow-inner focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300" readonly></textarea>
-
                                 <button id="copyJsonBtn" class="absolute top-4 right-4 p-2 bg-white rounded-lg border border-gray-200 shadow-sm hover:bg-gray-50 transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
@@ -449,15 +398,48 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
 
-                <button id="submit-json">Générer et afficher JSON</button>
 
+                <!-- Actions -->
+                <div class="p-8 bg-gray-50">
+                    <div class="flex justify-between items-center">
+                        <div class="text-sm text-gray-500">
+                            Dernière modification: <span id="last-modified">Jamais</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button type="button" id="reset-btn" class="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-100 transition-all duration-300 font-medium">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                                </svg>
+                                Réinitialiser
+                            </button>
+                            <button id="validate-schema-btn" onclick="validateSchema()" class="flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 font-semibold">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Valider la conception
+                            </button>
+                            <button id="generate-app-btn" class="flex items-center gap-3 px-8 py-3 bg-gray-300 text-gray-500 rounded-xl shadow-md transition-all duration-300 font-semibold cursor-not-allowed" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                Générer l'Application
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Validation Status -->
+                    <div id="validation-status" class="mt-4 hidden">
+                        <div class="flex items-center gap-2 text-sm">
+                            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-green-700 font-medium">Schéma validé - Prêt pour la génération</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
+        
+        
         </div>
     </div>
 </div>
@@ -474,7 +456,6 @@
                     </svg>
                 </button>
             </div>
-
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Nom de l'Entité</label>
@@ -486,7 +467,6 @@
                 </div>
             </div>
         </div>
-
         <div class="p-6">
             <div class="flex justify-between items-center mb-4">
                 <label class="block text-sm font-semibold text-gray-700">Attributs Métier</label>
@@ -538,29 +518,24 @@
                 </svg>
             </button>
         </div>
-
         <div class="grid md:grid-cols-3 gap-4">
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Entité Source</label>
                 <select class="relation-from w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
                     <option value="">Sélectionner une entité</option>
                 </select>
-
             </div>
-
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Entité Cible</label>
                 <select class="relation-to w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
                     <option value="">Sélectionner une entité</option>
                 </select>
             </div>
-
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2">Type de Relation</label>
                 <select class="relation-type w-full p-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#742774] focus:border-transparent transition-all duration-300">
                     <option value="one_to_many">Un vers Plusieurs</option>
                     <option value="many_to_many">Plusieurs vers Plusieurs</option>
-                   
                 </select>
             </div>
         </div>
@@ -569,332 +544,448 @@
 
 <script src="https://unpkg.com/cytoscape@3.21.1/dist/cytoscape.min.js"></script>
 <script>
-        // Professional Cytoscape Configuration
-        const elements = @Html.Raw(elementsJson);
-        const cy = cytoscape({
-            container: document.getElementById('cy'),
-            elements: elements,
-            style: [
-                {
-                    selector: 'node[type="application"]',
-                    style: {
-                        'background-color': '#002050',
-                        'label': 'data(label)',
-                        'font-size': 18,
-                        'color': 'white',
-                        'text-valign': 'center',
-                        'text-halign': 'center',
-                        'width': 80,
-                        'height': 80,
-                        'text-outline-width': 3,
-                        'text-outline-color': '#002050',
-                        'border-width': 3,
-                        'border-color': '#FFCC00',
-                        'text-margin-y': 12
-                    }
-                },
-                {
-                    selector: 'node[type="table"]',
-                    style: {
-                        'background-color': '#742774',
-                        'label': 'data(label)',
-                        'font-size': 16,
-                        'color': 'white',
-                        'text-valign': 'center',
-                        'text-halign': 'center',
-                        'width': 70,
-                        'height': 70,
-                        'text-outline-width': 2,
-                        'text-outline-color': '#742774',
-                        'border-width': 2,
-                        'border-color': '#FFCC00',
-                        'text-margin-y': 10
-                    }
-                },
-                {
-                    selector: 'node[type="field"]',
-                    style: {
-                        'background-color': '#FFCC00',
-                        'label': 'data(label)',
-                        'font-size': 14,
-                        'color': '#000',
-                        'text-valign': 'center',
-                        'text-halign': 'center',
-                        'width': 60,
-                        'height': 60,
-                        'text-outline-width': 2,
-                        'text-outline-color': '#FFCC00',
-                        'border-width': 2,
-                        'border-color': '#742774',
-                        'text-margin-y': 8
-                    }
-                },
-                {
-                    selector: 'edge',
-                    style: {
-                        'width': 3,
-                        'line-color': '#742774',
-                        'target-arrow-color': '#742774',
-                        'target-arrow-shape': 'triangle',
-                        'curve-style': 'bezier',
-                        'label': 'data(label)',
-                        'font-size': 14,
-                        'text-background-color': 'white',
-                        'text-background-opacity': 0.9,
-                        'text-background-padding': 4,
-                        'text-background-shape': 'roundrectangle',
-                        'text-border-color': '#742774',
-                        'text-border-width': 1,
-                        'text-border-opacity': 0.5
-                    }
-                },
-            ],
-            layout: {
-                name: 'breadthfirst',
-                directed: true,
-                padding: 50,
-                spacingFactor: 2,
-                animate: true,
-                animationDuration: 800,
-                animationEasing: 'ease-out'
+    // Professional Cytoscape Configuration
+    const elements = @Html.Raw(elementsJson);
+    const cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements: elements,
+        style: [
+            {
+                selector: 'node[type="application"]',
+                style: {
+                    'background-color': '#002050',
+                    'label': 'data(label)',
+                    'font-size': 18,
+                    'color': 'white',
+                    'text-valign': 'center',
+                    'text-halign': 'center',
+                    'width': 80,
+                    'height': 80,
+                    'text-outline-width': 3,
+                    'text-outline-color': '#002050',
+                    'border-width': 3,
+                    'border-color': '#FFCC00',
+                    'text-margin-y': 12
+                }
+            },
+            {
+                selector: 'node[type="table"]',
+                style: {
+                    'background-color': '#742774',
+                    'label': 'data(label)',
+                    'font-size': 16,
+                    'color': 'white',
+                    'text-valign': 'center',
+                    'text-halign': 'center',
+                    'width': 70,
+                    'height': 70,
+                    'text-outline-width': 2,
+                    'text-outline-color': '#742774',
+                    'border-width': 2,
+                    'border-color': '#FFCC00',
+                    'text-margin-y': 10
+                }
+            },
+            {
+                selector: 'node[type="field"]',
+                style: {
+                    'background-color': '#FFCC00',
+                    'label': 'data(label)',
+                    'font-size': 14,
+                    'color': '#000',
+                    'text-valign': 'center',
+                    'text-halign': 'center',
+                    'width': 60,
+                    'height': 60,
+                    'text-outline-width': 2,
+                    'text-outline-color': '#FFCC00',
+                    'border-width': 2,
+                    'border-color': '#742774',
+                    'text-margin-y': 8
+                }
+            },
+            {
+                selector: 'edge',
+                style: {
+                    'width': 3,
+                    'line-color': '#742774',
+                    'target-arrow-color': '#742774',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': 'bezier',
+                    'label': 'data(label)',
+                    'font-size': 14,
+                    'text-background-color': 'white',
+                    'text-background-opacity': 0.9,
+                    'text-background-padding': 4,
+                    'text-background-shape': 'roundrectangle',
+                    'text-border-color': '#742774',
+                    'text-border-width': 1,
+                    'text-border-opacity': 0.5
+                }
+            },
+        ],
+        layout: {
+            name: 'breadthfirst',
+            directed: true,
+            padding: 50,
+            spacingFactor: 2,
+            animate: true,
+            animationDuration: 800,
+            animationEasing: 'ease-out'
+        }
+    });
+
+    // Variables de gestion de l'état
+    let isSchemaValidated = false;
+    let hasUnsavedChanges = false;
+    let initialSchemaData = null; // Stockage de la conception initiale
+
+    // Professional Tab Management
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeProfessionalInterface();
+        initializeHeroButtons();
+        loadInitialData();
+        updateCounts();
+        initializeValidationSystem();
+        initializeResetButton();
+    });
+
+    // Système de validation
+    function initializeValidationSystem() {
+        // Écouter les changements sur tous les champs
+        document.addEventListener('input', function(e) {
+            if (e.target.matches('#appName, .table-name, .primary-field, .field-name, .field-type')) {
+                markAsModified();
             }
         });
 
-        // Professional Tab Management
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeProfessionalInterface();
-             initializeHeroButtons();
-            loadInitialData();
-            updateCounts();
+        document.addEventListener('change', function(e) {
+            if (e.target.matches('.relation-from, .relation-to, .relation-type')) {
+                markAsModified();
+            }
         });
 
+        // Écouter les ajouts/suppressions
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.add-field-btn, .delete-field-btn, .delete-table-btn, .delete-relation-btn') ||
+                e.target.closest('.add-field-btn, .delete-field-btn, .delete-table-btn, .delete-relation-btn')) {
+                setTimeout(markAsModified, 100); // Délai pour laisser le DOM se mettre à jour
+            }
+        });
+    }
 
-        // Fonction pour initialiser les boutons du hero
-        function initializeHeroButtons() {
-            // Bouton "Modifier le Schéma" - affiche l'éditeur
-            document.getElementById('hero-edit-btn').addEventListener('click', function() {
-                // Déclencher le clic sur le bouton tab-editor
-                document.getElementById('tab-editor').click();
+    // Initialisation du bouton de réinitialisation
+    function initializeResetButton() {
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser la conception ? Toutes les modifications non sauvegardées seront perdues.')) {
+                resetToInitialState();
+            }
+        });
+    }
 
-                // Scroll vers la section content
-                document.querySelector('#content-editor').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
+    // Fonction pour sauvegarder l'état initial
+    function saveInitialState() {
+        const schemaData = @Html.Raw(JsonSerializer.Serialize(Model));
+        initialSchemaData = JSON.parse(JSON.stringify(schemaData)); // Deep copy
+    }
 
-            // Bouton "Voir l'architecture" - affiche la visualisation
-            document.getElementById('hero-view-btn').addEventListener('click', function() {
-                // Déclencher le clic sur le bouton tab-visualization
-                document.getElementById('tab-visualization').click();
+    // Fonction pour réinitialiser à l'état initial
+    function resetToInitialState() {
+        // Vider les conteneurs
+        document.getElementById('tablesContainer').innerHTML = '';
+        document.getElementById('relationsContainer').innerHTML = '';
 
-                // Scroll vers la section content
-                document.querySelector('#content-visualization').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
+        // Réinitialiser le nom de l'application
+        document.getElementById('appName').value = '';
+
+        // Recharger les données initiales
+        if (initialSchemaData && initialSchemaData.schema) {
+            document.getElementById("appName").value = initialSchemaData.schema.application_name || '';
+
+            const tables = initialSchemaData.schema.tables || {};
+            for (const [tableName, tableValue] of Object.entries(tables)) {
+                addTable(tableName, tableValue.primaryfieldname, tableValue.fields);
+            }
+
+            const relations = initialSchemaData.schema.relations || [];
+            for (const rel of relations) {
+                addRelation(rel.from, rel.to, rel.type);
+            }
+
+            updateRelationSelectors();
         }
 
-        function initializeProfessionalInterface() {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
+        // Réinitialiser les états
+        hasUnsavedChanges = false;
+        isSchemaValidated = false;
+        updateButtonStates();
+        hideValidationStatus();
+        updateCounts();
 
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons and contents
-                    tabBtns.forEach(b => {
-                        b.classList.remove('active');
-                        const icon = b.querySelector('.w-10');
-                        icon.classList.remove('bg-[#742774]', 'text-white');
-                        icon.classList.add('bg-gray-200', 'text-gray-600');
-                    });
-                    tabContents.forEach(c => c.classList.remove('active'));
+        // Générer le JSON et mettre à jour la visualisation
+        const schema = generateJSON();
+        updateVisualization(schema);
 
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    const activeIcon = this.querySelector('.w-10');
-                    activeIcon.classList.remove('bg-gray-200', 'text-gray-600');
-                    activeIcon.classList.add('bg-[#742774]', 'text-white');
+        // Afficher une notification
+        showProfessionalNotification("Conception réinitialisée à l'état initial", "success");
 
-                    // Show corresponding content
-                    const contentId = this.id.replace('tab-', 'content-');
-                    document.getElementById(contentId).classList.add('active');
+        // Mettre à jour la date de modification
+        document.getElementById("last-modified").textContent = "Réinitialisé - " + new Date().toLocaleString('fr-FR');
+    }
 
-                    // Special handling for visualization tab
-                    if (contentId === 'content-visualization') {
-                        setTimeout(() => {
-                            cy.layout({
-                                name: 'breadthfirst',
-                                directed: true,
-                                padding: 50,
-                                spacingFactor: 2,
-                                animate: true,
-                                animationDuration: 800,
-                                animationEasing: 'ease-out'
-                            }).run();
-                        }, 100);
-                    }
-                });
-            });
+    function markAsModified() {
+        hasUnsavedChanges = true;
+        isSchemaValidated = false;
+        updateButtonStates();
+        hideValidationStatus();
+    }
 
-            // Copy JSON functionality
-            document.getElementById('copyJsonBtn').addEventListener('click', function() {
-                const jsonText = document.getElementById('generatedJson').value;
-                navigator.clipboard.writeText(jsonText).then(() => {
-                    showProfessionalNotification("Schéma copié dans le presse-papiers", "success");
+    function validateSchema() {
+        const schema = generateJSON();
+        isSchemaValidated = true;
+        hasUnsavedChanges = false;
+        updateButtonStates();
+        showValidationStatus();
+        updateVisualization(schema);
+    }
 
-                    // Visual feedback
-                    this.innerHTML = `
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                        Copié
-                    `;
+    function updateButtonStates() {
+        const validateBtn = document.getElementById('validate-schema-btn');
+        const generateBtn =  document.getElementById('generate-app-btn');
 
-                    setTimeout(() => {
-                        this.innerHTML = `
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
-                                <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" />
-                            </svg>
-                            Copier
-                        `;
-                    }, 3000);
-                });
-            });
-        
-        
+        if (hasUnsavedChanges || !isSchemaValidated) {
+            // Bouton Valider actif
+            validateBtn.disabled = false;
+            validateBtn.className = "flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 font-semibold";
+
+            // Bouton Générer grisé
+            generateBtn.disabled = true;
+            generateBtn.className = "flex items-center gap-3 px-8 py-3 bg-gray-300 text-gray-500 rounded-xl shadow-md transition-all duration-300 font-semibold cursor-not-allowed";
+        } else {
+            // Bouton Valider moins proéminent
+            validateBtn.disabled = false;
+            validateBtn.className = "flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-[#742774] to-[#FFCC00] text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 font-semibold opacity-75";
+
+            // Bouton Générer actif
+            generateBtn.disabled = false;
+            generateBtn.className = "flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold";
         }
+    }
 
-        function scrollToEditor() {
+    function showValidationStatus() {
+        const statusDiv = document.getElementById('validation-status');
+        statusDiv.classList.remove('hidden');
+        statusDiv.classList.add('animate-pulse');
+        setTimeout(() => {
+            statusDiv.classList.remove('animate-pulse');
+        }, 2000);
+    }
+
+    function hideValidationStatus() {
+        const statusDiv = document.getElementById('validation-status');
+        statusDiv.classList.add('hidden');
+    }
+
+    // Fonction pour initialiser les boutons du hero
+    function initializeHeroButtons() {
+        // Bouton "Modifier le Schéma" - affiche l'éditeur
+        document.getElementById('hero-edit-btn').addEventListener('click', function() {
+            // Déclencher le clic sur le bouton tab-editor
+            document.getElementById('tab-editor').click();
+            // Scroll vers la section content
             document.querySelector('#content-editor').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
-        }
+        });
 
-        function loadInitialData() {
-            const schemaData = @Html.Raw(JsonSerializer.Serialize(Model));
-
-            if (schemaData && schemaData.schema) {
-                document.getElementById("appName").value = schemaData.schema.application_name || '';
-
-                const tables = schemaData.schema.tables || {};
-                for (const [tableName, tableValue] of Object.entries(tables)) {
-                    addTable(tableName, tableValue.primaryfieldname, tableValue.fields);
-                }
-
-                const relations = schemaData.schema.relations || [];
-                for (const rel of relations) {
-                    addRelation(rel.from, rel.to, rel.type);
-                }
-
-                generateJSON();
-              updateRelationSelectors();
-            }
-        }
-
-        function addTable(name = '', primaryField = '', fields = {}) {
-            const template = document.getElementById('professional-table-template');
-            const tableDiv = template.content.cloneNode(true).firstElementChild;
-
-            if (name) tableDiv.querySelector('.table-name').value = name;
-            if (primaryField) tableDiv.querySelector('.primary-field').value = primaryField;
-
-            const fieldsContainer = tableDiv.querySelector('.fields');
-            for (const [fieldName, fieldType] of Object.entries(fields)) {
-                addField(fieldsContainer, fieldName, fieldType);
-            }
-
-            // Event listeners
-            tableDiv.querySelector('.add-field-btn').addEventListener('click', function() {
-                addField(fieldsContainer);
-                updateCounts();
+        // Bouton "Voir l'architecture" - affiche la visualisation
+        document.getElementById('hero-view-btn').addEventListener('click', function() {
+            // Déclencher le clic sur le bouton tab-visualization
+            document.getElementById('tab-visualization').click();
+            // Scroll vers la section content
+            document.querySelector('#content-visualization').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
+        });
+    }
 
-            tableDiv.querySelector('.delete-table-btn').addEventListener('click', function() {
-                tableDiv.classList.add('scale-95', 'opacity-0');
+    function initializeProfessionalInterface() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    const icon = b.querySelector('.w-10');
+                    icon.classList.remove('bg-[#742774]', 'text-white');
+                    icon.classList.add('bg-gray-200', 'text-gray-600');
+                });
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+                const activeIcon = this.querySelector('.w-10');
+                activeIcon.classList.remove('bg-gray-200', 'text-gray-600');
+                activeIcon.classList.add('bg-[#742774]', 'text-white');
+
+                // Show corresponding content
+                const contentId = this.id.replace('tab-', 'content-');
+                document.getElementById(contentId).classList.add('active');
+
+                // Special handling for visualization tab
+                if (contentId === 'content-visualization') {
+                    setTimeout(() => {
+                        cy.layout({
+                            name: 'breadthfirst',
+                            directed: true,
+                            padding: 50,
+                            spacingFactor: 2,
+                            animate: true,
+                            animationDuration: 800,
+                            animationEasing: 'ease-out'
+                        }).run();
+                    }, 100);
+                }
+            });
+        });
+
+        // Copy JSON functionality
+        document.getElementById('copyJsonBtn').addEventListener('click', function() {
+            const jsonText = document.getElementById('generatedJson').value;
+            navigator.clipboard.writeText(jsonText).then(() => {
+                showProfessionalNotification("Schéma copié dans le presse-papiers", "success");
+                // Visual feedback
+                this.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    Copié
+                `;
                 setTimeout(() => {
-                    tableDiv.remove();
-                    updateCounts();  
-                     updateRelationSelectors();
-                }, 300);
+                    this.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" />
+                            <path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" />
+                        </svg>
+                        Copier
+                    `;
+                }, 3000);
             });
+        });
 
-            // Event listener pour détecter les changements de nom de table
+        // Event listener pour le bouton de génération d'application
+        document.getElementById('generate-app-btn').addEventListener('click', function() {
+            if (!this.disabled) {
+                generateApplication();
+            }
+        });
+    }
+
+    function scrollToEditor() {
+        document.querySelector('#content-editor').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+
+    function loadInitialData() {
+        const schemaData = @Html.Raw(JsonSerializer.Serialize(Model));
+
+        // Sauvegarder l'état initial
+        saveInitialState();
+
+        if (schemaData && schemaData.schema) {
+            document.getElementById("appName").value = schemaData.schema.application_name || '';
+
+            const tables = schemaData.schema.tables || {};
+            for (const [tableName, tableValue] of Object.entries(tables)) {
+                addTable(tableName, tableValue.primaryfieldname, tableValue.fields);
+            }
+
+            const relations = schemaData.schema.relations || [];
+            for (const rel of relations) {
+                addRelation(rel.from, rel.to, rel.type);
+            }
+
+            generateJSON();
+            updateRelationSelectors();
+        }
+    }
+
+    function addTable(name = '', primaryField = '', fields = {}) {
+        const template = document.getElementById('professional-table-template');
+        const tableDiv = template.content.cloneNode(true).firstElementChild;
+
+        if (name) tableDiv.querySelector('.table-name').value = name;
+        if (primaryField) tableDiv.querySelector('.primary-field').value = primaryField;
+
+        const fieldsContainer = tableDiv.querySelector('.fields');
+        for (const [fieldName, fieldType] of Object.entries(fields)) {
+            addField(fieldsContainer, fieldName, fieldType);
+        }
+
+        // Event listeners
+        tableDiv.querySelector('.add-field-btn').addEventListener('click', function() {
+            addField(fieldsContainer);
+            updateCounts();
+        });
+
+        tableDiv.querySelector('.delete-table-btn').addEventListener('click', function() {
+            tableDiv.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                tableDiv.remove();
+                updateCounts();
+                updateRelationSelectors();
+            }, 300);
+        });
+
+        // Event listener pour détecter les changements de nom de table
         tableDiv.querySelector('.table-name').addEventListener('input', function() {
             updateRelationSelectors();
         });
 
+        // Add with animation
+        tableDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
+        document.getElementById('tablesContainer').appendChild(tableDiv);
+        setTimeout(() => {
+            tableDiv.classList.remove('scale-95', 'opacity-0');
+        }, 10);
 
-            // Add with animation
-            tableDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
-            document.getElementById('tablesContainer').appendChild(tableDiv);
+        updateCounts();
+        updateRelationSelectors();
+        return tableDiv;
+    }
 
+    function addField(container, name = '', type = 'string') {
+        const template = document.getElementById('professional-field-template');
+        const fieldDiv = template.content.cloneNode(true).firstElementChild;
+
+        if (name) fieldDiv.querySelector('.field-name').value = name;
+        if (type) fieldDiv.querySelector('.field-type').value = type;
+
+        fieldDiv.querySelector('.delete-field-btn').addEventListener('click', function() {
+            fieldDiv.classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
-                tableDiv.classList.remove('scale-95', 'opacity-0');
-            }, 10);
+                fieldDiv.remove();
+                updateCounts();
+            }, 300);
+        });
 
-            updateCounts();
-            updateRelationSelectors();
-            return tableDiv;
-        }
+        fieldDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
+        container.appendChild(fieldDiv);
+        setTimeout(() => {
+            fieldDiv.classList.remove('scale-95', 'opacity-0');
+        }, 10);
 
-        function addField(container, name = '', type = 'string') {
-            const template = document.getElementById('professional-field-template');
-            const fieldDiv = template.content.cloneNode(true).firstElementChild;
+        updateCounts();
+        return fieldDiv;
+    }
 
-            if (name) fieldDiv.querySelector('.field-name').value = name;
-            if (type) fieldDiv.querySelector('.field-type').value = type;
-
-            fieldDiv.querySelector('.delete-field-btn').addEventListener('click', function() {
-                fieldDiv.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    fieldDiv.remove();
-                    updateCounts();
-                }, 300);
-            });
-
-            fieldDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
-            container.appendChild(fieldDiv);
-
-            setTimeout(() => {
-                fieldDiv.classList.remove('scale-95', 'opacity-0');
-            }, 10);
-
-            updateCounts();
-            return fieldDiv;
-        }
-
-        function addRelation2(from = '', to = '', type = 'one_to_many') {
-            const template = document.getElementById('professional-relation-template');
-            const relationDiv = template.content.cloneNode(true).firstElementChild;
-
-            if (from) relationDiv.querySelector('.relation-from').value = from;
-            if (to) relationDiv.querySelector('.relation-to').value = to;
-            if (type) relationDiv.querySelector('.relation-type').value = type;
-
-            relationDiv.querySelector('.delete-relation-btn').addEventListener('click', function() {
-                relationDiv.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => {
-                    relationDiv.remove();
-                    updateCounts();
-                }, 300);
-            });
-
-            relationDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
-            document.getElementById('relationsContainer').appendChild(relationDiv);
-
-            setTimeout(() => {
-                relationDiv.classList.remove('scale-95', 'opacity-0');
-            }, 10);
-
-            updateCounts();
-            return relationDiv;
-        }
-    
-          function addRelation(from = '', to = '', type = 'one_to_many') {
+    function addRelation(from = '', to = '', type = 'one_to_many') {
         const template = document.getElementById('professional-relation-template');
         const relationDiv = template.content.cloneNode(true).firstElementChild;
 
@@ -931,7 +1022,6 @@
 
         relationDiv.classList.add('scale-95', 'opacity-0', 'transition-all', 'duration-300');
         document.getElementById('relationsContainer').appendChild(relationDiv);
-
         setTimeout(() => {
             relationDiv.classList.remove('scale-95', 'opacity-0');
         }, 10);
@@ -939,7 +1029,8 @@
         updateCounts();
         return relationDiv;
     }
-            // Fonction pour obtenir la liste des noms de tables disponibles
+
+    // Fonction pour obtenir la liste des noms de tables disponibles
     function getAvailableTableNames() {
         const tableNames = [];
         document.querySelectorAll("#tablesContainer .table-item").forEach(tableDiv => {
@@ -989,93 +1080,89 @@
             }
         });
     }
-        
-        function updateCounts() {
-            const tableCount = document.querySelectorAll("#tablesContainer .table-item").length;
-            const relationCount = document.querySelectorAll("#relationsContainer .relation-item").length;
-            const fieldCount = document.querySelectorAll("#tablesContainer .field-item").length;
 
-            document.getElementById('table-count').textContent = tableCount;
-            document.getElementById('relation-count').textContent = relationCount;
-            document.getElementById('field-count').textContent = fieldCount;
-        }
+    function updateCounts() {
+        const tableCount = document.querySelectorAll("#tablesContainer .table-item").length;
+        const relationCount = document.querySelectorAll("#relationsContainer .relation-item").length;
+        const fieldCount = document.querySelectorAll("#tablesContainer .field-item").length;
 
-        function generateJSON() {
-            const appName = document.getElementById("appName").value || "Application Professionnelle";
-            const tables = {};
+        document.getElementById('table-count').textContent = tableCount;
+        document.getElementById('relation-count').textContent = relationCount;
+        document.getElementById('field-count').textContent = fieldCount;
+    }
 
-            document.querySelectorAll("#tablesContainer .table-item").forEach(tableDiv => {
-                const tableName = tableDiv.querySelector(".table-name").value.trim();
-                const primaryField = tableDiv.querySelector(".primary-field").value.trim();
-                const fields = {};
+    function generateJSON() {
+        const appName = document.getElementById("appName").value || "Application Professionnelle";
+        const tables = {};
 
-                tableDiv.querySelectorAll(".fields .field-item").forEach(fieldDiv => {
-                    const fieldName = fieldDiv.querySelector(".field-name").value.trim();
-                    const fieldType = fieldDiv.querySelector(".field-type").value;
+        document.querySelectorAll("#tablesContainer .table-item").forEach(tableDiv => {
+            const tableName = tableDiv.querySelector(".table-name").value.trim();
+            const primaryField = tableDiv.querySelector(".primary-field").value.trim();
+            const fields = {};
 
-                    if (fieldName) {
-                        fields[fieldName] = fieldType;
-                    }
-                });
-
-                if (tableName) {
-                    tables[tableName] = {
-                        primaryfieldname: primaryField,
-                        fields: fields
-                    };
+            tableDiv.querySelectorAll(".fields .field-item").forEach(fieldDiv => {
+                const fieldName = fieldDiv.querySelector(".field-name").value.trim();
+                const fieldType = fieldDiv.querySelector(".field-type").value;
+                if (fieldName) {
+                    fields[fieldName] = fieldType;
                 }
             });
 
-            const relations = [];
-            document.querySelectorAll("#relationsContainer .relation-item").forEach(relationDiv => {
-                const from = relationDiv.querySelector(".relation-from").value.trim();
-                const to = relationDiv.querySelector(".relation-to").value.trim();
-                const type = relationDiv.querySelector(".relation-type").value;
+            if (tableName) {
+                tables[tableName] = {
+                    primaryfieldname: primaryField,
+                    fields: fields
+                };
+            }
+        });
 
-                if (from && to) {
-                    relations.push({ from, to, type });
-                }
-            });
+        const relations = [];
+        document.querySelectorAll("#relationsContainer .relation-item").forEach(relationDiv => {
+            const from = relationDiv.querySelector(".relation-from").value.trim();
+            const to = relationDiv.querySelector(".relation-to").value.trim();
+            const type = relationDiv.querySelector(".relation-type").value;
 
-            const finalSchema = {
-                schema: {
-                    application_name: appName,
-                    tables: tables,
-                    relations: relations
-                }
-            };
+            if (from && to) {
+                relations.push({ from, to, type });
+            }
+        });
 
-            document.getElementById("generatedJson").value = JSON.stringify(finalSchema, null, 2);
-            document.getElementById("last-modified").textContent = new Date().toLocaleString('fr-FR');
+        const finalSchema = {
+            schema: {
+                application_name: appName,
+                tables: tables,
+                relations: relations
+            }
+        };
 
-            updateVisualization(finalSchema);
-            showProfessionalNotification("Schéma généré avec succès", "success");
+        document.getElementById("generatedJson").value = JSON.stringify(finalSchema, null, 2);
+        document.getElementById("last-modified").textContent = new Date().toLocaleString('fr-FR');
 
-            return finalSchema;
-        }
+        return finalSchema;
+    }
 
-        function updateVisualization(schema) {
-            fetch('/AppGenerator/GenerateElementsFromJson', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(schema)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    cy.elements().remove();
-                    cy.add(data.elements);
-                    cy.layout({
-                        name: 'breadthfirst',
-                        directed: true,
-                        padding: 50,
-                        spacingFactor: 2,
-                        animate: true,
-                        animationDuration: 800,
-                        animationEasing: 'ease-out'
-                    }).run();
+    function updateVisualization(schema) {
+        fetch('/AppGenerator/GenerateElementsFromJson', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(schema)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                cy.elements().remove();
+                cy.add(data.elements);
+                cy.layout({
+                    name: 'breadthfirst',
+                    directed: true,
+                    padding: 50,
+                    spacingFactor: 2,
+                    animate: true,
+                    animationDuration: 800,
+                    animationEasing: 'ease-out'
+                }).run();
 
                 // Switch to visualization tab automatically
                 document.getElementById('tab-visualization').click();
@@ -1089,75 +1176,102 @@
         });
     }
 
-        function showProfessionalNotification(message, type = "success") {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 p-6 rounded-2xl shadow-2xl transition-all duration-500 transform -translate-y-20 opacity-0 z-50 max-w-md ${
-                type === "success" ?
-                    "bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 text-green-800" :
-                    "bg-gradient-to-r from-red-50 to-rose-50 border-l-4 border-red-500 text-red-800"
-            }`;
+    function generateApplication() {
+        const schema = generateJSON();
+        fetch("/AppGenerator/StoreAndRedirect", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(schema)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.redirectUrl) {
+                if (data.serializedJson) {
+                    // Stocker le JSON dans sessionStorage pour le récupérer sur la page suivante
+                    const formattedJson = JSON.stringify(JSON.parse(data.serializedJson), null, 2);
+                    sessionStorage.setItem("powerapps_json_input", formattedJson);
+                } else {
+                    console.warn("Aucun JSON sérialisé reçu.");
+                }
+                // Rediriger vers la page du générateur
+                window.location.href = data.redirectUrl;
+            } else {
+                alert("Erreur de redirection.");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Une erreur est survenue.");
+        });
+    }
 
-            notification.innerHTML = `
-                <div class="flex items-start">
-                    <div class="flex-shrink-0">
-                        ${type === "success" ?
-                            `<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                            </div>` :
-                            `<div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                </svg>
-                            </div>`
-                        }
-                    </div>
-                    <div class="ml-4 flex-1">
-                        <p class="font-semibold">${type === "success" ? "Succès" : "Erreur"}</p>
-                        <p class="text-sm mt-1 opacity-90">${message}</p>
-                    </div>
-                    <div class="ml-4">
-                        <button class="close-notification text-gray-400 hover:text-gray-600 transition-colors duration-200">
-                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+    function showProfessionalNotification(message, type = "success") {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 p-6 rounded-2xl shadow-2xl transition-all duration-500 transform -translate-y-20 opacity-0 z-50 max-w-md ${
+            type === "success"
+                ? "bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 text-green-800"
+                : "bg-gradient-to-r from-red-50 to-rose-50 border-l-4 border-red-500 text-red-800"
+        }`;
+
+        notification.innerHTML = `
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    ${type === "success" ? `
+                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                            <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                             </svg>
-                        </button>
-                    </div>
+                        </div>` : `
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                        </div>`
+                    }
                 </div>
-            `;
+                <div class="ml-4 flex-1">
+                    <p class="font-semibold">${type === "success" ? "Succès" : "Erreur"}</p>
+                    <p class="text-sm mt-1 opacity-90">${message}</p>
+                </div>
+                <div class="ml-4">
+                    <button class="close-notification text-gray-400 hover:text-gray-600 transition-colors duration-200">
+                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `;
 
-            document.body.appendChild(notification);
+        document.body.appendChild(notification);
 
-            // Show notification
+        // Show notification
+        setTimeout(() => {
+            notification.classList.remove('-translate-y-20', 'opacity-0');
+        }, 10);
+
+        // Close functionality
+        notification.querySelector('.close-notification').addEventListener('click', () => {
+            notification.classList.add('-translate-y-20', 'opacity-0');
             setTimeout(() => {
-                notification.classList.remove('-translate-y-20', 'opacity-0');
-            }, 10);
+                notification.remove();
+            }, 500);
+        });
 
-            // Close functionality
-            notification.querySelector('.close-notification').addEventListener('click', () => {
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            if (notification.parentNode) {
                 notification.classList.add('-translate-y-20', 'opacity-0');
                 setTimeout(() => {
                     notification.remove();
                 }, 500);
-            });
+            }
+        }, 5000);
+    }
 
-            // Auto-hide after 5 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.classList.add('-translate-y-20', 'opacity-0');
-                    setTimeout(() => {
-                        notification.remove();
-                    }, 500);
-                }
-            }, 5000);
-        }
-
-
-
-        //************* */
-
-            // Enhanced Graph Controls
+    // Enhanced Graph Controls
     document.addEventListener('DOMContentLoaded', function() {
         initializeGraphControls();
     });
@@ -1229,7 +1343,6 @@
     function updateNodeCount() {
         const nodeCount = cy.nodes().length;
         const edgeCount = cy.edges().length;
-
         document.getElementById('node-count').textContent = nodeCount + ' éléments';
         document.getElementById('total-nodes').textContent = nodeCount;
         document.getElementById('total-edges').textContent = edgeCount;
@@ -1295,150 +1408,27 @@
     function hideGraphLoading() {
         document.getElementById('graph-loading').classList.add('hidden');
     }
-
-    // Enhanced updateVisualization function
-    function updateVisualization(schema) {
-        showGraphLoading();
-
-        fetch('/AppGenerator/GenerateElementsFromJson', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(schema)
-        })
-        .then(response => response.json())
-        .then(data => {
-            hideGraphLoading();
-
-            if (data.success) {
-                cy.elements().remove();
-                cy.add(data.elements);
-
-                // Enhanced layout with better positioning
-                cy.layout({
-                    name: 'breadthfirst',
-                    directed: true,
-                    padding: 50,
-                    spacingFactor: 2,
-                    animate: true,
-                    animationDuration: 800,
-                    animationEasing: 'ease-out',
-                    fit: true,
-                    avoidOverlap: true
-                }).run();
-
-                // Auto-fit and center after layout
-                setTimeout(() => {
-                    cy.fit(null, 50);
-                    cy.center();
-                    updateZoomIndicator();
-                    updateNodeCount();
-                }, 900);
-
-                // Switch to visualization tab automatically
-                document.getElementById('tab-visualization').click();
-            } else {
-                showProfessionalNotification("Erreur lors de la génération du graphe : " + data.message, "error");
-            }
-        })
-        .catch(error => {
-            hideGraphLoading();
-            console.error("Erreur côté client :", error);
-            showProfessionalNotification("Erreur de communication avec le serveur", "error");
-        });
-    }
-
-
-
-    /*
-       document.getElementById("submit-json").addEventListener("click", function () {
-        const schema = generateJSON();
-
-        fetch("/AppGenerator/StoreAndRedirect", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(schema)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.redirectUrl) {
-                window.location.href = data.redirectUrl;
-            } else {
-                alert("Erreur de redirection.");
-            }
-        })
-        .catch(err => {
-            console.error(err);
-            alert("Une erreur est survenue.");
-        });
-    });
-    */
-
-       // Modifiez votre gestionnaire d'événement existant
-    document.getElementById("submit-json").addEventListener("click", () => {
-      const schema = generateJSON()
-
-      fetch("/AppGenerator/StoreAndRedirect", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(schema),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.redirectUrl) {
-            
-
-           if (data.serializedJson) {
-          // Stocker le JSON dans sessionStorage pour le récupérer sur la page suivante
-          const formattedJson = JSON.stringify(JSON.parse(data.serializedJson), null, 2);
-          sessionStorage.setItem("powerapps_json_input", formattedJson);
-        } else {
-          console.warn("Aucun JSON sérialisé reçu.");
-        }
-
-            // Rediriger vers la page du générateur
-            window.location.href = data.redirectUrl
-          } else {
-            alert("Erreur de redirection.")
-          }
-        })
-        .catch((err) => {
-          console.error(err)
-          alert("Une erreur est survenue.")
-        })
-    })
-
-
-
-
 </script>
 
+<style>
+    .fullscreen-graph {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 9999 !important;
+        border-radius: 0 !important;
+    }
 
+    .tab-content {
+        display: none;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        .tab-content.active {
+            display: block;
+        }
+</style>
 
 
 
