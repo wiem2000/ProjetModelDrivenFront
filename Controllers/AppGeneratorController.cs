@@ -189,7 +189,7 @@ namespace ProjetModelDrivenFront.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> RecommendAPP([FromBody] RecommendRequest request)
+        public async Task<IActionResult> RecommendAPP2([FromBody] RecommendRequest request)
         {
             var userPhrase = request.Prompt;
 
@@ -204,6 +204,48 @@ namespace ProjetModelDrivenFront.Controllers
             var result = await response.Content.ReadAsStringAsync();
 
             Console.WriteLine("🟢 JSON Reçu :");
+            Console.WriteLine(result);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                return Content("Pas de résultats");
+            }
+
+            return Content(result, "application/json");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RecommendAPP([FromBody] RecommendRequest request)
+        {
+            var userPhrase = request.Prompt;
+
+            HttpContext.Session.SetString("userprompt", userPhrase);
+
+            // ➜ 1) Appel vers l'API locale pour récupérer la liste dynamique
+            using var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization =
+    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVGVzdFVzZXIiLCJpc3MiOiJUZXN0SXNzdWVyIiwiYXVkIjoiVGVzdEF1ZGllbmNlIn0.rDjFjmXD97Q83QfjuCdw2XUD7x8dhEHhV-fPOyNtKeo");
+
+
+            var appsResponse = await client.GetAsync("https://localhost:7094/api/PowerApps/getmodeldrivenapps");
+            var appsJson = await appsResponse.Content.ReadAsStringAsync();
+
+            Console.WriteLine("✅ JSON Apps Reçu de .NET :");
+            Console.WriteLine(appsJson);
+
+            // ➜ 2) Appel vers ton API Flask avec { prompt + appsJson }
+            var payload = new
+            {
+                prompt = userPhrase,
+                apps = Newtonsoft.Json.JsonConvert.DeserializeObject(appsJson) // 🗝️ Déserialise pour réutiliser
+            };
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync(_feedbackApiUrl + "/find_app", content);
+            var result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine("🟢 JSON Résultat Flask :");
             Console.WriteLine(result);
 
             if (string.IsNullOrEmpty(result))

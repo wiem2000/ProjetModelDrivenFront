@@ -90,8 +90,9 @@
                                     <!-- Export Button -->
                                     <button type="button" onclick="exportJsonToFile()" class="px-4 py-2 bg-gray-700/50 border border-gray-600/50 text-gray-300 rounded-xl hover:bg-gray-600/50 transition-colors duration-300 text-sm font-semibold flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293 7.707a1 1 0 011.414 0L9 9.414V17a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 000 1.414z" clip-rule="evenodd" />
                                         </svg>
+
                                         Exporter
                                     </button>
                                 </div>
@@ -895,6 +896,7 @@ function closeResultModal() {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
+                                "Authorization" :"Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVGVzdFVzZXIiLCJpc3MiOiJUZXN0SXNzdWVyIiwiYXVkIjoiVGVzdEF1ZGllbmNlIn0.rDjFjmXD97Q83QfjuCdw2XUD7x8dhEHhV-fPOyNtKeo"
                             },
                             body: json,
                         })
